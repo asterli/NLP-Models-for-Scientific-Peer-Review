@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up research article, superscript citation style (like BMJ journals). -->
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" article-type="research-article">
+  <front>
+    <journal-meta><journal-title-group><journal-title>Journal of Housing and Health</journal-title></journal-title-group></journal-meta>
+    <article-meta>
+      <article-id pub-id-type="pmcid">PMC0000001</article-id>
+      <article-id pub-id-type="doi">10.1234/JHH.2024.001</article-id>
+      <title-group><article-title>Housing First and <italic>emergency</italic> care use: a cohort study</article-title></title-group>
+      <contrib-group><contrib><name><surname>Doe</surname></name><xref ref-type="aff" rid="aff1">1</xref></contrib></contrib-group>
+      <abstract abstract-type="graphical"><p>Graphical abstract text that should be skipped.</p></abstract>
+      <abstract>
+        <sec><title>Background:</title><p>Homelessness is linked to poor health.</p></sec>
+        <sec><title>Findings</title><p>Participants had 30% fewer ED visits (95% CI 0.6 to 0.9).</p></sec>
+        <sec><title>Conclusions and relevance</title><p>Housing First may reduce ED use.</p></sec>
+      </abstract>
+      <abstract abstract-type="summary"><p>Plain-language summary that should be skipped.</p></abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>1. Background</title>
+      <p>About 1.4 million people used shelters in 2017.<sup><xref ref-type="bibr" rid="R1">1</xref></sup> Prior   work found
+         improved stability.<sup><xref ref-type="bibr" rid="R2">2</xref>,<xref ref-type="bibr" rid="R3">3</xref></sup></p>
+      <sec><title>1.1 Policy context</title>
+        <p>See <xref ref-type="fig" rid="f1">Figure 1</xref>.<fig id="f1"><label>Figure 1</label><caption><p>Logic model caption.</p></caption></fig> The effect was <inline-formula><mml:math><mml:mi>p</mml:mi></mml:math></inline-formula> small.</p>
+        <boxed-text><p>Box text that should be skipped.</p></boxed-text>
+      </sec>
+    </sec>
+    <sec sec-type="methods"><title>2. Methods</title><p>Not part of the excerpt.</p></sec>
+  </body>
+  <back>
+    <ref-list>
+      <ref id="R1"><label>1</label><element-citation><article-title>Shelter counts in the US</article-title><year>2018</year><pub-id pub-id-type="doi">10.1000/SHELTER.1</pub-id><pub-id pub-id-type="pmid">111</pub-id></element-citation></ref>
+      <ref id="R2"><label>2</label><mixed-citation>Tsemberis S. Housing First. Am J Public Health. 2004. doi:10.2105/AJPH.94.4.651.</mixed-citation></ref>
+      <ref id="R3"><label>3</label><element-citation><source>A Book With No DOI</source><year>2010a</year></element-citation></ref>
+    </ref-list>
+  </back>
+</article>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up research article, bracketed and author-year citation styles (like BMC / PLOS),
+     with an unstructured abstract and a multi-reference citation. -->
+<article article-type="research-article">
+  <front>
+    <journal-meta><journal-title-group><journal-title>BMC Test Health</journal-title></journal-title-group></journal-meta>
+    <article-meta>
+      <article-id pub-id-type="doi">10.5555/bmc.2</article-id>
+      <title-group><article-title>Outreach and housing</article-title></title-group>
+      <abstract><p>We studied outreach. It worked.</p></abstract>
+    </article-meta>
+  </front>
+  <body>
+    <sec sec-type="intro"><title>Introduction</title>
+      <p>Outreach improves access [<xref ref-type="bibr" rid="B1">1</xref>, <xref ref-type="bibr" rid="B2">2</xref>]. Housing matters (<xref ref-type="bibr" rid="B3">Smith et al., 2019</xref>). Several trials agree <xref ref-type="bibr" rid="B1 B2">1, 2</xref>.</p>
+    </sec>
+  </body>
+</article>
