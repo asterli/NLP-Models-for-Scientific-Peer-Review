@@ -7,6 +7,7 @@
 
 # citations inside the paragraphs are kept as positions (which characters cite which reference),
 # so sentences.py can tell which sentence cites what without changing the paper's text.
+# Numeric superscripts that are not citations (exponents like 10<sup>6</sup>) are written as "10^6".
 # Sentence splitting will be done inside sentences.py.
  
 # Referenced: https://jats.nlm.nih.gov/archiving/tag-library/
@@ -91,7 +92,14 @@ _WHITESPACE = re.compile(r"\s+")
 # em dash (\u2014), or minus sign (\u2212) depending on the journal, so all four are accepted.
 _NUMERIC_LABEL = re.compile(r"[\d\s,;\-\u2013\u2014\u2212]+")
 _DOI_IN_TEXT = re.compile(r"10\.\d{4,9}/[^\s\"<>]+")
-
+_DOI_PREFIX = re.compile(r"^(?:https?://(?:dx\.|www\.)?doi\.org/|doi:)\s*")
+# Trial/review registry IDs: NCT01234567, ISRCTN12345678, CRD42020123456.
+_REGISTRY_ID = re.compile(r"\b(?:NCT\d{8}|ISRCTN\d+|CRD\d{6,})\b")
+# The text right before a superscript ends in a digit (10^6) or a lone letter (R^2, kg/m^2),
+# so the superscript is an exponent, not a citation.
+_EXPONENT_BASE = re.compile(r"(?:\d|\b[^\W\d_])$")
+# Wrappers around the paper that have their own reference lists (e.g. peer-review reports).
+_ATTACHED_DOCUMENTS = ("sub-article", "response")
 # ---------------
 # Public function
 
@@ -105,7 +113,7 @@ def parse_article(xml_bytes: bytes) -> Article:
         meta = ET.Element("article-meta")  # keeps the lookups below simple
 
     references = _references(root)
-    cite_index = _CitationIndex(references)
+    cite_index = _CitationIndex(references, root)
     paragraphs = _abstract_paragraphs(meta, cite_index)
     body = root.find("body")
     if body is not None:
@@ -142,7 +150,16 @@ def _abstract_paragraphs(meta: ET.Element, cites: _CitationIndex) -> list[Paragr
 
 def is_abstract_metadata(text: str) -> bool:
     # True for 'Keywords: ...', 'Trial registration', and similar non-content lines.
-    return _clean_title(text).startswith(ABSTRACT_METADATA)
+    # Starting with one of these words is not enough ("Funding for housing fell." is a real
+    # sentence). It must also be a short heading, a labeled line ("Funding: none"),
+    # or contain a registry ID, DOI, or link.
+    cleaned = _clean_title(text)
+    if not cleaned.startswith(ABSTRACT_METADATA):
+        return False
+    is_heading = len(cleaned.split()) <= 3
+    is_labeled = ":" in " ".join(text.split()[:4])
+    has_id = bool(_REGISTRY_ID.search(text) or _DOI_IN_TEXT.search(text) or "http" in text.lower())
+    return is_heading or is_labeled or has_id
 
 def _main_abstract(meta: ET.Element) -> ET.Element | None:
     # The paper's main abstract, skipping graphical abstracts and plain-language summaries.
@@ -207,19 +224,30 @@ def _paragraph_elements(container: ET.Element):
 def _read_paragraph(p: ET.Element, section: str, cites: _CitationIndex) -> Paragraph:
     builder = _ParagraphBuilder()
 
-    def walk(node: ET.Element) -> None:
+    def walk(node: ET.Element, in_sup: bool = False) -> None:
         if node.tag in SKIPPED_ELEMENTS:
             return
         if cites.is_citation_link(node):
+            label="".join(node.itertext())
             ref_ids = (node.get("rid") or "").split()  # one xref can point to several refs
-            builder.add_citation("".join(node.itertext()), ref_ids)
+            # A numbered label can name more refs than the link points to: "1-4" linked only to
+            # ref 1, or the second half of a range split across two links ([1]-[4]). Add them.
+            first = builder.range_start()
+            numbers = f"{first}-{label}" if first else label
+            if _NUMERIC_LABEL.fullmatch(numbers.strip()):
+                by_label = cites.ids_for_labels(numbers)
+                ref_ids = by_label + [r for r in ref_ids if r not in by_label]
+            builder.add_citation(label, ref_ids, superscript=in_sup)
             return
-        if cites.is_bare_superscript(node, builder.last_char()):
-            builder.add_citation(node.text, cites.ids_for_labels(node.text))
+        if _is_numeric_superscript(node):
+            if cites.is_bare_citation(builder.tail()):
+                builder.add_citation(node.text, cites.ids_for_labels(node.text), superscript=True)
+            else:
+                builder.add_text("^" + node.text.strip())  # an exponent: 10^6, kg/m^2
             return
         builder.add_text(node.text)
         for child in node:
-            walk(child)
+            walk(child, in_sup or node.tag == "sup")
             builder.add_text(child.tail)  # text after a child belongs to its parent
 
     walk(p)
@@ -242,12 +270,14 @@ class _ParagraphBuilder:
             text = text.lstrip(" ")  # never two spaces in a row, never a leading space
         self._append(text)
 
-    def add_citation(self, label: str, ref_ids: list[str]) -> None:
+    def add_citation(self, label: str, ref_ids: list[str], superscript: bool = False) -> None:
         label = _WHITESPACE.sub(" ", label).strip()
         # Superscript citations have no brackets in the XML ("2017.<sup>1</sup>"), which would
-        # read as "2017.1". Wrap bare numbers in brackets; leave labels that are already inside
-        # brackets ("[<xref>2</xref>]") and author-year labels ("Smith et al., 2019") alone.
-        if label and _NUMERIC_LABEL.fullmatch(label) and not self._inside_brackets():
+        # read as "2017.1". Wrap bare numbers in brackets: always for superscripts (even inside
+        # parentheses, "(e.g., Housing First<sup>3</sup>)"), and otherwise only outside brackets.
+        # Labels already in brackets ("[<xref>2</xref>]"), linked years ("(FEANTSA <xref>2018</xref>)"),
+        # and author-year labels ("Smith et al., 2019") are left alone.
+        if label and _NUMERIC_LABEL.fullmatch(label) and (superscript or not self._inside_brackets()):
             label = f"[{label}]"
         start = self._length
         self._append(label)
@@ -256,8 +286,19 @@ class _ParagraphBuilder:
     def text(self) -> str:
         return "".join(self._parts).rstrip()
 
-    def last_char(self) -> str:
-        return self._parts[-1][-1] if self._parts else ""
+    def tail(self, n: int = 2) -> str:
+        # The last n characters of the text so far.
+        return "".join(self._parts)[-n:]
+
+    def range_start(self) -> str | None:
+        # If the text so far ends with a citation and a dash ("[1]-", "1\u2013"), the next
+        # citation closes a range. Returns that first label ("1"), otherwise None.
+        if not self.citations:
+            return None
+        text, last = "".join(self._parts), self.citations[-1]
+        if text[last.end:].strip() in ("-", "\u2013", "\u2014", "\u2212"):
+            return text[last.start:last.end].strip("[] ")
+        return None
 
     def _append(self, text: str) -> None:
         if text:
@@ -287,10 +328,12 @@ class _CitationIndex:
 
     # - a link to a reference (<xref rid="R2">), even when it isn't tagged ref-type="bibr"
     # - a plain superscript number (<sup>2</sup>) with no link at all, matched to a reference by
-    #   its label (the number shown in the reference list)
-    def __init__(self, references: list[Reference]) -> None:
+    #   its label (the number shown in the reference list). Only in papers that never tag
+    #   citations with ref-type="bibr"; in those that do, a bare <sup>2</sup> is an exponent.
+    def __init__(self, references: list[Reference], root: ET.Element) -> None:
         self._ids = {r.ref_id for r in references}
         self._by_label = {r.label.strip(".[]() "): r.ref_id for r in references if r.label}
+        self._links_tagged = any(x.get("ref-type") == "bibr" for x in _iter_main(root, "xref"))
 
     def is_citation_link(self, node: ET.Element) -> bool:
         if node.tag != "xref":
@@ -298,12 +341,11 @@ class _CitationIndex:
         rids = (node.get("rid") or "").split()
         return node.get("ref-type") == "bibr" or (bool(rids) and all(r in self._ids for r in rids))
 
-    def is_bare_superscript(self, node: ET.Element, previous_char: str) -> bool:
-        # <sup>2</sup> with nothing inside it, in a paper whose references are numbered. Not
-        # right after a digit, so exponents like 10<sup>6</sup> aren't mistaken for citations.
-        return (node.tag == "sup" and len(node) == 0 and bool(self._by_label)
-                and _NUMERIC_LABEL.fullmatch((node.text or "").strip() or "x") is not None
-                and not previous_char.isdigit())
+    def is_bare_citation(self, text_before: str) -> bool:
+        # Is a numeric <sup> a citation? Only in papers with numbered but untagged references,
+        # and not right after a digit or lone letter (10<sup>6</sup>, R<sup>2</sup>).
+        return (bool(self._by_label) and not self._links_tagged
+                and not _EXPONENT_BASE.search(text_before))
 
     def ids_for_labels(self, text: str) -> list[str]:
         # '1, 3-5' -> the ref_ids of the references labeled 1, 3, 4, and 5 (unknown labels skipped).
@@ -323,7 +365,7 @@ class _CitationIndex:
 
 def _references(root: ET.Element) -> list[Reference]:
     refs = []
-    for ref in root.iter("ref"):
+    for ref in _iter_main(root, "ref"):
         all_text = " ".join(ref.itertext())
         year = _text_of(ref.find(".//year"))
         refs.append(Reference(
@@ -351,10 +393,7 @@ def normalize_doi(doi: str | None) -> str | None:
     # 'https://doi.org/10.1/ABC' -> '10.1/abc'. DOIs are case-insensitive, so we lowercase.
     if not doi:
         return None
-    doi = doi.strip().lower()
-    for prefix in ("https://doi.org/", "http://doi.org/", "https://dx.doi.org/", "doi:"):
-        if doi.startswith(prefix):
-            doi = doi[len(prefix):]
+    doi = _DOI_PREFIX.sub("", doi.strip().lower()).strip()
     return doi or None
 
 # ------------------
@@ -365,6 +404,24 @@ def _strip_namespaces(root: ET.Element) -> None:
     for el in root.iter():
         if isinstance(el.tag, str) and "}" in el.tag:
             el.tag = el.tag.split("}", 1)[1]
+
+
+def _iter_main(node: ET.Element, tag: str):
+    # Like node.iter(tag), but skips documents attached to the paper (peer-review reports),
+    # whose reference lists reuse labels like "1" and would point citations at the wrong paper.
+    for child in node:
+        if child.tag == tag:
+            yield child
+        if child.tag not in _ATTACHED_DOCUMENTS:
+            yield from _iter_main(child, tag)
+
+
+def _is_numeric_superscript(node: ET.Element) -> bool:
+    # <sup>2</sup> or <sup>1,3-5</sup> with no tags inside. Needs a digit: a lone <sup>,</sup>
+    # between two superscript citations is just a comma.
+    text = (node.text or "").strip()
+    is_number = bool(_NUMERIC_LABEL.fullmatch(text)) and any(c.isdigit() for c in text)
+    return node.tag == "sup" and len(node) == 0 and is_number
 
 
 def _text_of(el: ET.Element | None) -> str | None:

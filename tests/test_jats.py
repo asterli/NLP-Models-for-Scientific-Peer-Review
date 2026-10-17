@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from papers.jats import _clean_title, normalize_abstract_heading, normalize_doi, parse_article
+from papers.jats import _clean_title, is_abstract_metadata, normalize_abstract_heading, normalize_doi, parse_article
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -130,6 +130,9 @@ def test_references():
 @pytest.mark.parametrize("raw, expected", [
     ("https://doi.org/10.1/ABC", "10.1/abc"),
     ("doi:10.1/x", "10.1/x"),
+    ("doi: 10.1/x", "10.1/x"),                   # space after "doi:"
+    ("http://dx.doi.org/10.1/x", "10.1/x"),
+    ("https://www.doi.org/10.1/x", "10.1/x"),
     ("", None),
     (None, None),
 ])
@@ -148,7 +151,7 @@ def test_clean_title(raw, expected):
     assert _clean_title(raw) == expected
 
 
-# --- quirks found in the first real run (Oct 16) -----------------------------
+# --- bugs found in code review (Oct 16) -----------------------------
 
 def test_jama_key_points_box_is_skipped_for_the_real_abstract():
     sections = [p.section for p in load("jama_key_points").paragraphs]
@@ -178,12 +181,75 @@ def test_bare_superscript_numbers_become_bracketed_citations():
     assert cited(p)[:3] == [("b1", "[1]"), ("b2", "[2]"), ("b3", "[3]")]
 
 
-def test_exponent_after_a_digit_is_not_a_citation():
+def test_exponent_after_a_digit_or_lone_letter_is_not_a_citation():
     p = load("bare_superscripts").paragraphs[0]
-    assert "Costs reach 106 dollars." in p.text  # the superscript 6 stays plain text
+    assert "Costs reach 10^6 dollars and R^2 is 0.4." in p.text  # exponents, not "106" or "R[2]"
     assert all(ref_id != "b6" for ref_id, _ in cited(p))
 
 
 def test_link_without_ref_type_still_counts_when_it_points_to_a_reference():
     p = load("bare_superscripts").paragraphs[0]
     assert cited(p)[-1] == ("b4", "[4]")
+
+
+
+# --- bugs found in code review (Oct 16) ----------------------------------------
+
+@pytest.mark.parametrize("text, expected", [
+    ("Keywords: homelessness, housing", True),
+    ("Trial Registration", True),                                    # a heading
+    ("Trial registration ClinicalTrials.gov NCT01234567", True),     # no colon, but a registry ID
+    ("Funding: none.", True),
+    ("Funding for supportive housing has declined.", False),        # real content
+    ("Registration in the program was voluntary.", False),
+])
+def test_abstract_metadata_needs_more_than_a_starting_word(text, expected):
+    assert is_abstract_metadata(text) == expected
+
+
+def test_abstract_paragraph_starting_with_funding_is_kept():
+    assert load("review_quirks").paragraphs[0].text.startswith("Funding for supportive housing has declined.")
+
+
+def test_exponents_are_not_citations_when_the_paper_links_its_citations():
+    abstract = load("review_quirks").paragraphs[0]
+    assert "27 kg/m^2, R^2 was 0.4, and \u03c7^2 was 5.1." in abstract.text
+    assert abstract.citations == []
+
+
+def test_superscript_citation_inside_parentheses_gets_brackets():
+    intro = load("review_quirks").paragraphs[1]
+    assert intro.text.startswith("Some programs (e.g., Housing First[3]) help.")
+
+
+def test_citation_range_across_two_links_cites_the_middle_references():
+    intro = load("review_quirks").paragraphs[1]
+    assert "Trials agree [1\u20134]." in intro.text
+    assert [c.ref_id for c in intro.citations][:6] == ["R3", "R1", "R1", "R2", "R3", "R4"]
+
+
+def test_one_link_with_a_range_label_cites_every_reference_in_it():
+    intro = load("review_quirks").paragraphs[1]
+    assert intro.text.endswith("Reviews too [2\u20134].")
+    assert [c.ref_id for c in intro.citations][6:] == ["R2", "R3", "R4"]
+
+
+def test_reference_list_of_an_attached_peer_review_is_ignored():
+    assert [r.ref_id for r in load("review_quirks").references] == ["R1", "R2", "R3", "R4"]
+
+
+def test_superscript_comma_between_citations_stays_a_comma():
+    xml = b"""<article><front><article-meta><abstract><p>A.</p></abstract></article-meta></front>
+    <body><p>Housing helps.<sup><xref ref-type="bibr" rid="R1">1</xref></sup><sup>,</sup><sup><xref ref-type="bibr" rid="R2">2</xref></sup></p></body>
+    <back><ref-list><ref id="R1"><label>1</label></ref><ref id="R2"><label>2</label></ref></ref-list></back></article>"""
+    intro = parse_article(xml).paragraphs[1]
+    assert intro.text == "Housing helps.[1],[2]"
+
+
+def test_linked_year_inside_parentheses_gets_no_brackets():  # PMC7576524: "(FEANTSA 2018)"
+    xml = b"""<article><front><article-meta><abstract><p>A.</p></abstract></article-meta></front>
+    <body><p>Homelessness rose (FEANTSA <xref ref-type="bibr" rid="ref18">2018</xref>).</p></body>
+    <back><ref-list><ref id="ref18"><mixed-citation>FEANTSA. 2018.</mixed-citation></ref></ref-list></back></article>"""
+    intro = parse_article(xml).paragraphs[1]
+    assert intro.text == "Homelessness rose (FEANTSA 2018)."
+    assert [c.ref_id for c in intro.citations] == ["ref18"]
