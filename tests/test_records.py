@@ -3,12 +3,17 @@
 from pathlib import Path
 
 from papers.europepmc import PaperMeta
-from papers.jats import parse_article
+from papers.jats import Article, Paragraph, parse_article
 from papers.records import build_record, check_record
 
 FIXTURES = Path(__file__).parent / "fixtures"
 META = PaperMeta(date="2024-03-05", authors=["Doe J"], title=None, doi=None, journal=None)
 
+def test_registration_sentence_inside_an_abstract_paragraph_is_dropped():
+    # PMC8382791: the registration line is the last sentence of the abstract's only paragraph
+    abstract = Paragraph("abstract", "Visits fell. Trial registration: ISRCTN42520374")
+    article = Article("T", None, None, "research-article", [abstract], [])
+    assert [s["text"] for s in build_record("PMC1", article, META)["sentences"]] == ["Visits fell."]
 
 def record_for(name, meta=META, pmcid="PMC0000001"):
     article = parse_article((FIXTURES / f"{name}.xml").read_bytes())
@@ -70,3 +75,9 @@ def test_long_sentence_is_flagged():
     record = record_for("research_brackets")
     record["sentences"][0]["text"] = "word " * 81
     assert any("very long sentences" in w and "s001" in w for w in check_record(record))
+
+
+def test_sentence_starting_with_a_citation_is_flagged():
+    record = record_for("research_brackets")
+    record["sentences"][1]["text"] = "[3] Given the interplay, this matters."
+    assert any("starting with a citation" in w and "s002" in w for w in check_record(record))

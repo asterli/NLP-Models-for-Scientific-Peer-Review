@@ -1,17 +1,17 @@
-# M05 - Collecting source papers from Europe PMC.
+"""M05 - Collecting source papers from Europe PMC.
 
-# Steps: 
-# 1) List open-access candidates: python scripts/fetch_papers.py search
-#    saves to data/raw/candidates.csv 
-# 2) Win picks papers and lists their PMCIDs in data/raw/selected_pmcids.txt,
-#    with one per line. 
-#    In there, anything after a # in there is a comment. e.g. PMC 123 # RCT, Housing First, Canada 
-# 3) Download them, build paper records: python scripts/fetch_papers.py fetch
-#    saves to data/papers/papers.jsonl
+Steps: 
+1) List open-access candidates: python scripts/fetch_papers.py search
+   saves to data/raw/candidates.csv 
+2) Win picks papers and lists their PMCIDs in data/raw/selected_pmcids.txt,
+   with one per line. 
+   In there, anything after a # in there is a comment. e.g. PMC 123 # RCT, Housing First, Canada 
+3) Download them, build paper records: python scripts/fetch_papers.py fetch
+   saves to data/papers/papers.jsonl
 
-# When labeling starts, the sentence IDs in papers.jsonl MUST NOT change.
-# fetch refuses to overwrite it unless --overwrite is passed.
-
+When labeling starts, the sentence IDs in papers.jsonl MUST NOT change.
+fetch refuses to overwrite it unless --overwrite is passed.
+"""
 from __future__ import annotations
 
 import argparse
@@ -29,21 +29,45 @@ from papers.jats import parse_article  # noqa: E402
 from papers.records import build_record, check_record  # noqa: E402
 
 # Our scope (T1): open-access papers on interventions for people experiencing homelessness, 2019 to 2026.
-DEFAULT_QUERY = (
-    '("housing first" OR "supportive housing" OR "permanent supportive housing" OR '
-    '"homeless outreach" OR "people experiencing homelessness") '
-    "AND OPEN_ACCESS:y AND IN_EPMC:y AND PUB_YEAR:[2019 TO 2026]"
-)
+INTERVENTION_TERMS = [
+    "housing first", "supportive housing", "rapid rehousing", "rapid re-housing", "housing program",
+    "street medicine", "homeless outreach", "critical time intervention", "managed alcohol",
+]
+HOMELESSNESS_TERMS = ["homeless", "homelessness", "unhoused"]
+EVALUATION_TERMS = [
+    "randomized", "randomised", "trial", "cohort", "quasi-experimental", "effectiveness",
+    "evaluation", "systematic review", "meta-analysis",
+]
+EXCLUDED_TITLE_WORDS = ["protocol", "commentary", "editorial"]
+EXCLUDED_PUB_TYPES = ["Editorial", "Comment", "letter", "Case Reports", "Clinical Trial Protocol", "Abstract", "Preprint"]
 
+
+def any_of(terms: list[str], field: str | None = None) -> str:
+    """('a', 'b c') -> '(a OR "b c")', each term prefixed with FIELD: if given."""
+    prefix = f"{field}:" if field else ""
+    return "(" + " OR ".join(f'{prefix}"{t}"' if " " in t or "-" in t else f"{prefix}{t}" for t in terms) + ")"
+
+
+DEFAULT_QUERY = " ".join([
+    f"({any_of(INTERVENTION_TERMS, 'TITLE')} OR {any_of(INTERVENTION_TERMS, 'ABSTRACT')})",
+    f"AND {any_of(HOMELESSNESS_TERMS)}",
+    f"AND {any_of(EVALUATION_TERMS, 'ABSTRACT')}",
+    "AND OPEN_ACCESS:y AND IN_EPMC:y AND PUB_YEAR:[2019 TO 2026] AND LANG:eng",
+    f"NOT {any_of(EXCLUDED_TITLE_WORDS, 'TITLE')}",
+    f"NOT {any_of(EXCLUDED_PUB_TYPES, 'PUB_TYPE')}",
+])
 
 def search(args: argparse.Namespace) -> None:
-    candidates = europepmc.search(args.query, args.max)
+    print(f"query: {args.query}\n")
+    found = europepmc.search(args.query, args.max)
+    candidates = [c for c in found if c.pmcid]  # no PMCID means no full text to download
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=[field.name for field in fields(europepmc.Candidate)])
         writer.writeheader()
         writer.writerows(asdict(c) for c in candidates)
-    print(f"wrote {len(candidates)} candidates to {args.out}")
+    dropped = len(found) - len(candidates)
+    print(f"wrote {len(candidates)} candidates to {args.out}" + (f" ({dropped} without a PMCID dropped)" if dropped else ""))
 
 
 def fetch(args: argparse.Namespace) -> None:

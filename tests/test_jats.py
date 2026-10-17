@@ -146,3 +146,44 @@ def test_normalize_doi(raw, expected):
 ])
 def test_clean_title(raw, expected):
     assert _clean_title(raw) == expected
+
+
+# --- quirks found in the first real run (Oct 16) -----------------------------
+
+def test_jama_key_points_box_is_skipped_for_the_real_abstract():
+    sections = [p.section for p in load("jama_key_points").paragraphs]
+    assert "abstract:question" not in sections and "abstract:meaning" not in sections
+    assert sections[:5] == ["abstract:background", "abstract:methods", "abstract:methods",
+                            "abstract:results", "abstract:conclusions"]
+
+
+def test_registration_and_keywords_are_dropped():
+    text = " ".join(p.text for p in load("jama_key_points").paragraphs)
+    assert "NCT00000001" not in text and "Keywords" not in text
+
+
+@pytest.mark.parametrize("heading, expected", [
+    ("Principal findings", "results"),         # contains "finding", doesn't start with it
+    ("Study setting and design", "methods"),
+    ("Importance", "background"),
+    ("Data collection", "methods"),
+])
+def test_heading_normalization_by_contained_word(heading, expected):
+    assert normalize_abstract_heading(heading) == expected
+
+
+def test_bare_superscript_numbers_become_bracketed_citations():
+    p = load("bare_superscripts").paragraphs[0]
+    assert p.text.startswith("Homelessness is linked to emergency department use[1], [2] and inpatient care. [3]")
+    assert cited(p)[:3] == [("b1", "[1]"), ("b2", "[2]"), ("b3", "[3]")]
+
+
+def test_exponent_after_a_digit_is_not_a_citation():
+    p = load("bare_superscripts").paragraphs[0]
+    assert "Costs reach 106 dollars." in p.text  # the superscript 6 stays plain text
+    assert all(ref_id != "b6" for ref_id, _ in cited(p))
+
+
+def test_link_without_ref_type_still_counts_when_it_points_to_a_reference():
+    p = load("bare_superscripts").paragraphs[0]
+    assert cited(p)[-1] == ("b4", "[4]")

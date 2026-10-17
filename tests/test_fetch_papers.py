@@ -54,3 +54,22 @@ def test_pmid_in_the_list_is_reported_with_its_line_number(tmp_path):
     ids.write_text("PMC1\n42827296\n")
     with pytest.raises(SystemExit, match="line 2.*looks like a PMID"):
         fetch_papers.read_pmcids(ids)
+
+def test_any_of_quotes_phrases_and_adds_the_field():
+    assert fetch_papers.any_of(["trial", "housing first"], "TITLE") == '(TITLE:trial OR TITLE:"housing first")'
+    assert fetch_papers.any_of(["homeless"]) == "(homeless)"
+
+
+def test_default_query_keeps_the_access_filters():
+    for required in ("OPEN_ACCESS:y", "IN_EPMC:y", "PUB_YEAR:[2019 TO 2026]", "NOT (TITLE:protocol"):
+        assert required in fetch_papers.DEFAULT_QUERY
+
+
+def test_search_drops_results_without_a_pmcid(monkeypatch, tmp_path, capsys):
+    found = [fetch_papers.europepmc.Candidate("PMC1", None, None, None, None, 0, "Kept"),
+             fetch_papers.europepmc.Candidate(None, "10.1/x", None, None, "Preprint", 0, "Dropped")]
+    monkeypatch.setattr(fetch_papers.europepmc, "search", lambda query, n: found)
+    out = tmp_path / "candidates.csv"
+    fetch_papers.main(["search", "--out", str(out)])
+    assert out.read_text().count("\n") == 2  # header + one candidate
+    assert "1 without a PMCID dropped" in capsys.readouterr().out

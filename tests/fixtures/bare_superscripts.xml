@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up paper in the style of a publisher whose citations are plain superscript numbers
+     (no link to the reference), plus one link that is missing its ref-type, and an exponent
+     that must NOT be read as a citation. -->
+<article article-type="research-article">
+  <front><article-meta><title-group><article-title>Frequent users</article-title></title-group></article-meta></front>
+  <body>
+    <sec><title>Introduction</title>
+      <p>Homelessness is linked to emergency department use<sup>1</sup>, <sup>2</sup> and inpatient care. <sup>3</sup> Costs reach 10<sup>6</sup> dollars. Frequent users matter.<xref rid="b4">4</xref></p>
+    </sec>
+  </body>
+  <back><ref-list>
+    <ref id="b1"><label>1</label><element-citation><article-title>One</article-title></element-citation></ref>
+    <ref id="b2"><label>2</label><element-citation><article-title>Two</article-title></element-citation></ref>
+    <ref id="b3"><label>3</label><element-citation><article-title>Three</article-title></element-citation></ref>
+    <ref id="b4"><label>4</label><element-citation><article-title>Four</article-title></element-citation></ref>
+  </ref-list></back>
+</article>

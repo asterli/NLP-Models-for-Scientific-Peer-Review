@@ -80,7 +80,26 @@ def test_sentences_are_exact_slices_of_the_paragraph():
     for s in split_sentences(paragraph):
         assert paragraph.text[s.start:s.end] == s.text
 
+# --- cases found in the first real run (Oct 16) -----------------------------
 
+@pytest.mark.parametrize("text, expected", [
+    # a space after the comma between citation groups
+    ("Access is linked to homelessness.[1], [3] Given the interplay, this matters.",
+     ["Access is linked to homelessness.[1], [3]", "Given the interplay, this matters."]),
+    # a space between the period and the citation
+    ("More research is needed on these models. [11] In April 2020, a program began.",
+     ["More research is needed on these models. [11]", "In April 2020, a program began."]),
+    # a dash between citation groups
+    ("Rates are higher than the general population.[1]-[4] Within Canada, drinking is common.",
+     ["Rates are higher than the general population.[1]-[4]", "Within Canada, drinking is common."]),
+    # "v." for versus
+    ("Fewer inpatient days were found for HF v. TAU (0.62). The HF group did better.",
+     ["Fewer inpatient days were found for HF v. TAU (0.62).", "The HF group did better."]),
+])
+def test_real_run_cases(text, expected):
+    assert split(text) == expected
+
+    
 # --- known misses (documented, not fixed) ------------------------------------
 
 @pytest.mark.parametrize("text", [

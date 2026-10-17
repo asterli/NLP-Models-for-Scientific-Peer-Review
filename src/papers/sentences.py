@@ -6,7 +6,7 @@
 
 # Splitting is decided based on:
 #   1. Find every possible end: . ! or ? (plus any citations written right after it,
-#      like "2017.[1]"), followed by a space and a capital letter, digit, quote, or bracket.
+#      like "2017.[1]"), followed by a space and a capital letter, digit, quote, or opening parenthesis.
 #   2. Skip ends that come right after an abbreviation ("et al.", "Fig.") or an initial ("J.").
 
 # Known misses, kept on purpose to keep the rules simple: an abbreviation that really ends a
@@ -32,16 +32,19 @@ class Sentence:
 
 # Words that end with a period without ending the sentence (lowercase, final period removed).
 ABBREVIATIONS = {
-    "al", "e.g", "i.e", "vs", "cf", "ca", "approx", "fig", "figs", "eq", "no", "vol",
+    "al", "e.g", "i.e", "vs", "v", "cf", "ca", "approx", "fig", "figs", "eq", "no", "vol",
     "ref", "refs", "dr", "mr", "mrs", "ms", "st", "inc", "ltd", "u.s", "u.k",
 }
 
+# One numbered citation group, like "[3]", "[1,2]", or "[4-6]" (any of the dashes from jats.py).
+_CITATION = r"\[[\d\s,;\-\u2013\u2014\u2212]+\]"
+
 # A possible sentence end. \u201d and \u2019 are curly closing quotes, \u201c a curly opening one.
-_POSSIBLE_END = re.compile(r"""
-    [.!?][\"\u201d\u2019]?          # end punctuation, maybe followed by a closing quote
-    (?:\[[^\]]*\],?)*               # citations written after it: "[1]" or "[2],[3]"
-    (?=\s+[A-Z0-9\"\u201c(\[])      # then a space and the start of the next sentence
-""", re.VERBOSE)
+_POSSIBLE_END = re.compile(rf"""
+    [.!?][\"\u201d\u2019]?                          # end punctuation, maybe a closing quote
+    (?:\s*{_CITATION}(?:\s*[,;\-\u2013\u2014]\s*{_CITATION})*)?   # citations after it
+    (?=\s+[A-Z0-9\"\u201c(])                        # then a space and the next sentence's start
+    """, re.VERBOSE)
 
 _LAST_WORD = re.compile(r"(\S+)$")
 

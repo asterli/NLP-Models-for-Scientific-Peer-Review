@@ -8,7 +8,7 @@ from __future__ import annotations
 from dataclasses import asdict
 
 from papers.europepmc import PaperMeta
-from papers.jats import NON_RESEARCH_TYPES, Article, normalize_doi
+from papers.jats import NON_RESEARCH_TYPES, Article, is_abstract_metadata, normalize_doi
 from papers.sentences import split_sentences
 
 # Warning thresholds. A sentence outside these is often a bad split, so a person should check it.
@@ -21,6 +21,8 @@ def build_record(pmcid: str, article: Article, meta: PaperMeta) -> dict:
     sentences = []
     for paragraph in article.paragraphs:
         for s in split_sentences(paragraph):
+            if paragraph.section.startswith("abstract") and is_abstract_metadata(s.text):
+                continue  # e.g. "Trial registration: ..." at the end of an unstructured abstract
             sentences.append({
                 "sentence_id": f"s{len(sentences) + 1:03d}",
                 "section": paragraph.section,
@@ -65,10 +67,14 @@ def check_record(record: dict) -> list[str]:
 
     short = [s["sentence_id"] for s in sentences if len(s["text"]) < SHORT_SENTENCE_CHARS]
     long = [s["sentence_id"] for s in sentences if len(s["text"].split()) > LONG_SENTENCE_WORDS]
+    starts_with_citation = [s["sentence_id"] for s in sentences if s["text"].startswith("[")]
     if short:
         warnings.append(f"very short sentences, maybe bad splits: {', '.join(short)}")
     if long:
         warnings.append(f"very long sentences, maybe missed splits: {', '.join(long)}")
+    if starts_with_citation:
+        warnings.append(f"sentences starting with a citation, which belongs to the previous sentence: "
+                        f"{', '.join(starts_with_citation)}")
 
     if not record["references"]:
         warnings.append("no reference list found")

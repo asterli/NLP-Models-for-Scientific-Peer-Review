@@ -22,7 +22,7 @@ from dataclasses import dataclass, field
 
 @dataclass
 class Citation:
-	# one citation inside a paragraph. paragraph.text[start:end] is the marker. for example: "[2]".
+    # one citation inside a paragraph. paragraph.text[start:end] is the marker. for example: "[2]".
     ref_id: str					# this matches Reference. ref_id, stuff like: "R2"
     start: int
     end: int
@@ -61,17 +61,20 @@ NON_RESEARCH_TYPES = {"article-commentary", "editorial", "letter", "correction",
 # some of the abstract headings are different depending on the journal
 # for example: results vs findings, etc.
 # map them together to a small set so the same kind of sentences get the same section label assigned
-# heading will be matched by how it starts,
+# heading will be matched by a word it contains, e.g. 'Principal findings' = results.
 # for example: "Methods and analysis" will be matched to "methods"
 # if heading has no matches, they will keep their name.
 ABSTRACT_HEADINGS = {
-    "background": ("background", "introduction", "context", "rationale"),
+    "background": ("background", "introduction", "context", "rationale", "importance"),
     "objective": ("objective", "aim", "purpose", "research question"),
-    "methods": ("method", "design", "setting", "participant", "data source", "eligibility",
-                "study selection", "main outcome measure", "outcome measure", "intervention"),
+    "methods": ("method", "design", "setting", "participant", "data source", "data collection",
+                "eligibility", "study selection", "outcome", "exposure", "intervention", "analysis"),
     "results": ("result", "finding"),
     "conclusions": ("conclusion", "interpretation", "implication", "discussion"),
 }
+
+ABSTRACT_METADATA = ("keyword", "key word", "trial registration", "registration", "clinicaltrials gov",
+                     "supplementary", "funding", "conflict of interest")
 
 # section titles that count as introduction when section is not tagged as sec-type="intro"
 INTRO_TITLES = ("introduction", "background")
@@ -81,7 +84,7 @@ SKIPPED_ELEMENTS = {"fig", "table-wrap", "table", "disp-formula", "graphic", "in
                     "media", "supplementary-material", "boxed-text", "caption", "label"}
 
 # Abstracts that are extra summaries rather than the paper's main abstract.
-SKIPPED_ABSTRACT_TYPES = {"graphical", "teaser", "toc", "summary", "author-summary", "editor-summary"}
+SKIPPED_ABSTRACT_TYPES = {"graphical", "teaser", "toc", "summary", "author-summary", "editor-summary", "key-points"}
 
 _WHITESPACE = re.compile(r"\s+")
 # A numbered citation label: "2", "1,2", "3-5". Ranges can use a hyphen (-), en dash (\u2013),
@@ -93,7 +96,7 @@ _DOI_IN_TEXT = re.compile(r"10\.\d{4,9}/[^\s\"<>]+")
 # Public function
 
 def parse_article(xml_bytes: bytes) -> Article:
-    """Parse one paper's full-text JATS XML."""
+    # Parse one paper's full-text JATS XML.
     root = ET.fromstring(xml_bytes)
     _strip_namespaces(root)
 
@@ -101,10 +104,12 @@ def parse_article(xml_bytes: bytes) -> Article:
     if meta is None:
         meta = ET.Element("article-meta")  # keeps the lookups below simple
 
-    paragraphs = _abstract_paragraphs(meta)
+    references = _references(root)
+    cite_index = _CitationIndex(references)
+    paragraphs = _abstract_paragraphs(meta, cite_index)
     body = root.find("body")
     if body is not None:
-        paragraphs += _introduction_paragraphs(body)
+        paragraphs += _introduction_paragraphs(body, cite_index)
 
     return Article(
         title=_text_of(meta.find("title-group/article-title")),
@@ -112,30 +117,35 @@ def parse_article(xml_bytes: bytes) -> Article:
         venue=_text_of(root.find("front/journal-meta//journal-title")),
         article_type=root.get("article-type"),
         paragraphs=[p for p in paragraphs if p.text],
-        references=_references(root),
+        references=references,
     )
 
 
 # ----------------------
 # Abstract
 
-def _abstract_paragraphs(meta: ET.Element) -> list[Paragraph]:
+def _abstract_paragraphs(meta: ET.Element, cites: _CitationIndex) -> list[Paragraph]:
     abstract = _main_abstract(meta)
     if abstract is None:
         return []
     paragraphs = []
     for child in abstract:
         if child.tag == "sec":  # structured abstract: one <sec> per heading
-            section = "abstract:" + normalize_abstract_heading(_text_of(child.find("title")) or "")
-            section = section.rstrip(":")
-            paragraphs += [_read_paragraph(p, section) for p in _paragraph_elements(child)]
+            heading = _text_of(child.find("title")) or ""
+            if is_abstract_metadata(heading):
+                continue
+            section = ("abstract:" + normalize_abstract_heading(heading)).rstrip(":")
+            paragraphs += [_read_paragraph(p, section, cites) for p in _paragraph_elements(child)]
         elif child.tag == "p":  # unstructured abstract
-            paragraphs.append(_read_paragraph(child, "abstract"))
-    return paragraphs
+            paragraphs.append(_read_paragraph(child, "abstract", cites))
+    return [p for p in paragraphs if not is_abstract_metadata(p.text)]
 
+def is_abstract_metadata(text: str) -> bool:
+    # True for 'Keywords: ...', 'Trial registration', and similar non-content lines.
+    return _clean_title(text).startswith(ABSTRACT_METADATA)
 
 def _main_abstract(meta: ET.Element) -> ET.Element | None:
-    """The paper's main abstract, skipping graphical abstracts and plain-language summaries."""
+    # The paper's main abstract, skipping graphical abstracts and plain-language summaries.
     for abstract in meta.findall("abstract"):
         if (abstract.get("abstract-type") or "").lower() not in SKIPPED_ABSTRACT_TYPES:
             return abstract
@@ -146,15 +156,16 @@ def normalize_abstract_heading(heading: str) -> str:
     """'Findings:' -> 'results', 'Methods and analysis' -> 'methods', 'Setting' -> 'methods'.
     Unknown headings come back cleaned but otherwise unchanged ('Limitations' -> 'limitations')."""
     cleaned = _clean_title(heading)
-    for group, starts in ABSTRACT_HEADINGS.items():
-        if cleaned.startswith(starts):
+    for group, words in ABSTRACT_HEADINGS.items():
+        if any(re.search(rf"\b{word}", cleaned) for word in words):  # \b: match whole-word starts only
             return group
     return cleaned
 
 # ------------------
 # Introduction
 
-def _introduction_paragraphs(body: ET.Element) -> list[Paragraph]:
+def _introduction_paragraphs(body: ET.Element, cites: _CitationIndex) -> list[Paragraph]:
+
     
     # search the intro paragraphs by following these rules
     # 1) top level section tagged as sec-type="intro"
@@ -169,14 +180,14 @@ def _introduction_paragraphs(body: ET.Element) -> list[Paragraph]:
         intro = next((s for s in sections
                       if _clean_title(_text_of(s.find("title")) or "").startswith(INTRO_TITLES)), None)
     if intro is not None:
-        return [_read_paragraph(p, "introduction") for p in _paragraph_elements(intro)]
+        return [_read_paragraph(p, "introduction", cites) for p in _paragraph_elements(intro)]
 
     leading = []
     for child in body:
         if child.tag == "sec":
             break
         if child.tag == "p":
-            leading.append(_read_paragraph(child, "introduction"))
+            leading.append(_read_paragraph(child, "introduction", cites))
     return leading
 
 
@@ -184,7 +195,7 @@ def _introduction_paragraphs(body: ET.Element) -> list[Paragraph]:
 # Paragraphs and citations
 def _paragraph_elements(container: ET.Element):
     # Every <p> inside a section and its subsections, in reading order,
-    # skipping paragraphs that belong to figures, tables, or boxes."""
+    # skipping paragraphs that belong to figures, tables, or boxes.
     for child in container:
         if child.tag in SKIPPED_ELEMENTS or child.tag == "title":
             continue
@@ -193,15 +204,18 @@ def _paragraph_elements(container: ET.Element):
         else:
             yield from _paragraph_elements(child)
 
-def _read_paragraph(p: ET.Element, section: str) -> Paragraph:
+def _read_paragraph(p: ET.Element, section: str, cites: _CitationIndex) -> Paragraph:
     builder = _ParagraphBuilder()
 
     def walk(node: ET.Element) -> None:
         if node.tag in SKIPPED_ELEMENTS:
             return
-        if node.tag == "xref" and node.get("ref-type") == "bibr":
+        if cites.is_citation_link(node):
             ref_ids = (node.get("rid") or "").split()  # one xref can point to several refs
             builder.add_citation("".join(node.itertext()), ref_ids)
+            return
+        if cites.is_bare_superscript(node, builder.last_char()):
+            builder.add_citation(node.text, cites.ids_for_labels(node.text))
             return
         builder.add_text(node.text)
         for child in node:
@@ -242,6 +256,9 @@ class _ParagraphBuilder:
     def text(self) -> str:
         return "".join(self._parts).rstrip()
 
+    def last_char(self) -> str:
+        return self._parts[-1][-1] if self._parts else ""
+
     def _append(self, text: str) -> None:
         if text:
             self._parts.append(text)
@@ -259,6 +276,47 @@ class _ParagraphBuilder:
                 if ch in "[(":
                     return True
         return False
+
+
+# ------------------
+# Citation Index
+
+class _CitationIndex:
+    # Knows the paper's references, so it can recognize citations that publishers mark up in
+    # different ways:
+
+    # - a link to a reference (<xref rid="R2">), even when it isn't tagged ref-type="bibr"
+    # - a plain superscript number (<sup>2</sup>) with no link at all, matched to a reference by
+    #   its label (the number shown in the reference list)
+    def __init__(self, references: list[Reference]) -> None:
+        self._ids = {r.ref_id for r in references}
+        self._by_label = {r.label.strip(".[]() "): r.ref_id for r in references if r.label}
+
+    def is_citation_link(self, node: ET.Element) -> bool:
+        if node.tag != "xref":
+            return False
+        rids = (node.get("rid") or "").split()
+        return node.get("ref-type") == "bibr" or (bool(rids) and all(r in self._ids for r in rids))
+
+    def is_bare_superscript(self, node: ET.Element, previous_char: str) -> bool:
+        # <sup>2</sup> with nothing inside it, in a paper whose references are numbered. Not
+        # right after a digit, so exponents like 10<sup>6</sup> aren't mistaken for citations.
+        return (node.tag == "sup" and len(node) == 0 and bool(self._by_label)
+                and _NUMERIC_LABEL.fullmatch((node.text or "").strip() or "x") is not None
+                and not previous_char.isdigit())
+
+    def ids_for_labels(self, text: str) -> list[str]:
+        # '1, 3-5' -> the ref_ids of the references labeled 1, 3, 4, and 5 (unknown labels skipped).
+        labels = []
+        for part in re.split(r"[,;]", text):
+            ends = re.split(r"\s*[\-\u2013\u2014\u2212]\s*", part.strip())
+            if len(ends) == 2 and ends[0].isdigit() and ends[1].isdigit():
+                labels += [str(n) for n in range(int(ends[0]), int(ends[1]) + 1)]
+            elif part.strip():
+                labels.append(part.strip())
+        return [self._by_label[label] for label in labels if label in self._by_label]
+
+
 
 # -----------------
 # References
