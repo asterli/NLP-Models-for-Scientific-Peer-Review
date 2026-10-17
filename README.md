@@ -37,11 +37,17 @@ See `docs/data-schema.md` for the shared JSON fields.
 - Sentence IDs must not change once labeling starts, so never run `fetch --overwrite` on this file. To test a parser change, rebuild into a separate file and compare with `scripts/diff_papers.py` (usage at the top of that script).
 - For M08: PMC12314730 and PMC8382791 (both At Home/Chez Soi) must go in the same split.
 
+## Background Corpus (M21)
+
+- `data/corpus/corpus.jsonl`: 645 older works cited by the 20 source papers, from OpenAlex. Format and caveats: `docs/data-schema.md`. Per-paper coverage: `data/corpus/coverage.json`.
+- Rebuild with `python scripts/build_corpus.py`. The first run needs internet; lookups are cached in `data/raw/openalex/`. An OpenAlex API key is optional: copy `.env.example` to `.env`.
+
 ## Components
 
 - `data/`: datasets (`papers/` source papers, `raw/` search results and picks, `claims/` labeling guide)
 - `src/papers/`: paper collection and parsing (M05)
-- `scripts/`: runnable commands (`fetch_papers.py`, `diff_papers.py`, `run_sample.py`; the others are empty placeholders)
+- `src/corpus/`: background corpus from OpenAlex (M21)
+- `scripts/`: runnable commands (`fetch_papers.py`, `diff_papers.py`, `build_corpus.py`, `run_sample.py`; the others are empty placeholders)
 - `tests/`: tests, run with `pytest` (no internet needed)
 - `docs/`: data schema and labeling guides
 - Planned, not created yet: `evaluation/`, `models/`, `outputs/` (`run_sample.py` creates `outputs/`)

@@ -40,6 +40,29 @@
 - `score`: raw model score, if available
 - `reason`: brief explanation supported by the evidence
 
+## 5. Corpus Document
+
+One older work in `data/corpus/corpus.jsonl`, the pool that retrieval searches.
+
+- `paper_id`: `doi:<lowercase DOI>`, or `openalex:<work ID>` if there is no DOI (same format as Paper)
+- `title`, `date` (YYYY-MM-DD), `url`
+- `abstract`: rebuilt from OpenAlex; `null` for about 20% of works, so only their title is searchable
+- `venue`, `year`, `type`, `doi`, `pmid`, `openalex_id`
+- `source`: `reference` (cited by a source paper) or `search` (topic search, planned)
+- `cited_by`: `paper_id`s of the source papers that cite this work
+
+Not filtered by date. Some works are newer than some source papers, and 5 source papers are in the corpus because other source papers cite them. Retrieval (M23) must drop works dated after the source paper, and the source paper itself.
+
+## 6. Citation Link
+
+One line of `data/corpus/citation_links.jsonl`: which corpus work a source paper's reference points to.
+
+- `paper_id`, `ref_id`: the source paper and one of its `references`
+- `corpus_id`: the `paper_id` of the matching corpus document
+- `matched_by`: `doi` or `pmid`
+
+To find the older papers a sentence cites: sentence `cites` -> `ref_id` -> `corpus_id`. PMC7576524 and PMC11773779 have no reference DOIs, so they have no links; their cited works are in the corpus with `cited_by` only.
+
 ## General Rules
 
 - Use JSON for individual records and JSONL for datasets.
