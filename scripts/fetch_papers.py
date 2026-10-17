@@ -5,7 +5,7 @@ Steps:
    saves to data/raw/candidates.csv 
 2) Win picks papers and lists their PMCIDs in data/raw/selected_pmcids.txt,
    with one per line. 
-   In there, anything after a # in there is a comment. e.g. PMC 123 # RCT, Housing First, Canada 
+   Anything after a # in there is a comment. e.g. PMC 123 # RCT, Housing First, Canada 
 3) Download them, build paper records: python scripts/fetch_papers.py fetch
    saves to data/papers/papers.jsonl
 
