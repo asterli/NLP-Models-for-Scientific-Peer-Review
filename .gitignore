@@ -3,3 +3,5 @@ __pycache__/
 .pytest_cache/
 data/raw/xml/
 data/raw/meta/
+data/raw/openalex/
+.env
