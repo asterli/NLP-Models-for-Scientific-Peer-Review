@@ -30,15 +30,21 @@ The command writes a placeholder result to `outputs/sample_output.json`.
 
 See `docs/data-schema.md` for the shared JSON fields.
 
+## Source Papers (M05)
+
+- `data/papers/papers.jsonl`: the 20 source papers (abstract + introduction, split into sentences), in the format in `docs/data-schema.md`. Label against this file; don't edit it by hand.
+- Why each paper was picked: `data/raw/selected_pmcids.txt`. Search results: `data/raw/candidates.csv`.
+- Sentence IDs must not change once labeling starts, so never run `fetch --overwrite` on this file. To test a parser change, rebuild into a separate file and compare with `scripts/diff_papers.py` (usage at the top of that script).
+- For M08: PMC12314730 and PMC8382791 (both At Home/Chez Soi) must go in the same split.
+
 ## Components
 
-- `data/`: datasets
-- `src/`: NLP component implementations
-- `scripts/`: runnable commands
-- `evaluation/`: evaluation code and metrics
-- `models/`: model configuration and artifact references
-- `outputs/`: generated results
-- `docs/`: documentation
+- `data/`: datasets (`papers/` source papers, `raw/` search results and picks, `claims/` labeling guide)
+- `src/papers/`: paper collection and parsing (M05)
+- `scripts/`: runnable commands (`fetch_papers.py`, `diff_papers.py`, `run_sample.py`; the others are empty placeholders)
+- `tests/`: tests, run with `pytest` (no internet needed)
+- `docs/`: data schema and labeling guides
+- Planned, not created yet: `evaluation/`, `models/`, `outputs/` (`run_sample.py` creates `outputs/`)
 
 ## Reproducibility
 
