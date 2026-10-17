@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+# Lets tests import project code (src/) and scripts (scripts/) without installing anything
+# e.g. `from papers.jats import parse_article` and `import fetch_papers`.
+pythonpath = ["src", "scripts"]
+testpaths = ["tests"]

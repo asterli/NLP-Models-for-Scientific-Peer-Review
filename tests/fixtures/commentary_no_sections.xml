@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up commentary: no abstract sections, body is plain paragraphs. -->
+<article article-type="article-commentary">
+  <front><article-meta><title-group><article-title>A commentary</article-title></title-group></article-meta></front>
+  <body><p>First paragraph of opinion.</p><p>Second paragraph.</p></body>
+</article>

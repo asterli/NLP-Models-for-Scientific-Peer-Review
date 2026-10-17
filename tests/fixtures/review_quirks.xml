@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up paper for parser bugs found in code review (Oct 16):
+     - an abstract that starts with "Funding" but is real content
+     - citations tagged ref-type="bibr", so bare superscripts here are exponents (kg/m2, R2, chi2)
+     - a superscript citation inside parentheses
+     - a citation range split across two links, [1]-[4], and one link "2-4" pointing only to ref 2
+     - an attached peer-review report with its own reference list that reuses label "1" -->
+<article article-type="research-article">
+  <front><article-meta>
+    <title-group><article-title>Edge cases</article-title></title-group>
+    <abstract><p>Funding for supportive housing has declined. Mean BMI was 27 kg/m<sup>2</sup>, R<sup>2</sup> was 0.4, and &#967;<sup>2</sup> was 5.1.</p></abstract>
+  </article-meta></front>
+  <body><sec><title>Introduction</title>
+    <p>Some programs (e.g., Housing First<sup><xref ref-type="bibr" rid="R3">3</xref></sup>) help. Trials agree [<xref ref-type="bibr" rid="R1">1</xref>&#8211;<xref ref-type="bibr" rid="R4">4</xref>]. Reviews too [<xref ref-type="bibr" rid="R2">2&#8211;4</xref>].</p>
+  </sec></body>
+  <back><ref-list>
+    <ref id="R1"><label>1</label><mixed-citation>One.</mixed-citation></ref>
+    <ref id="R2"><label>2</label><mixed-citation>Two.</mixed-citation></ref>
+    <ref id="R3"><label>3</label><mixed-citation>Three.</mixed-citation></ref>
+    <ref id="R4"><label>4</label><mixed-citation>Four.</mixed-citation></ref>
+  </ref-list></back>
+  <sub-article article-type="reviewer-report"><back><ref-list>
+    <ref id="RR1"><label>1</label><mixed-citation>A reference from the reviewer.</mixed-citation></ref>
+  </ref-list></back></sub-article>
+</article>

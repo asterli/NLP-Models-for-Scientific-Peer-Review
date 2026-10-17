@@ -2,11 +2,19 @@
 
 ## 1. Paper
 
-- `paper_id`: unique paper identifier
+- `paper_id`: unique paper identifier `doi:<lowercase DOI>`, or `pmcid:<PMCID>` if the paper has no DOI
 - `title`: paper title
 - `date`: publication or submission date, if known
 - `url`: source URL
-- `text`: abstract or introduction excerpt
+- `text`: the full excerpt (abstract + whole introduction). Always generated from `sentences`; never edit by hand
+- `sentences`: the excerpt split into sentences, in reading order
+	- `sentence_id`: `s001`, `s002`, ... unique within the paper only, so refer to a sentence as (`paper_id`, `sentence_id`). Labels point to these, so they must not change once labeling starts
+	- `section` : where the sentence came from : `abstract`, `abstract:<heading>` (e.g. `abstract:results`), or `introduction`
+	- `text` : the sentence. Numbered citations are shown as `[n]`, author-year citations as written (`Smith et al., 2019`), and exponents as `^` (`kg/m^2`)
+	- `cites` : the `ref_id`s of the references this sentence cites
+- `references`: the paper's reference list. Each entry: `ref_id`, `label`, `doi`, `pmid`, `title`, `year` (missing values are `null`)
+- `split`: `train`, `dev`, or `test`, set when splits are frozen (M08); `null` until then
+- Other metadata: `authors`, `venue`, `doi`, `pmcid`, `article_type` (e.g. `research-article`), `source`
 
 ## 2. Claim
 

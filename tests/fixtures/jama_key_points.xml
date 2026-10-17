@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Made-up JAMA-style paper: a Key Points box comes before the real abstract, the abstract uses
+     JAMA's headings, and it ends with a trial registration section and a Keywords line. -->
+<article article-type="research-article">
+  <front>
+    <article-meta>
+      <article-id pub-id-type="doi">10.1001/test.2026.1</article-id>
+      <title-group><article-title>Supportive housing and vaccination</article-title></title-group>
+      <abstract abstract-type="key-points">
+        <sec><title>Question</title><p>Is supportive housing associated with vaccination?</p></sec>
+        <sec><title>Findings</title><p>Vaccination was higher.</p></sec>
+        <sec><title>Meaning</title><p>Housing may help.</p></sec>
+      </abstract>
+      <abstract>
+        <sec><title>Importance</title><p>Veterans experiencing homelessness are under-vaccinated.</p></sec>
+        <sec><title>Design, Setting, and Participants</title><p>This cohort study included 5000 veterans.</p></sec>
+        <sec><title>Main Outcomes and Measures</title><p>The outcome was influenza vaccination.</p></sec>
+        <sec><title>Principal findings</title><p>Vaccination rates were 12 points higher.</p></sec>
+        <sec><title>Conclusions and Relevance</title><p>Supportive housing was associated with vaccination.</p></sec>
+        <sec><title>Trial Registration</title><p>ClinicalTrials.gov Identifier: NCT00000001</p></sec>
+        <p>Keywords: homelessness, vaccination, veterans</p>
+      </abstract>
+    </article-meta>
+  </front>
+  <body><sec><title>Introduction</title><p>Vaccination matters.</p></sec></body>
+</article>
