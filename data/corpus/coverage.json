@@ -1,0 +1,212 @@
+{
+  "summary": {
+    "works": 645,
+    "abstract": 515,
+    "date": 645,
+    "doi": 623,
+    "venue": 638,
+    "links": 607
+  },
+  "papers": [
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2025.24302",
+      "pmcid": "PMC12314730",
+      "references": 48,
+      "no_id": 2,
+      "not_in_openalex": 0,
+      "linked": 46,
+      "added_from_openalex_list": 2,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1111/1475-6773.14428",
+      "pmcid": "PMC12052498",
+      "references": 40,
+      "no_id": 16,
+      "not_in_openalex": 1,
+      "linked": 23,
+      "added_from_openalex_list": 4,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1177/10780874251314838",
+      "pmcid": "PMC12282963",
+      "references": 115,
+      "no_id": 27,
+      "not_in_openalex": 10,
+      "linked": 78,
+      "added_from_openalex_list": 19,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1007/s11524-021-00550-1",
+      "pmcid": "PMC8382791",
+      "references": 40,
+      "no_id": 3,
+      "not_in_openalex": 0,
+      "linked": 37,
+      "added_from_openalex_list": 3,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1111/1475-6773.13553",
+      "pmcid": "PMC7518819",
+      "references": 30,
+      "no_id": 6,
+      "not_in_openalex": 0,
+      "linked": 24,
+      "added_from_openalex_list": 3,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1017/s2045796020000785",
+      "pmcid": "PMC7576524",
+      "references": 56,
+      "no_id": 56,
+      "not_in_openalex": 0,
+      "linked": 0,
+      "added_from_openalex_list": 44,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1017/s2045796022000026",
+      "pmcid": "PMC8851060",
+      "references": 64,
+      "no_id": 3,
+      "not_in_openalex": 0,
+      "linked": 61,
+      "added_from_openalex_list": 1,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2026.32697",
+      "pmcid": "PMC13559598",
+      "references": 43,
+      "no_id": 8,
+      "not_in_openalex": 0,
+      "linked": 35,
+      "added_from_openalex_list": 0,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1136/bmjopen-2024-097753",
+      "pmcid": "PMC12719885",
+      "references": 22,
+      "no_id": 8,
+      "not_in_openalex": 0,
+      "linked": 14,
+      "added_from_openalex_list": 1,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1007/s11524-025-00981-0",
+      "pmcid": "PMC12279658",
+      "references": 41,
+      "no_id": 26,
+      "not_in_openalex": 0,
+      "linked": 15,
+      "added_from_openalex_list": 11,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2023.53778",
+      "pmcid": "PMC10825721",
+      "references": 18,
+      "no_id": 6,
+      "not_in_openalex": 0,
+      "linked": 12,
+      "added_from_openalex_list": 2,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1111/1475-6773.14411",
+      "pmcid": "PMC12052510",
+      "references": 30,
+      "no_id": 6,
+      "not_in_openalex": 2,
+      "linked": 22,
+      "added_from_openalex_list": 3,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "pmcid": "PMC13231289",
+      "references": 60,
+      "no_id": 1,
+      "not_in_openalex": 0,
+      "linked": 59,
+      "added_from_openalex_list": 0,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2021.38464",
+      "pmcid": "PMC8669521",
+      "references": 21,
+      "no_id": 6,
+      "not_in_openalex": 0,
+      "linked": 15,
+      "added_from_openalex_list": 1,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1177/29767342261444527",
+      "pmcid": "PMC13570708",
+      "references": 33,
+      "no_id": 7,
+      "not_in_openalex": 1,
+      "linked": 25,
+      "added_from_openalex_list": 0,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2023.20213",
+      "pmcid": "PMC10293912",
+      "references": 41,
+      "no_id": 8,
+      "not_in_openalex": 0,
+      "linked": 33,
+      "added_from_openalex_list": 7,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1186/s12889-024-21169-2",
+      "pmcid": "PMC11773779",
+      "references": 36,
+      "no_id": 36,
+      "not_in_openalex": 0,
+      "linked": 0,
+      "added_from_openalex_list": 23,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1001/jamanetworkopen.2024.43396",
+      "pmcid": "PMC11539017",
+      "references": 25,
+      "no_id": 7,
+      "not_in_openalex": 0,
+      "linked": 18,
+      "added_from_openalex_list": 2,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1007/s10488-022-01224-z",
+      "pmcid": "PMC9832072",
+      "references": 32,
+      "no_id": 5,
+      "not_in_openalex": 0,
+      "linked": 27,
+      "added_from_openalex_list": 1,
+      "source_in_openalex": true
+    },
+    {
+      "paper_id": "doi:10.1186/s12954-022-00646-0",
+      "pmcid": "PMC9311344",
+      "references": 86,
+      "no_id": 23,
+      "not_in_openalex": 0,
+      "linked": 63,
+      "added_from_openalex_list": 3,
+      "source_in_openalex": true
+    }
+  ]
+}
