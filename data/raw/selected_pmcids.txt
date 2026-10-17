@@ -1,0 +1,34 @@
+# Source papers for M05. Picked from candidates.csv (133 results) on 2026-10-16.
+# Criteria: an intervention or program for people experiencing homelessness, with a measured outcome.
+# Skipped: qualitative-only, descriptive, protocols, and the two calibration papers (Baxter 2019, Andina-Diaz 2026).
+# NOTE for M08: the two At Home/Chez Soi papers must go in the same split.
+
+# --- quick start (share these first) ---
+PMC12314730   # RCT secondary analysis (At Home/Chez Soi): Housing First and mortality
+PMC12052498   # observational: VA rapid rehousing + prevention, long-term housing instability
+PMC12282963   # systematic review: Housing First for youth
+
+# --- trials ---
+PMC8382791    # RCT (At Home/Chez Soi): Housing First and acute health care use, long-term
+PMC7518819    # RCT: permanent supportive housing for high users of public services
+PMC7576524    # RCT: housing support team and hospital/ED use, severe mental illness
+PMC8851060    # RCT (Un Chez Soi d'Abord, France): Housing First, 4-year follow-up
+PMC13559598   # cluster RCT: smoke-free home intervention in supportive housing
+PMC12719885   # pilot RCT: critical time intervention for people leaving prison
+PMC12279658   # pilot RCT: pharmacist-led outreach (PHOENIx)
+
+# --- observational / evaluation ---
+PMC10825721   # policy: Ending Veteran Homelessness Initiative and homelessness rates
+PMC12052510   # supportive housing via payer partnership, Medicaid costs and use
+PMC13231289   # shelter-based psychiatric program and housing attainment
+PMC8669521    # hotel-based protective housing during COVID-19, infection and chronic illness
+PMC13570708   # mixed methods: scattered-site managed alcohol program, Halifax
+PMC10293912   # Domestic Violence Housing First, housing stability and safety over 2 years
+PMC11773779   # racial and ethnic disparities in early exits from supportive housing
+
+# --- cost-effectiveness ---
+PMC11539017   # temporary financial assistance for veterans with housing instability
+
+# --- reviews ---
+PMC9832072    # systematic review: critical time intervention
+PMC9311344    # scoping review: managed alcohol programs
