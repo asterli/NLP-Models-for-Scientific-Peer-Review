@@ -15,7 +15,6 @@ A sentence that describes the current paper’s own research objective, contribu
 **BACKGROUND**
 
 A sentence that provides general context, describes previous research, explains the motivation for further research, or gives routine methodological details without stating the current paper’s own research objective, contribution, or finding.
-BACKGROUND is the label for every sentence that is not a CLAIM. It does not have to be information that is already known: a sentence about the current study's own setup (design, setting, sample, recruitment) is still BACKGROUND under rule C.
 
 ## 3. Decision procedure
 
@@ -162,13 +161,9 @@ A sentence stating what the current paper specifically aims to investigate count
 
 A sentence that only summarizes another paper's method, results, or conclusions counts as BACKGROUND. A sentence that reports the current paper's own analysis or findings in comparison with prior work counts as CLAIM when the current paper's contribution or finding is clear.
 
-### C. Methods, setting, and sample versus contributions
+### C. Methods versus methodological contributions
 
-Routine descriptions of the current study's design, setting, data collection, recruitment, eligibility, sample size, or sample characteristics count as BACKGROUND, even though they describe the current paper. They report what the study did or who took part, not what it found. A sentence that presents a new method, dataset, or research resource as a contribution of the current paper counts as CLAIM, and so does a sample description that the paper presents as part of its contribution (for example, the first test of an intervention in a particular population).
-
-- BACKGROUND: "This secondary analysis of a randomized clinical trial included 2255 homeless adults with mental illnesses."
-- BACKGROUND: "The study was conducted in 5 Canadian cities (Vancouver, Winnipeg, Toronto, Montreal, and Moncton)."
-- CLAIM (calibration E5, Discussion, Sentence 5): "In this study, two-thirds of our sample indicated non-White non-Aboriginal ethnicity and half were immigrants to Canada." The paper's contribution is testing HF-ICM in an ethnically diverse sample, so here the sample makeup is part of what the paper adds.
+Routine descriptions of data collection, database searches, preprocessing, or experimental setup count as BACKGROUND. A sentence that presents a new method, dataset, or research resource as a contribution of the current paper counts as CLAIM.
 
 ### D. Mixed sentences
 
