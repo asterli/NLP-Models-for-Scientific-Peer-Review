@@ -83,6 +83,12 @@ def test_missing_full_text_raises_clear_error(fake_api, tmp_path):
     assert not (tmp_path / "PMC999.xml").exists()  # nothing bad gets cached
 
 
+def test_server_error_after_all_retries_stops_instead_of_skipping(fake_api, tmp_path):
+    fake_api["responses"] = [FakeResponse(status=503) for _ in range(europepmc.RETRIES + 1)]
+    with pytest.raises(RuntimeError, match="503"):  # not FullTextUnavailable, which would skip it
+        europepmc.download_full_text("PMC1", tmp_path)
+
+
 def test_retries_when_told_to_slow_down(fake_api, tmp_path):
     fake_api["responses"] = [FakeResponse(status=429), FakeResponse(status=503), FakeResponse(content=b"<article/>")]
     assert europepmc.download_full_text("PMC1", tmp_path) == b"<article/>"
@@ -101,6 +107,12 @@ def test_metadata_is_parsed_and_cached(fake_api, tmp_path):
     assert len(fake_api["calls"]) == 1
 
 
+def test_empty_metadata_result_is_not_cached(fake_api, tmp_path):
+    fake_api["responses"] = [FakeResponse(json_data={"resultList": {"result": []}})]
+    assert europepmc.fetch_metadata("PMC1", tmp_path).date is None
+    assert not (tmp_path / "PMC1.json").exists()
+
+    
 # --- PMCIDs ------------------------------------------------------------------
 
 @pytest.mark.parametrize("raw, expected", [("PMC123", "PMC123"), (" pmc123 ", "PMC123")])

@@ -69,6 +69,8 @@ def download_full_text(pmcid: str, cache_dir: Path) -> bytes:
     if path.exists():
         return path.read_bytes()
     response = _get(f"/{pmcid}/fullTextXML", {})
+    if response.status_code == 429 or response.status_code >= 500:
+        response.raise_for_status()  # server still failing after retries: stop, don't skip the paper
     if response.status_code != 200 or not response.content.lstrip().startswith(b"<"):
         raise FullTextUnavailable(f"{pmcid}: no full text (HTTP {response.status_code})")
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -86,8 +88,9 @@ def fetch_metadata(pmcid: str, cache_dir: Path) -> PaperMeta:
         page = _get_json("/search", {"query": f"PMCID:{pmcid}", "format": "json", "resultType": "core"})
         results = page.get("resultList", {}).get("result", [])
         record = results[0] if results else {}
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(record, ensure_ascii=False), encoding="utf-8")
+        if record:  # don't cache an empty result, so the next run asks again
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(json.dumps(record, ensure_ascii=False), encoding="utf-8")
     return PaperMeta(
         date=record.get("firstPublicationDate"),
         authors=[a["fullName"] for a in record.get("authorList", {}).get("author", []) if a.get("fullName")],
