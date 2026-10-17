@@ -99,7 +99,11 @@ def test_sentences_are_exact_slices_of_the_paragraph():
 def test_real_run_cases(text, expected):
     assert split(text) == expected
 
-    
+def test_page_number_does_not_end_a_sentence():  # found in code review (Oct 16)
+    assert split("As noted (Smith, 2019, p. 23), housing helps. Next.") == [
+        "As noted (Smith, 2019, p. 23), housing helps.", "Next."]
+
+
 # --- known misses (documented, not fixed) ------------------------------------
 
 @pytest.mark.parametrize("text", [

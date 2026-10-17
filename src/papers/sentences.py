@@ -33,7 +33,7 @@ class Sentence:
 # Words that end with a period without ending the sentence (lowercase, final period removed).
 ABBREVIATIONS = {
     "al", "e.g", "i.e", "vs", "v", "cf", "ca", "approx", "fig", "figs", "eq", "no", "vol",
-    "ref", "refs", "dr", "mr", "mrs", "ms", "st", "inc", "ltd", "u.s", "u.k",
+    "ref", "refs", "dr", "mr", "mrs", "ms", "st", "inc", "ltd", "u.s", "u.k", "p", "pp"
 }
 
 # One numbered citation group, like "[3]", "[1,2]", or "[4-6]" (any of the dashes from jats.py).
