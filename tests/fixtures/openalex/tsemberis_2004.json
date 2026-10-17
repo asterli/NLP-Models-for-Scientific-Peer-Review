@@ -1,0 +1,325 @@
+{
+ "id": "https://openalex.org/W2132295262",
+ "doi": "https://doi.org/10.2105/ajph.94.4.651",
+ "title": "Housing First, Consumer Choice, and Harm Reduction for Homeless Individuals With a Dual Diagnosis",
+ "display_name": "Housing First, Consumer Choice, and Harm Reduction for Homeless Individuals With a Dual Diagnosis",
+ "publication_year": 2004,
+ "publication_date": "2004-04-01",
+ "ids": {
+  "openalex": "https://openalex.org/W2132295262",
+  "doi": "https://doi.org/10.2105/ajph.94.4.651",
+  "mag": "2132295262",
+  "pmid": "https://pubmed.ncbi.nlm.nih.gov/15054020"
+ },
+ "type": "article",
+ "abstract_inverted_index": {
+  "OBJECTIVES:": [
+   0
+  ],
+  "We": [
+   1
+  ],
+  "examined": [
+   2
+  ],
+  "the": [
+   3,
+   89,
+   106
+  ],
+  "longitudinal": [
+   4
+  ],
+  "effects": [
+   5
+  ],
+  "of": [
+   6,
+   81
+  ],
+  "a": [
+   7
+  ],
+  "Housing": [
+   8,
+   107
+  ],
+  "First": [
+   9,
+   108
+  ],
+  "program": [
+   10,
+   109
+  ],
+  "for": [
+   11,
+   62,
+   88
+  ],
+  "homeless,": [
+   12
+  ],
+  "mentally": [
+   13
+  ],
+  "ill": [
+   14
+  ],
+  "individuals'": [
+   15,
+   18
+  ],
+  "on": [
+   16,
+   42
+  ],
+  "those": [
+   17
+  ],
+  "consumer": [
+   19
+  ],
+  "choice,": [
+   20
+  ],
+  "housing": [
+   21,
+   40,
+   51,
+   70,
+   117
+  ],
+  "stability,": [
+   22
+  ],
+  "substance": [
+   23,
+   82,
+   98,
+   122
+  ],
+  "use,": [
+   24
+  ],
+  "treatment": [
+   25,
+   43,
+   53,
+   84
+  ],
+  "utilization,": [
+   26
+  ],
+  "and": [
+   27,
+   44,
+   75,
+   114
+  ],
+  "psychiatric": [
+   28,
+   101,
+   120
+  ],
+  "symptoms.": [
+   29,
+   102,
+   124
+  ],
+  "METHODS:": [
+   30
+  ],
+  "Two": [
+   31
+  ],
+  "hundred": [
+   32
+  ],
+  "twenty-five": [
+   33
+  ],
+  "participants": [
+   34
+  ],
+  "were": [
+   35,
+   57,
+   95,
+   110
+  ],
+  "randomly": [
+   36
+  ],
+  "assigned": [
+   37
+  ],
+  "to": [
+   38,
+   48,
+   112
+  ],
+  "receive": [
+   39,
+   49
+  ],
+  "contingent": [
+   41
+  ],
+  "sobriety": [
+   45
+  ],
+  "(control)": [
+   46
+  ],
+  "or": [
+   47,
+   100,
+   121
+  ],
+  "immediate": [
+   50
+  ],
+  "without": [
+   52,
+   118
+  ],
+  "prerequisites": [
+   54
+  ],
+  "(experimental).": [
+   55
+  ],
+  "Interviews": [
+   56
+  ],
+  "conducted": [
+   58
+  ],
+  "every": [
+   59
+  ],
+  "6": [
+   60
+  ],
+  "months": [
+   61
+  ],
+  "24": [
+   63
+  ],
+  "months.": [
+   64
+  ],
+  "RESULTS:": [
+   65
+  ],
+  "The": [
+   66
+  ],
+  "experimental": [
+   67
+  ],
+  "group": [
+   68
+  ],
+  "obtained": [
+   69
+  ],
+  "earlier,": [
+   71
+  ],
+  "remained": [
+   72
+  ],
+  "stably": [
+   73
+  ],
+  "housed,": [
+   74
+  ],
+  "reported": [
+   76
+  ],
+  "higher": [
+   77,
+   87
+  ],
+  "perceived": [
+   78
+  ],
+  "choice.": [
+   79
+  ],
+  "Utilization": [
+   80
+  ],
+  "abuse": [
+   83,
+   123
+  ],
+  "was": [
+   85
+  ],
+  "significantly": [
+   86
+  ],
+  "control": [
+   90
+  ],
+  "group,": [
+   91
+  ],
+  "but": [
+   92
+  ],
+  "no": [
+   93
+  ],
+  "differences": [
+   94
+  ],
+  "found": [
+   96
+  ],
+  "in": [
+   97,
+   105
+  ],
+  "use": [
+   99
+  ],
+  "CONCLUSIONS:": [
+   103
+  ],
+  "Participants": [
+   104
+  ],
+  "able": [
+   111
+  ],
+  "obtain": [
+   113
+  ],
+  "maintain": [
+   115
+  ],
+  "independent": [
+   116
+  ],
+  "compromising": [
+   119
+  ]
+ },
+ "primary_location": {
+  "landing_page_url": "https://doi.org/10.2105/ajph.94.4.651",
+  "source": {
+   "display_name": "American Journal of Public Health"
+  }
+ },
+ "referenced_works": [
+  "https://openalex.org/W615973311",
+  "https://openalex.org/W1551387462",
+  "https://openalex.org/W1594784714"
+ ]
+}

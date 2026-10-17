@@ -151,7 +151,7 @@ def test_clean_title(raw, expected):
     assert _clean_title(raw) == expected
 
 
-# --- bugs found in code review (Oct 16) -----------------------------
+# --- bugs found in code review (Oct 16) V2 -----------------------------
 
 def test_jama_key_points_box_is_skipped_for_the_real_abstract():
     sections = [p.section for p in load("jama_key_points").paragraphs]
