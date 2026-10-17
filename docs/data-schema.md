@@ -14,7 +14,7 @@
 	- `cites` : the `ref_id`s of the references this sentence cites
 -`references`: the paper's reference list. Each entry: `ref_id`, `label`, `doi`, `pmid`, `title`, `year` (missing values are `null`)
 - `split`: `train`, `dev`, or `test`, set when splits are frozen (M08); `null` until then
-- Other metadata: `authors`, `venue`, `doi`, `pmcid`, `source`
+- Other metadata: `authors`, `venue`, `doi`, `pmcid`, `article_type` (e.g. `research-article`), `source`
 
 ## 2. Claim
 
