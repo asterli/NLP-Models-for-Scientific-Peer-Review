@@ -44,10 +44,12 @@ See `docs/data-schema.md` for the shared JSON fields.
 
 ## Components
 
+- [M17 pilot fine-tuning: status, results, and usage](docs/m17.md)
+
 - `data/`: datasets (`papers/` source papers, `raw/` search results and picks, `claims/` labeling guide)
 - `src/papers/`: paper collection and parsing (M05)
 - `src/corpus/`: background corpus from OpenAlex (M21)
-- `scripts/`: runnable commands (`fetch_papers.py`, `diff_papers.py`, `build_corpus.py`, `run_sample.py`; the others are empty placeholders)
+- `scripts/`: runnable commands (`fetch_papers.py`, `diff_papers.py`, `build_corpus.py`, `run_sample.py`, `train_novelty.py`; the others are empty placeholders)
 - `tests/`: tests, run with `pytest` (no internet needed)
 - `docs/`: data schema and labeling guides
 - Planned, not created yet: `evaluation/`, `models/`, `outputs/` (`run_sample.py` creates `outputs/`)
