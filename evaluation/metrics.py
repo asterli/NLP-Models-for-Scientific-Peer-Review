@@ -5,6 +5,7 @@
 # Any rate with a zero denominator is reported as 0.0, never as an error.
 
 from __future__ import annotations
+NOVELTY_LABELS = ("overlapping", "distinct", "insufficient_evidence")
 
 
 def prf(predicted: set, gold: set) -> dict:
@@ -32,3 +33,36 @@ def claim_scores(predicted: set[tuple[str, str]], gold_labels: dict[tuple[str, s
         "ignored_predictions": len(predicted - labeled),
     }
     return scores
+
+
+def classification_scores(gold: list[str], predicted: list[str], labels=NOVELTY_LABELS) -> dict:
+    # gold[i] and predicted[i] are the labels for the same item (e.g. one claim / prior-paper pair).
+    if len(gold) != len(predicted):
+        raise ValueError(f"{len(gold)} gold labels but {len(predicted)} predictions")
+    unknown = (set(gold) | set(predicted)) - set(labels)
+    if unknown:
+        raise ValueError(f"labels not in {list(labels)}: {sorted(unknown)}")
+
+    per_class = {}
+    for label in labels:
+        # Positions with this label, so each class is just prf on two sets.
+        gold_idx = {i for i, g in enumerate(gold) if g == label}
+        pred_idx = {i for i, p in enumerate(predicted) if p == label}
+        scores = prf(pred_idx, gold_idx)
+        per_class[label] = {k: scores[k] for k in ("precision", "recall", "f1")} | {"support": len(gold_idx)}
+
+    # Rows are gold labels, columns are predictions.
+    confusion = {g: {p: 0 for p in labels} for g in labels}
+    for g, p in zip(gold, predicted):
+        confusion[g][p] += 1
+
+    correct = sum(g == p for g, p in zip(gold, predicted))
+    return {
+        "accuracy": correct / len(gold) if gold else 0.0,
+        "correct": correct,
+        # Every label counts, even one never predicted, so ignoring a class is penalized.
+        "macro_f1": sum(c["f1"] for c in per_class.values()) / len(labels),
+        "per_class": per_class,
+        "confusion": confusion,
+        "count": len(gold),
+    }
