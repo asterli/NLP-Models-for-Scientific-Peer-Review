@@ -3,7 +3,7 @@
 
 import pytest
 
-from evaluation.metrics import claim_scores, classification_scores, prf
+from evaluation.metrics import claim_scores, classification_scores, prf, recall_at_k
 
 
 def approx(x):
@@ -71,3 +71,30 @@ def test_bad_classification_input(gold, predicted, message):
     with pytest.raises(ValueError, match=message):
         classification_scores(gold, predicted)
 
+
+def test_recall_at_k_averages_over_queries():
+    ranked = {"q1": ["a", "x", "b"], "q2": ["c", "y"], "q3": ["z"]}
+    relevant = {"q1": {"a", "b"}, "q2": {"c"}, "q3": set()}
+    scores = recall_at_k(ranked, relevant, k=2)
+    # q1: a is in the top 2 but b is 3rd, so 1/2. q2: 1/1. q3 has nothing relevant, so it's skipped.
+    assert scores["recall@2"] == approx((0.5 + 1.0) / 2)
+    assert scores["queries"] == 2
+    assert scores["queries_without_relevant"] == 1
+
+
+def test_only_top_k_count():
+    ranked, relevant = {"q": ["x", "y", "a"]}, {"q": {"a"}}
+    assert recall_at_k(ranked, relevant, k=2)["recall@2"] == 0.0
+    assert recall_at_k(ranked, relevant, k=3)["recall@3"] == 1.0
+
+
+def test_query_with_no_results_scores_zero_and_is_counted():
+    scores = recall_at_k({"q1": ["a"]}, {"q1": {"a"}, "q2": {"b"}}, k=10)
+    assert scores["recall@10"] == approx(0.5)
+    assert scores["per_query"]["q2"] == 0.0
+    assert scores["queries_without_results"] == 1
+
+
+def test_repeated_result_counts_once():
+    scores = recall_at_k({"q": ["a", "a"]}, {"q": {"a", "b"}}, k=2)
+    assert scores["recall@2"] == approx(0.5)

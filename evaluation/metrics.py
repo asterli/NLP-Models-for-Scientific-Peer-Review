@@ -66,3 +66,19 @@ def classification_scores(gold: list[str], predicted: list[str], labels=NOVELTY_
         "confusion": confusion,
         "count": len(gold),
     }
+
+
+
+def recall_at_k(ranked: dict[str, list[str]], relevant: dict[str, set[str]], k: int = 10) -> dict:
+    # ranked: query_id -> work ids, best first. relevant: query_id -> the work ids that count as hits.
+    # Queries with nothing relevant can't be scored (0/0), so they're skipped but counted.
+    scored = {q: rel for q, rel in relevant.items() if rel}
+    # A query with no results gets [] and scores 0. set() stops a repeated id counting twice.
+    per_query = {q: len(set(ranked.get(q, [])[:k]) & rel) / len(rel) for q, rel in scored.items()}
+    return {
+        f"recall@{k}": sum(per_query.values()) / len(per_query) if per_query else 0.0,
+        "queries": len(per_query),
+        "queries_without_relevant": len(relevant) - len(scored),
+        "queries_without_results": sum(1 for q in scored if not ranked.get(q)),
+        "per_query": per_query,
+    }
