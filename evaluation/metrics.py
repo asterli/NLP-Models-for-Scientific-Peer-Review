@@ -5,6 +5,7 @@
 # Any rate with a zero denominator is reported as 0.0, never as an error.
 
 from __future__ import annotations
+
 NOVELTY_LABELS = ("overlapping", "distinct", "insufficient_evidence")
 
 
@@ -66,7 +67,6 @@ def classification_scores(gold: list[str], predicted: list[str], labels=NOVELTY_
         "confusion": confusion,
         "count": len(gold),
     }
-
 
 
 def recall_at_k(ranked: dict[str, list[str]], relevant: dict[str, set[str]], k: int = 10) -> dict:
