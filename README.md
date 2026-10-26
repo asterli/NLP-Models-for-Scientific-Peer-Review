@@ -39,7 +39,7 @@ See `docs/data-schema.md` for the shared JSON fields.
 
 ## Background Corpus (M21)
 
-- `data/corpus/corpus.jsonl`: 645 older works cited by the 20 source papers, from OpenAlex. Format and caveats: `docs/data-schema.md`. Per-paper coverage: `data/corpus/coverage.json`.
+- `data/corpus/corpus.jsonl`: 644 older works cited by the 20 source papers, from OpenAlex. Format and caveats: `docs/data-schema.md`. Per-paper coverage: `data/corpus/coverage.json`.
 - Rebuild with `python scripts/build_corpus.py`. The first run needs internet; lookups are cached in `data/raw/openalex/`. An OpenAlex API key is optional: copy `.env.example` to `.env`.
 
 ## Components

@@ -1,10 +1,10 @@
 {
   "summary": {
-    "works": 645,
-    "abstract": 515,
-    "date": 645,
-    "doi": 623,
-    "venue": 638,
+    "works": 644,
+    "abstract": 514,
+    "date": 644,
+    "doi": 622,
+    "venue": 637,
     "links": 607
   },
   "papers": [
@@ -125,7 +125,7 @@
       "no_id": 6,
       "not_in_openalex": 2,
       "linked": 22,
-      "added_from_openalex_list": 3,
+      "added_from_openalex_list": 2,
       "source_in_openalex": true
     },
     {
