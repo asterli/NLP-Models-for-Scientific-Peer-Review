@@ -1,0 +1,175 @@
+=== M14-02: The HF group exhibited higher housing stability (difference in slope, 116 (103-128)) and higher scores for sub-dimensions of S-QOL scale (psychological well-being and autonomy).
+   1. [15.25] Effects of Housing First approaches on health and well-being of adults who are homeless or at risk of homelessness: systematic review and meta-analysis of randomised controlled trials (2019) https://doi.org/10.1136/jech-2018-210981
+      > CONCLUSION: HF approaches successfully improve housing stability and may improve some aspects of health.
+   2. [12.94] Validation of the AUDIT-C in adults seeking help with their drinking online (2017) https://doi.org/10.1186/s13722-016-0066-5
+      > Sensitivity, specificity, and positive and negative likelihood ratios were calculated for AUDIT-C scores, relative to weekly consumption that indicated drinking above limits and higher risk drinking.
+   3. [12.69] Self-efficacy: Toward a unifying theory of behavioral change. (1977) https://doi.org/10.1037/0033-295x.84.2.191
+      > This genetic disease could cause psychological impact and large expenses for patients, families, caretakers, and the government.
+   4. [12.31] Cost-effectiveness of Housing First Intervention With Intensive Case Management Compared With Treatment as Usual for Homeless Adults With Mental Illness (2019) https://doi.org/10.1001/jamanetworkopen.2019.9782
+      > Days of stable housing were higher by 140.34 days (95% CI, 128.14-153.31 days) in the HF group.
+   5. [11.97] Housing first on a large scale: Fidelity strengths and challenges in the VA’s HUD-VASH program. (2017) https://doi.org/10.1037/ser0000123
+      > There were 2 HF domains (no preconditions and rapidly offering permanent housing) for which high fidelity was readily attained.
+   6. [11.64] Tenant Outcomes in Supported Housing and Community Residences in New York City (2006) https://doi.org/10.1176/appi.ps.57.7.982
+      > OBJECTIVE: This study examined whether outcomes in housing, clinical status, and well-being of persons with severe mental illness and a history of homelessness differ between those in supported housing and those in commu
+   7. [11.50] Examining mortality among formerly homeless adults enrolled in Housing First: An observational study (2015) https://doi.org/10.1186/s12889-015-2552-1
+      > Housing First (HF) is an evidence-based practice that effectively ends chronic homelessness, yet there has been virtually no research on premature mortality among HF enrollees.
+   8. [11.39] Housing First, Consumer Choice, and Harm Reduction for Homeless Individuals With a Dual Diagnosis (2004) https://doi.org/10.2105/ajph.94.4.651
+      > OBJECTIVES: We examined the longitudinal effects of a Housing First program for homeless, mentally ill individuals' on those individuals' consumer choice, housing stability, substance use, treatment utilization, and psyc
+   9. [10.86] Effect of Housing First on Suicidal Behaviour (2017) https://doi.org/10.1177/0706743717694836
+      > OBJECTIVE: This study attempted to determine if Housing First (HF) decreased suicidal ideation and attempts compared to treatment as usual (TAU) amongst homeless persons with mental disorders, a population with a demonst
+  10. [10.50] The pursuit of euthymia (2020) https://doi.org/10.1002/wps.20698
+      > Euthymia is a transdiagnostic construct referring to the presence of positive affects and psychological well-being, i.e., balance and integration of psychic forces (flexibility), a unifying outlook on life which guides a
+
+=== M14-11: The results showed HF with ACT had no significant effect on hospitalization rates among HN participants, but reduced the number of days in hospital (RRR = 0.32, 95% CI 0.16-0.63) and number of ED visits (RRR = 0.57, 95% CI 0.34-0.95).
+   1. [31.13] The Long-Term Effects of a Housing First Intervention on Primary Care and Non-Primary Care Physician Visits Among Homeless Adults with Mental Illness: A 7-Year RCT Follow-Up (2021) https://doi.org/10.1177/21501327211027102
+      > HN participants who received HF-ACT had a significant reduction in the number of visits to a PCP compared to TAU participants (ratio of rate ratios (RRR): 0.66, 95% CI: 0.48-0.93) and a significant reduction in the numbe
+   2. [28.06] The effect of brief case management on emergency department use of frequent users in mental health: Findings of a randomized controlled trial (2017) https://doi.org/10.1371/journal.pone.0182157
+      > Compared to usual care, CATCH-ED participants saw a 14% reduction in frequency of ED visits during the 12-month post-randomization period [rate ratio (RR) = 0.86, 95% CI 0.64-1.15)], however, this finding did not reach s
+   3. [24.34] Effectiveness of a housing support team intervention with a recovery-oriented approach on hospital and emergency department use by homeless people with severe mental illness: a randomised controlled trial (2020) https://doi.org/10.1017/s2045796020000785
+      > The primary outcomes were the number of emergency department (ED) visits, hospitalisation admissions and inpatient days at 24 months.
+   4. [24.28] Emergency Department Use in a Cohort of Older Homeless Adults: Results From the HOPE HOME Study (2016) https://doi.org/10.1111/acem.13070
+      > In addition, having health insurance/coverage (IRR = 2.6; CI = 1.5 to 4.4), a history of psychiatric hospitalization (IRR = 1.80; 95% CI = 1.09 to 2.99), and severe pain (IRR = 1.72; 95% CI = 1.07 to 2.76) were associate
+   5. [23.08] Frequent Emergency Department Visits and Hospitalizations Among Homeless People With Medicaid: Implications for Medicaid Expansion (2015) https://doi.org/10.2105/ajph.2015.302693
+      > Homeless individuals with co-occurring mental illness and substance use disorders were at greatest risk for frequent hospitalizations and ED visits (e.g., incidence rate ratios [IRRs] = 2.9-13.8 for hospitalizations).
+   6. [21.22] Accuracy of Self‐Reported Health Care Use in a Population‐Based Sample of Homeless Adults (2015) https://doi.org/10.1111/1475-6773.12329
+      > The mean difference between self-reported and documented number of encounters in the past 12 months was +1.6 for ambulatory care visits (95 percent CI = 0.4, 2.8), -0.6 for ED encounters (95 percent CI = -0.8, -0.4), and
+   7. [20.95] Effect of a Housing and Case Management Program on Emergency Department Visits and Hospitalizations Among Chronically Ill Homeless Adults (2009) https://doi.org/10.1001/jama.2009.561
+      > MAIN OUTCOME MEASURES: Hospitalizations, hospital days, and emergency department visits measured using electronic surveillance, medical records, and interviews.
+   8. [18.20] Effects of Housing First approaches on health and well-being of adults who are homeless or at risk of homelessness: systematic review and meta-analysis of randomised controlled trials (2019) https://doi.org/10.1136/jech-2018-210981
+      > We aimed to systematically review the evidence from randomised controlled trials for the effects of HF on health and well-being.
+   9. [18.14] Epidemiologic Analysis of an Urban, Public Emergency Department's Frequent Users (2000) https://doi.org/10.1111/j.1553-2712.2000.tb02037.x
+      > METHODS: A cross-sectional and retrospective cohort study was performed using a database of all 348,858 visits to the San Francisco General Hospital ED during a five-year period (July 1, 1993, to June 30, 1998).
+  10. [17.53] The effectiveness of case management interventions for the homeless, vulnerably housed and persons with lived experience: A systematic review (2020) https://doi.org/10.1371/journal.pone.0230896
+      > Intensive case management substantially reduced the number of days spent homeless (SMD -0.22 95% CI -0.40 to -0.03), as well as substance and alcohol use.
+
+=== M14-19: Longitudinal linear mixed-effects models showed that receiving SAU was associated with greater housing instability (mean difference, 0.78 [95% CI, 0.42-1.14]), DV exposure (mean difference, 0.15 [95% CI, 0.05-0.26]), depression (mean difference, 1.35 [95% CI, 0.27-2.43]), anxiety (mean difference, 1.15 [95% CI, 0.11-2.19]), and posttraumatic stress disorder (mean difference, 0.54 [95% CI, 0.04-1.04]) compared with receiving the DVHF model.
+   1. [47.25] Impact of the Domestic Violence Housing First Model on Survivors’ Safety and Housing Stability: 12-Month Findings (2022) https://doi.org/10.1177/08862605221119520
+      > Longitudinal analyses showed that survivors who received the DVHF model reported greater improvements in housing stability at both the 6-month and 12-month time points compared to those receiving SAU.
+   2. [38.03] Impact of the Domestic Violence Housing First Model on Survivors’ Safety and Housing Stability: Six Month Findings (2022) https://doi.org/10.1007/s10896-022-00381-x
+      > Those who received the DVHF model showed greater improvement in their housing stability compared to those receiving services as usual, as well as decreased economic abuse.
+   3. [24.03] “It Actually Isn’t Just about Housing”: Supporting Survivor Success in a Domestic Violence Housing First Program (2020) https://doi.org/10.1080/01488376.2020.1745349
+      > Conventional content analysis resulted in two main themes: a) advocates define survivor success in a DVHF program as much more than just obtaining housing; and b) advocates facilitate survivor success through a survivor-
+   4. [22.69] Differential impacts of COVID ‐19 and associated responses on the health, social well‐being and food security of users of supportive social and health programs during the COVID ‐19 pandemic: A qualitative study (2022) https://doi.org/10.1111/hsc.13826
+      > Conversely, among the remaining participants (impacted group), some experienced onset of new mental health problems (anxiety, stress, paranoia) or exacerbation of pre-existing mental disorders (depression, post-traumatic
+   5. [22.34] Tenant Outcomes in Supported Housing and Community Residences in New York City (2006) https://doi.org/10.1176/appi.ps.57.7.982
+      > The results suggest that greater clinical attention should be paid to persons who exhibit depression or anxiety when entering housing.
+   6. [22.19] Time-Limited Case Management for Homeless Mothers With Mental Health Problems: Effects on Maternal Mental Health (2015) https://doi.org/10.1086/684122
+      > Method: We use a longitudinal randomized controlled trial (N = 210) to test whether homeless mothers referred to FCTI experience greater declines in psychopathology compared with those receiving homeless services-as-usua
+   7. [21.16] Fitting Linear Mixed-Effects Models Using lme4 (2015) https://doi.org/10.18637/jss.v067.i01
+      > Maximum likelihood or restricted maximum likelihood (REML) estimates of the parameters in linear mixed-effects models can be determined using the lmer function in the lme4 package for R.
+   8. [19.70] Childhood cognitive ability and adult mental health in the British 1946 birth cohort (2007) https://doi.org/10.1016/j.socscimed.2007.02.027
+      > We examined whether childhood cognitive ability was associated with two mental health outcomes at age 53 years: the 28 item General Health Questionnaire (GHQ-28) as a measure of internalising symptoms of anxiety and depr
+   9. [17.27] Common ground, complementary approaches: adapting the Housing First model for domestic violence survivors (2016) https://doi.org/10.1080/08882746.2017.1323305
+      > This article describes the commonalities between the Housing First model and the tenets of DV victim advocacy work and explores how Housing First can be adapted to effectively achieve safe and stable housing for DV survi
+  10. [17.17] Factor structure and use of the Hospital Anxiety and Depression Scale in the homeless and socially marginalized (2006) https://doi.org/10.1080/13548500500155883
+      > The homeless have been identified as a group at risk of significant anxiety and depression and screening is therefore highly desirable to identify those needing psychological and psychiatric support.
+
+=== M14-26: Based on a harm reduction approach, MAPs offer a promising, targeted intervention for individuals with severe AUD and experiencing homelessness.
+   1. [30.10] Managed alcohol programs in the context of Housing First (2019) https://doi.org/10.1108/hcs-02-2019-0006
+      > Purpose Recently, Managed Alcohol Programs (MAPs have emerged as an alcohol harm reduction model for those living with severe alcohol use disorder (AUD) and experiencing homelessness.
+   2. [25.77] Investigating the need for alcohol harm reduction and managed alcohol programs for people experiencing homelessness and alcohol use disorders in Scotland (2020) https://doi.org/10.1111/dar.13178
+      > INTRODUCTION AND AIMS: Managed alcohol programs (MAP) are a harm reduction approach for those experiencing alcohol use disorders (AUD) and homelessness.
+   3. [24.40] “There is a Place”: impacts of managed alcohol programs for people experiencing severe alcohol dependence and homelessness (2019) https://doi.org/10.1186/s12954-019-0332-4
+      > Managed alcohol programs (MAPs) are harm reduction interventions that aim to reduce the harms of severe alcohol use, poverty and homelessness.
+   4. [23.82] Community managed alcohol programs in Canada: Overview of key dimensions and implementation (2018) https://doi.org/10.1111/dar.12681
+      > INTRODUCTION AND AIMS: People with severe alcohol dependence and unstable housing are vulnerable to multiple harms related to drinking and homelessness.
+   5. [22.92] Feasibility and acceptability of Managed Alcohol Programmes for people who are homeless with severe alcohol problems (2020) http://hdl.handle.net/1893/31175
+      > Managed Alcohol Programmes (MAPs) are a harm reduction approach specifically for people experiencing homelessness, providing alcohol in measured, regular doses throughout the day, as well as a range of other supports inc
+   6. [22.75] A managed alcohol program in Sydney, Australia: Acceptability, cost‐savings and non‐beverage alcohol use (2018) https://doi.org/10.1111/dar.12702
+      > INTRODUCTION AND AIMS: Managed alcohol programs (MAPs) are a novel harm reduction intervention for people who experience long-term homelessness and severe long-term alcohol dependence.
+   7. [22.30] Participation in Canadian Managed Alcohol Programs and Associated Probabilities of Emergency Room Presentation, Hospitalization and Death: A Retrospective Cohort Study (2021) https://doi.org/10.1093/alcalc/agab078
+      > MAPs are a promising approach to reduce mortality risk and time spent in hospital for people with an AUD and experiencing homelessness.
+   8. [19.55] Managed alcohol as a harm reduction intervention for alcohol addiction in populations at high risk for substance abuse (2012) https://doi.org/10.1002/14651858.cd006747.pub2
+      > BACKGROUND: Managed alcohol programmes (MAP) are a harm reduction strategy used to minimise the personal harm and adverse societal effects that alcohol dependence can lead to by providing an alternative to zero-tolerance
+   9. [16.21] Non-beverage alcohol consumption among individuals experiencing chronic homelessness in Edmonton, Canada: a cross-sectional study (2021) https://doi.org/10.1186/s12954-021-00555-8
+      > The objectives of this paper are to describe the alcohol consumption patterns of individuals experiencing homelessness, identify substance use patterns, psychological stressors, and related harms associated with NBA cons
+  10. [15.18] Getting to know Mark, a homeless alcohol-dependent artist, as he finds his way out of the river (2010) https://doi.org/10.3109/16066359.2010.500063
+      > Managed Alcohol Programs (MAPs) are a relatively recent addition to the repertoire of harm reduction approaches for persons experiencing severe alcohol dependence.
+
+=== N01: Mortality rates were not different in the HF compared with TAU groups (pooled log mortality rate ratio, -0.07; 95% CI, -0.36 to 0.22).
+   1. [26.99] Mortality in homeless people enrolled in the French housing first randomized controlled trial: a secondary outcome analysis of predictors and causes of death (2021) https://doi.org/10.1186/s12889-021-11310-w
+      > The overall 2-years mortality rate was 0.065 in the HF group (n = 23) versus 0.034 in the TAU group (n = 11).
+   2. [22.68] Examining mortality among formerly homeless adults enrolled in Housing First: An observational study (2015) https://doi.org/10.1186/s12889-015-2552-1
+      > We also compared mortality rates between HF participants and (a) members of the general population and (b) individuals experiencing homelessness.
+   3. [20.08] Risk of death among homeless women: a cohort study and review of the literature (2004) https://doi.org/10.1503/cmaj.1031167
+      > In 6 of the 7 cities, the mortality rates among younger homeless women and younger homeless men were not significantly different.
+   4. [18.84] Mortality Among Men Using Homeless Shelters in Toronto, Ontario (2000) https://doi.org/10.1001/jama.283.16.2152
+      > CONTEXT: Homeless persons in US cities have high mortality rates.
+   5. [18.17] Tobacco-, Alcohol-, and Drug-Attributable Deaths and Their Contribution to Mortality Disparities in a Cohort of Homeless Adults in Boston (2014) https://doi.org/10.2105/ajph.2014.302248
+      > We compared attributable mortality rates with those for Massachusetts adults using rate ratios and differences.
+   6. [17.95] Mortality Among Homeless Adults in Boston (2013) https://doi.org/10.1001/jamainternmed.2013.1604
+      > METHODS: We assessed all-cause and cause-specific mortality rates in a cohort of 28 033 adults 18 years or older who were seen at Boston Health Care for the Homeless Program from January 1, 2003, through December 31, 200
+   7. [17.80] Mortality among residents of shelters, rooming houses, and hotels in Canada: 11 year follow-up study (2009) https://doi.org/10.1136/bmj.b4036
+      > MAIN OUTCOME MEASURES: Age specific and age standardised mortality rates, remaining life expectancies at age 25, and probabilities of survival from age 25 to 75.
+   8. [17.62] Mortality in a Cohort of Homeless Adults in Philadelphia (1994) https://doi.org/10.1056/nejm199408043310506
+      > Using a data base that contained all deaths in Philadelphia and listings of all Philadelphia residents during the same period, we compared the mortality rate for this homeless population with the rate in the general popu
+   9. [17.51] Mortality Among Unsheltered Homeless Adults in Boston, Massachusetts, 2000-2009 (2018) https://doi.org/10.1001/jamainternmed.2018.2924
+      > Importance: Previous studies have shown high mortality rates among homeless people in general, but little is known about the patterns of mortality among "rough sleepers," the subgroup of unsheltered urban homeless people
+  10. [17.28] The Prevalence of Mental Illness in Homeless People in Germany (2017) https://doi.org/10.3238/arztebl.2017.0665
+      > The pooled prevalence of axis I disorders was 77.4%, with a 95% confidence interval [95% CI] of [71.3; 82.9].
+
+=== N08: Compared to the pre-period, significantly lower medical (-40.4%, p = 0.004), emergency department (-62.7%, p = 0.02), and total (-33.3%, p = 0.02) costs of care were observed in the post-period.
+   1. [16.11] Temporary Financial Assistance Decreased Health Care Costs For Veterans Experiencing Housing Instability (2021) https://doi.org/10.1377/hlthaff.2020.01796
+      > We examined the impact of temporary financial assistance on health care costs for veterans in the Supportive Services for Veteran Families program and found that, on average, people receiving the assistance incurred $352
+   2. [15.92] Health Care and Public Service Use and Costs Before and After Provision of Housing for Chronically Homeless Persons With Severe Alcohol Problems (2009) https://doi.org/10.1001/jama.2009.414
+      > MAIN OUTCOME MEASURES: Use and cost of services (jail bookings, days incarcerated, shelter and sobering center use, hospital-based medical services, publicly funded alcohol and drug detoxification and treatment, emergenc
+   3. [15.66] Retaining Homeless Veterans in Outpatient Care: A Pilot Study of Mobile Phone Text Message Appointment Reminders (2014) https://doi.org/10.2105/ajph.2014.302061
+      > Implementation may reduce missed visits and emergency department use, and thus produce substantial cost savings.
+   4. [15.09] Formerly Homeless People Had Lower Overall Health Care Expenditures After Moving Into Supportive Housing (2016) https://doi.org/10.1377/hlthaff.2015.0393
+      > Health care costs for the homeless reflect both their medical complexity and psychosocial risk factors.
+   5. [14.85] Substance Use, Homelessness, Mental Illness and Medicaid Coverage: A Set-up for High Emergency Department Utilization (2018) https://doi.org/10.5811/westjem.2018.9.38954
+      > Understanding unique features of this population could lead to better care and lower healthcare costs.
+   6. [14.84] Effect of a Housing and Case Management Program on Emergency Department Visits and Hospitalizations Among Chronically Ill Homeless Adults (2009) https://doi.org/10.1001/jama.2009.561
+      > CONCLUSION: After adjustment, offering housing and case management to a population of homeless adults with chronic medical illnesses resulted in fewer hospital days and emergency department visits, compared with usual ca
+   7. [13.95] Cost-effectiveness of assertive community treatment for homeless persons with severe mental illness (1999) https://doi.org/10.1192/bjp.174.4.346
+      > RESULTS: Compared with usual care, ACT costs were significantly lower for mental health in-patient days and mental health emergency room care, and significantly higher for mental health out-patient visits and treatment f
+   8. [13.24] Frequent Emergency Department Users: Focusing Solely On Medical Utilization Misses The Whole Person (2019) https://doi.org/10.1377/hlthaff.2019.00082
+      > Frequent emergency department (ED) users often have complex behavioral health and social needs.
+   9. [12.82] Homelessness and the use of Emergency Department as a source of healthcare: a systematic review (2022) https://doi.org/10.1186/s12245-022-00435-3
+      > BACKGROUND: Persons experiencing homelessness (PEH) often use hospital Emergency Department (ED) as the only source of healthcare.
+  10. [12.81] Shelter-based managed alcohol administration to chronicallyhomeless people addicted to alcohol (2006) https://doi.org/10.1503/cmaj.1041350
+      > Hospital charts were reviewed for all emergency department (ED) visits and admissions during the 3 years before and up to 2 years after program enrollment, and the police database was accessed for all encounters during t
+
+=== N16: Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.
+   1. [21.78] Do managed alcohol programs change patterns of alcohol consumption and reduce related harm? A pilot study (2016) https://doi.org/10.1186/s12954-016-0103-4
+      > Patterns of alcohol consumption and related harms among MAP participants and controls from a homeless shelter in Thunder Bay, Ontario, were investigated in 2013.
+   2. [20.49] Counting the cold ones: A comparison of methods measuring total alcohol consumption of managed alcohol program participants (2017) https://doi.org/10.1111/dar.12648
+      > This study compares two methods of estimating participants' outside alcohol consumption in order to inform program policies and practices around alcohol dosing and reducing risks of alcohol-related illnesses.
+   3. [18.21] Does managing the consumption of people with severe alcohol dependence reduce harm? A comparison of participants in six Canadian managed alcohol programs with locally recruited controls (2017) https://doi.org/10.1111/dar.12618
+      > DESIGN AND METHODS: One hundred and seventy-five MAP participants from five Canadian cities (Hamilton, Ottawa, Toronto, Thunder Bay and Vancouver) and 189 same-city controls were assessed for alcohol consumption, health,
+   4. [17.99] Non-beverage alcohol consumption among individuals experiencing chronic homelessness in Edmonton, Canada: a cross-sectional study (2021) https://doi.org/10.1186/s12954-021-00555-8
+      > Alcohol-related harms are compounded by the use of non-beverage alcohol (NBA; e.g. rubbing alcohol, cooking wine).
+   5. [16.58] Gender Differences in the Epidemiology of Alcohol Use and Related Harms in the United States (2020) https://doi.org/10.35946/arcr.v40.2.01
+      > Over the past century, differences in alcohol use and related harms between males and females in the United States have diminished considerably.
+   6. [15.20] Dose–response relationship between alcohol consumption and workplace absenteeism in Australia (2023) https://doi.org/10.1111/dar.13726
+      > However, there is a strong dose-response association between alcohol consumption and alcohol-related absences for both consumption measures amongst Australian workers.
+   7. [14.86] Using Death Certificates to Explore Changes in Alcohol‐Related Mortality in the United States, 1999 to 2017 (2020) https://doi.org/10.1111/acer.14239
+      > BACKGROUND: Alcohol consumption, alcohol-related emergency department visits, and hospitalizations have all increased in the last 2 decades, particularly among women and people middle-aged and older.
+   8. [13.98] A managed alcohol program in Sydney, Australia: Acceptability, cost‐savings and non‐beverage alcohol use (2018) https://doi.org/10.1111/dar.12702
+      > Preliminary international evidence suggests that MAPs are associated with improvements such as reduced non-beverage alcohol consumption and decreases in some alcohol-related harms.
+   9. [13.44] Trajectories of Alcohol Use and Related Harms for Managed Alcohol Program Participants over 12 Months Compared with Local Controls: A Quasi-Experimental Study (2020) https://doi.org/10.1093/alcalc/agaa134
+      > Self-reported alcohol consumption and harms were assessed at 0-2, 6 and 12 months.
+  10. [12.80] “I drink less and that’s no small matter”: a qualitative descriptive study of a managed alcohol program evaluation in Barcelona (2024) https://doi.org/10.1080/00952990.2024.2404242
+      > Managed alcohol programs (MAPs), a harm reduction strategy based on providing regular doses of alcohol to individuals with AUD, have emerged as a potential solution to reduce alcohol-related harms.Objectives: This study 
+
+=== N19: CTI had a consistent positive impact on two primary outcomes-reduced homelessness and increased service engagement use-among different populations and contexts.
+   1. [15.29] A Critical Time Intervention with Mentally III Homeless Men (2000) https://doi.org/10.1097/00005053-200003000-00002
+      > We describe the impact of a psychosocial intervention, critical time intervention (CTI), on the cardinal symptom dimensions of schizophrenia, namely negative, positive, and general psychopathology.
+   2. [15.17] Critical time Intervention for Severely mentally ill Prisoners (CrISP): a randomised controlled trial (2017) https://doi.org/10.3310/hsdr05080
+      > Increased engagement resulted in higher levels of service use and costs for the intervention than for the control.
+   3. [14.57] Improving program implementation and client engagement in interventions addressing youth homelessness: A meta-synthesis (2020) https://doi.org/10.1016/j.childyouth.2020.105691
+      > Evidence on the effectiveness of programs serving unaccompanied youth experiencing homelessness remains limited and mixed, and we know little about the factors that contribute to participant engagement and program implem
+   4. [14.07] Examining the bidirectional association between veteran homelessness and incarceration within the context of permanent supportive housing. (2017) https://doi.org/10.1037/ser0000110
+      > Permanent supportive housing (PSH) programs have demonstrated positive outcomes for participants with criminal histories, yet participants continue to exit to jail or prison and experience subsequent homelessness.
+   5. [13.91] Critical Time Intervention for Homeless People Making the Transition to Community Living: A Randomized Controlled Trial (2017) https://doi.org/10.1002/ajcp.12150
+      > Because few participants were homeless at 9 months, more research is needed to establish whether CTI can prevent long-term recurrent homelessness.
+   6. [13.38] Critical Time Intervention: An Empirically Supported Model for Preventing Homelessness in High Risk Groups (2007) https://doi.org/10.1007/s10935-007-0099-3
+      > Finally, we consider plans for the further adaptation, testing and dissemination of CTI in other populations and service delivery settings.
+   7. [12.84] The effect of a Housing First intervention on primary care retention among homeless individuals with mental illness (2021) https://doi.org/10.1371/journal.pone.0246859
+      > BACKGROUND: Primary care retention, defined as ongoing periodic contact with a consistent primary care provider, is beneficial for people with serious chronic illnesses.
+   8. [12.34] Understanding the impact of persistent symptoms in schizophrenia: Cross-sectional findings from the Pattern study (2015) https://doi.org/10.1016/j.schres.2015.09.001
+      > CONCLUSIONS: This analysis examines individual contributions of persistent positive and negative symptoms on patient functioning in different countries.
+   9. [12.24] The Impact of Critical Time Intervention in Reducing Psychiatric Rehospitalization After Hospital Discharge (2012) https://doi.org/10.1176/appi.ps.201100468
+      > OBJECTIVES: This study examined the impact of critical time intervention (CTI) in reducing rehospitalization among formerly homeless individuals with severe and persistent mental illness after discharge from inpatient ps
+  10. [12.05] Meta-analyses involving cross-over trials: methodological issues (2002) https://doi.org/10.1093/ije/31.1.140
+      > BACKGROUND: Meta-analysis of randomized controlled trials (RCTs) is usually based on trials where patients are randomized individually into two different, parallel, treatment groups.
