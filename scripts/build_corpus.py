@@ -32,16 +32,18 @@ def build(papers: list[dict], cache: Path) -> tuple[list[dict], list[dict], dict
     by_openalex_id: dict[str, str] = {}  # openalex_id -> paper_id, to skip works we already have
     links, per_paper = [], []
 
-    def add(work: dict, citing_paper: str) -> dict:
+    def add(work: dict, citing_paper: str) -> dict | None:
         # Add a work (or find it if we already have it) and note which source paper cites it.
         new = corpus_record(work, "reference")
+        if new["paper_id"] == citing_paper:
+            return None # OpenAlex sometimes lists a paper among its own references
         by_openalex_id[new["openalex_id"]] = new["paper_id"]  # OpenAlex can have 2 IDs for one DOI
         record = corpus.setdefault(new["paper_id"], new)
         cite(record, citing_paper)
         return record
 
     def cite(record: dict, citing_paper: str) -> None:
-        if citing_paper not in record["cited_by"]:
+        if citing_paper not in record["cited_by"] and citing_paper != record["paper_id"]:
             record["cited_by"].append(citing_paper)
 
     for paper in papers:
@@ -60,6 +62,8 @@ def build(papers: list[dict], cache: Path) -> tuple[list[dict], list[dict], dict
                 stats["not_in_openalex"] += 1
                 continue
             record = add(work, paper["paper_id"])
+            if record is None:
+                continue    # the reference is the paper itself
             links.append({"paper_id": paper["paper_id"], "ref_id": ref["ref_id"],
                           "corpus_id": record["paper_id"], "matched_by": key.split(":")[0]})
             stats["linked"] += 1
