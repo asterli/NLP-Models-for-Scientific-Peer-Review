@@ -103,3 +103,21 @@ def test_openalex_error_stops_and_writes_nothing(monkeypatch, tmp_path):
     with pytest.raises(SystemExit, match="run again to continue"):
         run(tmp_path)
     assert not (tmp_path / "corpus").exists()
+
+
+def test_a_paper_is_never_its_own_reference(monkeypatch, tmp_path):
+    # OpenAlex sometimes lists a paper among its own referenced_works.
+    # C cites D. C's list has only itself (new work); D's list has only itself (already in corpus).
+    fake = {
+        "doi:10.1/c": work("W30", "10.1/c", refs=["W30"]),
+        "W30": work("W30", "10.1/c"),
+        "doi:10.1/d": work("W40", "10.1/d", refs=["W40"]),
+    }
+    monkeypatch.setattr(openalex, "get_work", lambda key, cache_dir: fake.get(key))
+    papers = [
+        {"paper_id": "doi:10.1/c", "pmcid": "PMC3", "doi": "10.1/c", "references": [
+            {"ref_id": "C1", "doi": "10.1/d", "pmid": None}]},
+        {"paper_id": "doi:10.1/d", "pmcid": "PMC4", "doi": "10.1/d", "references": []},
+    ]
+    corpus, _, _ = build_corpus.build(papers, tmp_path)
+    assert [(r["paper_id"], r["cited_by"]) for r in corpus] == [("doi:10.1/d", ["doi:10.1/c"])]
