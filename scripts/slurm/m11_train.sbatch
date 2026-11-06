@@ -17,7 +17,7 @@
 # bf16 GPUs only (A40/L40S/A100). On a V100 add EXTRA="--load-4bit" and drop the constraint.
 
 set -euo pipefail
-module load conda
+module load conda && eval "$(conda shell.bash hook)"
 conda activate /project2/xiangren_1987/group_40/envs/nlp
 export HF_HOME=/project2/xiangren_1987/group_40/hf_cache
 cd /project2/xiangren_1987/group_40/NLP-Models-for-Scientific-Peer-Review

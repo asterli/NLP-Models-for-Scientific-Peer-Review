@@ -15,7 +15,7 @@
 # Edit PROMPTS to pick which variants to run (each ~1-2 min after model load).
 
 set -euo pipefail
-module load conda
+module load conda && eval "$(conda shell.bash hook)"
 conda activate /project2/xiangren_1987/group_40/envs/nlp
 export HF_HOME=/project2/xiangren_1987/group_40/hf_cache
 cd /project2/xiangren_1987/group_40/NLP-Models-for-Scientific-Peer-Review
