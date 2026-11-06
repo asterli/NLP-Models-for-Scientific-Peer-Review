@@ -13,7 +13,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 p = argparse.ArgumentParser()
 p.add_argument("--papers", default="data/papers/papers.jsonl")
 p.add_argument("--split", default="all", help="train|dev|test|all (membership read from data/claims/splits/)")
-p.add_argument("--prompt", default="v1", choices=["v1", "v2"])
+p.add_argument("--prompt", default="v1", choices=["v1", "v2", "v3"])
 p.add_argument("--model", default="Qwen/Qwen2.5-7B-Instruct")
 p.add_argument("--out", default="data/claims/predictions/baseline_qwen7b.jsonl")
 p.add_argument("--raw-out", default="/project2/xiangren_1987/group_40/runs/m10_raw_outputs.jsonl")
@@ -50,7 +50,14 @@ PROMPTS = {
           "s001: BACKGROUND\n"
           "s002: CLAIM\n"
           "Label every sentence. Output nothing else.",
+    # v3: v2 + feasibility/pilot outcomes are findings
+    "v3": None,
 }
+PROMPTS["v3"] = PROMPTS["v2"].replace(
+    "4. A sentence mixing background",
+    "Feasibility, pilot, or process outcomes that THIS paper measured and reports (recruitment or retention rates, "
+    "fidelity, acceptability, whether progression criteria were met, cost or data-collection feasibility) are findings -> CLAIM.\n"
+    "4. A sentence mixing background")
 SYSTEM = PROMPTS[args.prompt]
 max_new = args.max_new_tokens or (200 if args.prompt == "v1" else 700)
 

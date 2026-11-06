@@ -1,0 +1,20 @@
+{
+  "task": "claims",
+  "inputs": {
+    "pred": "data/claims/predictions/baseline_qwen7b_dev_v3.jsonl",
+    "gold": "data/claims/splits/dev.jsonl"
+  },
+  "precision": 0.225,
+  "recall": 1.0,
+  "f1": 0.36734693877551017,
+  "tp": 18,
+  "fp": 62,
+  "fn": 0,
+  "counts": {
+    "papers": 3,
+    "sentences": 80,
+    "gold_claims": 18,
+    "predicted_claims": 80,
+    "ignored_predictions": 0
+  }
+}
