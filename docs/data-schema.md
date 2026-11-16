@@ -37,8 +37,8 @@
 - `claim_id`: ID of the claim being assessed
 - `prior_paper_id`: ID of the comparison paper
 - `label`: `overlapping`, `distinct`, or `insufficient_evidence`
-- `score`: raw model score, if available
-- `reason`: brief explanation supported by the evidence
+- `score`: raw model score, if available; `null` for the label-only comparison classifier (do not substitute the retrieval score)
+- `reason`: brief explanation supported by the evidence, or `null` when the classifier does not generate one
 
 ## 5. Corpus Document
 

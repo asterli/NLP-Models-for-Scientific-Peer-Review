@@ -1,0 +1,134 @@
+{
+  "label": {
+    "counts": {
+      "total": 75,
+      "strict_invalid": 37,
+      "format_recovered": 37,
+      "recovered_correct": 24,
+      "recovered_incorrect": 13,
+      "remaining_invalid": 0
+    },
+    "metrics": {
+      "count": 75,
+      "correct": 32,
+      "accuracy": 0.4266666666666667,
+      "macro_f1": 0.2843504442975692,
+      "per_class": {
+        "overlapping": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 2,
+          "fn": 8,
+          "support": 8
+        },
+        "distinct": {
+          "precision": 0.7058823529411765,
+          "recall": 0.43636363636363634,
+          "f1": 0.5393258426966292,
+          "tp": 24,
+          "fp": 10,
+          "fn": 31,
+          "support": 55
+        },
+        "insufficient_evidence": {
+          "precision": 0.20512820512820512,
+          "recall": 0.6666666666666666,
+          "f1": 0.31372549019607837,
+          "tp": 8,
+          "fp": 31,
+          "fn": 4,
+          "support": 12
+        }
+      },
+      "confusion": {
+        "overlapping": {
+          "overlapping": 0,
+          "distinct": 7,
+          "insufficient_evidence": 1,
+          "invalid": 0
+        },
+        "distinct": {
+          "overlapping": 1,
+          "distinct": 24,
+          "insufficient_evidence": 30,
+          "invalid": 0
+        },
+        "insufficient_evidence": {
+          "overlapping": 1,
+          "distinct": 3,
+          "insufficient_evidence": 8,
+          "invalid": 0
+        }
+      },
+      "invalid_predictions": 0
+    }
+  },
+  "explanation": {
+    "counts": {
+      "total": 75,
+      "strict_invalid": 6,
+      "format_recovered": 6,
+      "recovered_correct": 3,
+      "recovered_incorrect": 3,
+      "remaining_invalid": 0
+    },
+    "metrics": {
+      "count": 75,
+      "correct": 55,
+      "accuracy": 0.7333333333333333,
+      "macro_f1": 0.282051282051282,
+      "per_class": {
+        "overlapping": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 8,
+          "support": 8
+        },
+        "distinct": {
+          "precision": 0.7333333333333333,
+          "recall": 1.0,
+          "f1": 0.846153846153846,
+          "tp": 55,
+          "fp": 20,
+          "fn": 0,
+          "support": 55
+        },
+        "insufficient_evidence": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 12,
+          "support": 12
+        }
+      },
+      "confusion": {
+        "overlapping": {
+          "overlapping": 0,
+          "distinct": 8,
+          "insufficient_evidence": 0,
+          "invalid": 0
+        },
+        "distinct": {
+          "overlapping": 0,
+          "distinct": 55,
+          "insufficient_evidence": 0,
+          "invalid": 0
+        },
+        "insufficient_evidence": {
+          "overlapping": 0,
+          "distinct": 12,
+          "insufficient_evidence": 0,
+          "invalid": 0
+        }
+      },
+      "invalid_predictions": 0
+    }
+  }
+}

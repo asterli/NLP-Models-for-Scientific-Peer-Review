@@ -1,0 +1,43 @@
+{
+  "complete": true,
+  "evaluation_split": "test",
+  "test_sha256": "0ab3b69de19d43817ab13e29081c646183be392d1171080e827e6870cf9dc2dd",
+  "protocol_sha256": "d0278adff7605959c9af788e7220c52e63da85a14300b129356189ac165390e8",
+  "count": 73,
+  "runtime": {
+    "backend": "mlx",
+    "python": "3.12.1",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "device": {
+      "device_name": "Apple M4",
+      "max_recommended_working_set_size": 12713115648,
+      "memory_size": 17179869184,
+      "architecture": "applegpu_g16g",
+      "max_buffer_length": 9534832640,
+      "resource_limit": 499000
+    },
+    "packages": {
+      "mlx": "0.32.4",
+      "mlx-lm": "0.32.2",
+      "mlx-metal": "0.32.4",
+      "transformers": "5.20.1",
+      "tokenizers": "0.23.3"
+    }
+  },
+  "source_sha256": {
+    "scripts/evaluate_comparison_mlx.py": "43876e39cbfb17883fb1a15cf16f3db2e073fa15f7f9339bfb78020b0eaf3501",
+    "src/mlx_comparison.py": "03a0b8f5173d572d195aa3675fa31bb06750337e325d9581fafacaea154a8e60",
+    "src/comparison_baselines.py": "6e7309eb972767307515613a58597fb563e20c04d22df2833d8ecdef454a58f4",
+    "evaluation/comparison_results.py": "2752dae095e4578aff68a9a73421b0213c4f732471d4f3fce213d3f79f0feffc",
+    "evaluation/comparison_significance.py": "02419680064a78e4761aba056085f5931350c190f32481a1a193ccf4bd18c2fa",
+    "evaluation/comparison_output_diagnostics.py": "15199393dc52bfd3ca17db1844bc41ad18e035b860ce1bc400cdb674d5ef7865",
+    "evaluation/metrics.py": "34f323567921dc067b09603d9720bd0e81263df52b720a41c74488ee5934e474"
+  },
+  "peak_memory_gib": 4.502087540924549,
+  "primary_methods": [
+    "majority",
+    "prompted",
+    "fine_tuned"
+  ],
+  "alternate_prompt": "label"
+}

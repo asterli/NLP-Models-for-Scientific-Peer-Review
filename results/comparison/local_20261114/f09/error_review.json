@@ -1,0 +1,78 @@
+{
+  "method": "fine_tuned",
+  "selection": "First ten saved errors, ordered by comparison ID; no model or gold-label changes.",
+  "scope": "Only the supplied claim and older passage were reviewed. Eight of these ten pairs come from the same source paper, so these counts are not a representative estimate of all error types.",
+  "summary": "Six reviewed errors have gold insufficient_evidence: five were predicted distinct and one overlapping. These excerpts generally state aims, definitions, or questions without results. Two clear overlapping cases were missed where a specific numerical result restated a broader finding. One case concerns delivery-model specificity, and one gold overlap judgment remains ambiguous from the excerpts.",
+  "errors": [
+    {
+      "comparison_id": "N18",
+      "gold": "distinct",
+      "predicted": "overlapping",
+      "error_type": "intervention_specificity",
+      "evidence_observation": "Both excerpts discuss positive MAP outcomes, but only the claim specifies scattered-site delivery. The older passage does not establish whether its MAP used the same delivery model; broad outcome similarity can obscure that distinction."
+    },
+    {
+      "comparison_id": "R092",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "error_type": "association_vs_intervention_result",
+      "evidence_observation": "The claim links particular substance use disorders to lower housing attainment. The older passage describes HF outcomes and an ongoing alcohol issue, without explicitly reporting that association or the opioid/methamphetamine result. The supplied excerpts leave the rationale for the gold overlap judgment ambiguous; the gold label is retained."
+    },
+    {
+      "comparison_id": "R124",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "error_type": "shared_outcome_missed",
+      "evidence_observation": "Both excerpts report reductions in alcohol-related harms and seizures. The claim adds specific rates and a year-to-year comparison; treating those details as a new main finding misses the shared outcome."
+    },
+    {
+      "comparison_id": "R126",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "error_type": "specific_vs_general_result",
+      "evidence_observation": "The older passage already reports reduced acute and social harms from MAPs. The claim supplies narrower outcomes and numerical changes, but the central reduction in harms overlaps."
+    },
+    {
+      "comparison_id": "R127",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "missing_results_treated_as_difference",
+      "evidence_observation": "The older passage gives the MAP rationale and study objectives, not findings. It cannot establish whether the reported changes in harms and seizures were present or absent."
+    },
+    {
+      "comparison_id": "R131",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "program_description_treated_as_difference",
+      "evidence_observation": "The older passage defines MAP services without reporting health, nonbeverage alcohol, survival-behavior, or violence outcomes. Missing outcome evidence was treated as a distinct finding."
+    },
+    {
+      "comparison_id": "R133",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "study_question_treated_as_difference",
+      "evidence_observation": "The older passage says length of stay was investigated as a predictor, but provides no result. The shared outcome topics do not supply enough evidence to compare the claimed improvements."
+    },
+    {
+      "comparison_id": "R135",
+      "gold": "insufficient_evidence",
+      "predicted": "overlapping",
+      "error_type": "aim_confused_with_result",
+      "evidence_observation": "The older passage states that MAPs aim to reduce harms; it does not show that they did so. Similar wording about health and social benefits was treated as evidence of overlapping results."
+    },
+    {
+      "comparison_id": "R139",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "aim_treated_as_difference",
+      "evidence_observation": "The older passage states a harm-reduction aim without outcome findings. It does not establish whether the claimed positive health and social outcomes overlap or differ."
+    },
+    {
+      "comparison_id": "R140",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "general_background_treated_as_difference",
+      "evidence_observation": "The older passage describes general harm-reduction support. It supplies no evidence about program gaps or out-of-program drinking, so it cannot establish a distinct contribution."
+    }
+  ]
+}

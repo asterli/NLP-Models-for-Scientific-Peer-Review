@@ -1,0 +1,361 @@
+mx.metal.device_info is deprecated and will be removed in a future version. Use mx.device_info instead.
+{"examples": 8, "loss": 1.0111355874687433, "gradient_norm": 93.83218383789062, "peak_memory_gib": 4.895518792793155}
+{"examples": 16, "loss": 0.9581184609560296, "gradient_norm": 72.27650451660156, "peak_memory_gib": 5.116115336306393}
+{"examples": 24, "loss": 0.2034770943573676, "gradient_norm": 22.021337509155273, "peak_memory_gib": 5.116115336306393}
+{"examples": 32, "loss": 0.5920599772653077, "gradient_norm": 36.89326477050781, "peak_memory_gib": 5.116115336306393}
+{"examples": 40, "loss": 1.223283148414339, "gradient_norm": 58.89205551147461, "peak_memory_gib": 5.116115336306393}
+{"examples": 48, "loss": 0.4044465728366049, "gradient_norm": 12.036371231079102, "peak_memory_gib": 5.116115336306393}
+{"examples": 56, "loss": 0.2842300535412505, "gradient_norm": 25.9334774017334, "peak_memory_gib": 5.116115336306393}
+{"examples": 64, "loss": 0.3835677568567917, "gradient_norm": 20.784639358520508, "peak_memory_gib": 5.116115336306393}
+{"examples": 72, "loss": 0.2431577490933705, "gradient_norm": 9.622316360473633, "peak_memory_gib": 5.116115336306393}
+{"examples": 80, "loss": 0.26594857148302253, "gradient_norm": 21.338794708251953, "peak_memory_gib": 5.116115336306393}
+{"examples": 88, "loss": 0.3525838446803391, "gradient_norm": 20.52337646484375, "peak_memory_gib": 5.116115336306393}
+{"examples": 96, "loss": 0.25438539823517203, "gradient_norm": 9.266416549682617, "peak_memory_gib": 5.116115336306393}
+{"examples": 104, "loss": 0.2216473442967981, "gradient_norm": 11.853617668151855, "peak_memory_gib": 5.116115336306393}
+{"examples": 112, "loss": 0.13077123218681663, "gradient_norm": 6.7326178550720215, "peak_memory_gib": 5.116115336306393}
+{"examples": 120, "loss": 0.3972246437333524, "gradient_norm": 13.307474136352539, "peak_memory_gib": 5.116115336306393}
+{"examples": 128, "loss": 0.09773367397428956, "gradient_norm": 3.4252889156341553, "peak_memory_gib": 5.116115336306393}
+{"examples": 136, "loss": 0.6158026595367119, "gradient_norm": 14.725099563598633, "peak_memory_gib": 5.116115336306393}
+{"examples": 144, "loss": 0.030124277545837685, "gradient_norm": 2.3625404834747314, "peak_memory_gib": 5.116115336306393}
+{"examples": 152, "loss": 0.21027645358117297, "gradient_norm": 4.9724016189575195, "peak_memory_gib": 5.116115336306393}
+{"examples": 160, "loss": 0.02067418146179989, "gradient_norm": 1.5966887474060059, "peak_memory_gib": 5.116115336306393}
+{"examples": 168, "loss": 0.3443747604615055, "gradient_norm": 9.304409980773926, "peak_memory_gib": 5.116115336306393}
+{"examples": 176, "loss": 0.14611767974565737, "gradient_norm": 7.545631408691406, "peak_memory_gib": 5.1929226173087955}
+{"examples": 184, "loss": 0.4232714872341603, "gradient_norm": 10.31553840637207, "peak_memory_gib": 5.1929226173087955}
+{"examples": 192, "loss": 0.17961303453193977, "gradient_norm": 4.227187156677246, "peak_memory_gib": 5.1929226173087955}
+{"examples": 200, "loss": 0.032341034268029034, "gradient_norm": 2.2933356761932373, "peak_memory_gib": 5.1929226173087955}
+{"examples": 208, "loss": 0.38517268700525165, "gradient_norm": 9.56089973449707, "peak_memory_gib": 5.1929226173087955}
+{"examples": 216, "loss": 0.09858403060934506, "gradient_norm": 2.5571200847625732, "peak_memory_gib": 5.1929226173087955}
+{"examples": 224, "loss": 0.3927509365603328, "gradient_norm": 8.092864990234375, "peak_memory_gib": 5.1929226173087955}
+{"examples": 232, "loss": 0.43037705426104367, "gradient_norm": 9.095337867736816, "peak_memory_gib": 5.1929226173087955}
+{"examples": 240, "loss": 0.2132091331295669, "gradient_norm": 6.041038990020752, "peak_memory_gib": 5.1929226173087955}
+{"examples": 248, "loss": 0.20531781518366188, "gradient_norm": 6.820755958557129, "peak_memory_gib": 5.1929226173087955}
+{"examples": 256, "loss": 0.16641692235134542, "gradient_norm": 4.686853408813477, "peak_memory_gib": 5.1929226173087955}
+{"examples": 264, "loss": 0.3936773871537298, "gradient_norm": 5.655249118804932, "peak_memory_gib": 5.1929226173087955}
+{"examples": 272, "loss": 0.14459355920553207, "gradient_norm": 6.3118743896484375, "peak_memory_gib": 5.1929226173087955}
+{"examples": 280, "loss": 0.14969276962801814, "gradient_norm": 3.302060842514038, "peak_memory_gib": 5.1929226173087955}
+{"examples": 288, "loss": 0.2825630586594343, "gradient_norm": 5.725287437438965, "peak_memory_gib": 5.1929226173087955}
+{"examples": 296, "loss": 0.2977811940945685, "gradient_norm": 5.452967643737793, "peak_memory_gib": 5.1929226173087955}
+{"examples": 304, "loss": 0.2553665633313358, "gradient_norm": 5.014222621917725, "peak_memory_gib": 5.1929226173087955}
+{"examples": 312, "loss": 0.17656880663707852, "gradient_norm": 4.192798614501953, "peak_memory_gib": 5.1929226173087955}
+{"examples": 320, "loss": 0.19454261800274253, "gradient_norm": 5.780035972595215, "peak_memory_gib": 5.1929226173087955}
+{"examples": 328, "loss": 0.2562331189401448, "gradient_norm": 5.648869514465332, "peak_memory_gib": 5.1929226173087955}
+{"examples": 336, "loss": 0.12794806389138103, "gradient_norm": 2.4922306537628174, "peak_memory_gib": 5.1929226173087955}
+{"examples": 344, "loss": 0.22774781077168882, "gradient_norm": 6.125852108001709, "peak_memory_gib": 5.1929226173087955}
+{"examples": 351, "loss": 0.15120391707335198, "gradient_norm": 4.239475250244141, "peak_memory_gib": 5.1929226173087955}
+{"prompt": "label", "completed": 1, "total": 75}
+{"prompt": "label", "completed": 2, "total": 75}
+{"prompt": "label", "completed": 3, "total": 75}
+{"prompt": "label", "completed": 4, "total": 75}
+{"prompt": "label", "completed": 5, "total": 75}
+{"prompt": "label", "completed": 6, "total": 75}
+{"prompt": "label", "completed": 7, "total": 75}
+{"prompt": "label", "completed": 8, "total": 75}
+{"prompt": "label", "completed": 9, "total": 75}
+{"prompt": "label", "completed": 10, "total": 75}
+{"prompt": "label", "completed": 11, "total": 75}
+{"prompt": "label", "completed": 12, "total": 75}
+{"prompt": "label", "completed": 13, "total": 75}
+{"prompt": "label", "completed": 14, "total": 75}
+{"prompt": "label", "completed": 15, "total": 75}
+{"prompt": "label", "completed": 16, "total": 75}
+{"prompt": "label", "completed": 17, "total": 75}
+{"prompt": "label", "completed": 18, "total": 75}
+{"prompt": "label", "completed": 19, "total": 75}
+{"prompt": "label", "completed": 20, "total": 75}
+{"prompt": "label", "completed": 21, "total": 75}
+{"prompt": "label", "completed": 22, "total": 75}
+{"prompt": "label", "completed": 23, "total": 75}
+{"prompt": "label", "completed": 24, "total": 75}
+{"prompt": "label", "completed": 25, "total": 75}
+{"prompt": "label", "completed": 26, "total": 75}
+{"prompt": "label", "completed": 27, "total": 75}
+{"prompt": "label", "completed": 28, "total": 75}
+{"prompt": "label", "completed": 29, "total": 75}
+{"prompt": "label", "completed": 30, "total": 75}
+{"prompt": "label", "completed": 31, "total": 75}
+{"prompt": "label", "completed": 32, "total": 75}
+{"prompt": "label", "completed": 33, "total": 75}
+{"prompt": "label", "completed": 34, "total": 75}
+{"prompt": "label", "completed": 35, "total": 75}
+{"prompt": "label", "completed": 36, "total": 75}
+{"prompt": "label", "completed": 37, "total": 75}
+{"prompt": "label", "completed": 38, "total": 75}
+{"prompt": "label", "completed": 39, "total": 75}
+{"prompt": "label", "completed": 40, "total": 75}
+{"prompt": "label", "completed": 41, "total": 75}
+{"prompt": "label", "completed": 42, "total": 75}
+{"prompt": "label", "completed": 43, "total": 75}
+{"prompt": "label", "completed": 44, "total": 75}
+{"prompt": "label", "completed": 45, "total": 75}
+{"prompt": "label", "completed": 46, "total": 75}
+{"prompt": "label", "completed": 47, "total": 75}
+{"prompt": "label", "completed": 48, "total": 75}
+{"prompt": "label", "completed": 49, "total": 75}
+{"prompt": "label", "completed": 50, "total": 75}
+{"prompt": "label", "completed": 51, "total": 75}
+{"prompt": "label", "completed": 52, "total": 75}
+{"prompt": "label", "completed": 53, "total": 75}
+{"prompt": "label", "completed": 54, "total": 75}
+{"prompt": "label", "completed": 55, "total": 75}
+{"prompt": "label", "completed": 56, "total": 75}
+{"prompt": "label", "completed": 57, "total": 75}
+{"prompt": "label", "completed": 58, "total": 75}
+{"prompt": "label", "completed": 59, "total": 75}
+{"prompt": "label", "completed": 60, "total": 75}
+{"prompt": "label", "completed": 61, "total": 75}
+{"prompt": "label", "completed": 62, "total": 75}
+{"prompt": "label", "completed": 63, "total": 75}
+{"prompt": "label", "completed": 64, "total": 75}
+{"prompt": "label", "completed": 65, "total": 75}
+{"prompt": "label", "completed": 66, "total": 75}
+{"prompt": "label", "completed": 67, "total": 75}
+{"prompt": "label", "completed": 68, "total": 75}
+{"prompt": "label", "completed": 69, "total": 75}
+{"prompt": "label", "completed": 70, "total": 75}
+{"prompt": "label", "completed": 71, "total": 75}
+{"prompt": "label", "completed": 72, "total": 75}
+{"prompt": "label", "completed": 73, "total": 75}
+{"prompt": "label", "completed": 74, "total": 75}
+{"prompt": "label", "completed": 75, "total": 75}
+{"epoch": 1, "loss": 0.30899632215616624, "macro_f1": 0.40467668814125507}
+{"examples": 8, "loss": 0.2057748072547838, "gradient_norm": 3.8080132007598877, "peak_memory_gib": 5.1929226173087955}
+{"examples": 16, "loss": 0.18266676412895322, "gradient_norm": 3.78460955619812, "peak_memory_gib": 5.1929226173087955}
+{"examples": 24, "loss": 0.0987764757592231, "gradient_norm": 1.8181302547454834, "peak_memory_gib": 5.1929226173087955}
+{"examples": 32, "loss": 0.2669915873557329, "gradient_norm": 5.628337860107422, "peak_memory_gib": 5.1929226173087955}
+{"examples": 40, "loss": 0.0780386469559744, "gradient_norm": 4.800239086151123, "peak_memory_gib": 5.1929226173087955}
+{"examples": 48, "loss": 0.2161662932485342, "gradient_norm": 7.6066083908081055, "peak_memory_gib": 5.1929226173087955}
+{"examples": 56, "loss": 0.47413806384429336, "gradient_norm": 11.72771167755127, "peak_memory_gib": 5.1929226173087955}
+{"examples": 64, "loss": 0.04964658760582097, "gradient_norm": 3.972578763961792, "peak_memory_gib": 5.1929226173087955}
+{"examples": 72, "loss": 0.13620370952412486, "gradient_norm": 3.7575597763061523, "peak_memory_gib": 5.1929226173087955}
+{"examples": 80, "loss": 0.16594055137829855, "gradient_norm": 4.786316394805908, "peak_memory_gib": 5.1929226173087955}
+{"examples": 88, "loss": 0.418223305081483, "gradient_norm": 11.47073745727539, "peak_memory_gib": 5.1929226173087955}
+{"examples": 96, "loss": 0.12769702076911926, "gradient_norm": 3.59257435798645, "peak_memory_gib": 5.1929226173087955}
+{"examples": 104, "loss": 0.10476579680107534, "gradient_norm": 5.4311604499816895, "peak_memory_gib": 5.1929226173087955}
+{"examples": 112, "loss": 0.21714211348444223, "gradient_norm": 5.24497127532959, "peak_memory_gib": 5.1929226173087955}
+{"examples": 120, "loss": 0.20746693870842137, "gradient_norm": 12.263912200927734, "peak_memory_gib": 5.1929226173087955}
+{"examples": 128, "loss": 0.21672237571328878, "gradient_norm": 15.879874229431152, "peak_memory_gib": 5.1929226173087955}
+{"examples": 136, "loss": 0.14749766362365335, "gradient_norm": 14.474187850952148, "peak_memory_gib": 5.1929226173087955}
+{"examples": 144, "loss": 0.1414845206991231, "gradient_norm": 8.55485725402832, "peak_memory_gib": 5.1929226173087955}
+{"examples": 152, "loss": 0.1486731288023293, "gradient_norm": 4.790185928344727, "peak_memory_gib": 5.1929226173087955}
+{"examples": 160, "loss": 0.18468529568053782, "gradient_norm": 7.158176422119141, "peak_memory_gib": 5.1929226173087955}
+{"examples": 168, "loss": 0.6549382416997105, "gradient_norm": 17.557926177978516, "peak_memory_gib": 5.1929226173087955}
+{"examples": 176, "loss": 0.03798811268643476, "gradient_norm": 3.6878440380096436, "peak_memory_gib": 5.1929226173087955}
+{"examples": 184, "loss": 0.12722367272363044, "gradient_norm": 4.85330867767334, "peak_memory_gib": 5.1929226173087955}
+{"examples": 192, "loss": 0.1605682674999116, "gradient_norm": 9.401758193969727, "peak_memory_gib": 5.192937011830509}
+{"examples": 200, "loss": 0.07493045891169459, "gradient_norm": 3.8517305850982666, "peak_memory_gib": 5.192937011830509}
+{"examples": 208, "loss": 0.11133793405315373, "gradient_norm": 3.1617300510406494, "peak_memory_gib": 5.192937011830509}
+{"examples": 216, "loss": 0.2654915241364506, "gradient_norm": 16.196334838867188, "peak_memory_gib": 5.192937011830509}
+{"examples": 224, "loss": 0.3398172681918368, "gradient_norm": 12.368268013000488, "peak_memory_gib": 5.192937011830509}
+{"examples": 232, "loss": 0.13731392280897126, "gradient_norm": 8.863968849182129, "peak_memory_gib": 5.192937011830509}
+{"examples": 240, "loss": 0.07762626536714379, "gradient_norm": 7.52252721786499, "peak_memory_gib": 5.192937011830509}
+{"examples": 248, "loss": 0.13656188079039566, "gradient_norm": 5.4712653160095215, "peak_memory_gib": 5.192937011830509}
+{"examples": 256, "loss": 0.2407751553109847, "gradient_norm": 13.424620628356934, "peak_memory_gib": 5.192937011830509}
+{"examples": 264, "loss": 0.17822858323779656, "gradient_norm": 11.276936531066895, "peak_memory_gib": 5.192937011830509}
+{"examples": 272, "loss": 0.1490648424369283, "gradient_norm": 5.524555206298828, "peak_memory_gib": 5.192937011830509}
+{"examples": 280, "loss": 0.019969626533566043, "gradient_norm": 2.2823331356048584, "peak_memory_gib": 5.192937011830509}
+{"examples": 288, "loss": 0.10631455677503254, "gradient_norm": 3.99375057220459, "peak_memory_gib": 5.192937011830509}
+{"examples": 296, "loss": 0.09368970783543773, "gradient_norm": 7.927599906921387, "peak_memory_gib": 5.192937011830509}
+{"examples": 304, "loss": 0.04902037627471145, "gradient_norm": 2.4327950477600098, "peak_memory_gib": 5.192937011830509}
+{"examples": 312, "loss": 0.09751461239648052, "gradient_norm": 7.747044086456299, "peak_memory_gib": 5.192937011830509}
+{"examples": 320, "loss": 0.2147815175994765, "gradient_norm": 6.205019474029541, "peak_memory_gib": 5.192937011830509}
+{"examples": 328, "loss": 0.03689171728910878, "gradient_norm": 4.267823219299316, "peak_memory_gib": 5.192937011830509}
+{"examples": 336, "loss": 0.2599086445698049, "gradient_norm": 13.61612606048584, "peak_memory_gib": 5.192937011830509}
+{"examples": 344, "loss": 0.042987715616618516, "gradient_norm": 5.304501056671143, "peak_memory_gib": 5.192937011830509}
+{"examples": 351, "loss": 0.22826011891343764, "gradient_norm": 10.763751029968262, "peak_memory_gib": 5.192937011830509}
+{"prompt": "label", "completed": 1, "total": 75}
+{"prompt": "label", "completed": 2, "total": 75}
+{"prompt": "label", "completed": 3, "total": 75}
+{"prompt": "label", "completed": 4, "total": 75}
+{"prompt": "label", "completed": 5, "total": 75}
+{"prompt": "label", "completed": 6, "total": 75}
+{"prompt": "label", "completed": 7, "total": 75}
+{"prompt": "label", "completed": 8, "total": 75}
+{"prompt": "label", "completed": 9, "total": 75}
+{"prompt": "label", "completed": 10, "total": 75}
+{"prompt": "label", "completed": 11, "total": 75}
+{"prompt": "label", "completed": 12, "total": 75}
+{"prompt": "label", "completed": 13, "total": 75}
+{"prompt": "label", "completed": 14, "total": 75}
+{"prompt": "label", "completed": 15, "total": 75}
+{"prompt": "label", "completed": 16, "total": 75}
+{"prompt": "label", "completed": 17, "total": 75}
+{"prompt": "label", "completed": 18, "total": 75}
+{"prompt": "label", "completed": 19, "total": 75}
+{"prompt": "label", "completed": 20, "total": 75}
+{"prompt": "label", "completed": 21, "total": 75}
+{"prompt": "label", "completed": 22, "total": 75}
+{"prompt": "label", "completed": 23, "total": 75}
+{"prompt": "label", "completed": 24, "total": 75}
+{"prompt": "label", "completed": 25, "total": 75}
+{"prompt": "label", "completed": 26, "total": 75}
+{"prompt": "label", "completed": 27, "total": 75}
+{"prompt": "label", "completed": 28, "total": 75}
+{"prompt": "label", "completed": 29, "total": 75}
+{"prompt": "label", "completed": 30, "total": 75}
+{"prompt": "label", "completed": 31, "total": 75}
+{"prompt": "label", "completed": 32, "total": 75}
+{"prompt": "label", "completed": 33, "total": 75}
+{"prompt": "label", "completed": 34, "total": 75}
+{"prompt": "label", "completed": 35, "total": 75}
+{"prompt": "label", "completed": 36, "total": 75}
+{"prompt": "label", "completed": 37, "total": 75}
+{"prompt": "label", "completed": 38, "total": 75}
+{"prompt": "label", "completed": 39, "total": 75}
+{"prompt": "label", "completed": 40, "total": 75}
+{"prompt": "label", "completed": 41, "total": 75}
+{"prompt": "label", "completed": 42, "total": 75}
+{"prompt": "label", "completed": 43, "total": 75}
+{"prompt": "label", "completed": 44, "total": 75}
+{"prompt": "label", "completed": 45, "total": 75}
+{"prompt": "label", "completed": 46, "total": 75}
+{"prompt": "label", "completed": 47, "total": 75}
+{"prompt": "label", "completed": 48, "total": 75}
+{"prompt": "label", "completed": 49, "total": 75}
+{"prompt": "label", "completed": 50, "total": 75}
+{"prompt": "label", "completed": 51, "total": 75}
+{"prompt": "label", "completed": 52, "total": 75}
+{"prompt": "label", "completed": 53, "total": 75}
+{"prompt": "label", "completed": 54, "total": 75}
+{"prompt": "label", "completed": 55, "total": 75}
+{"prompt": "label", "completed": 56, "total": 75}
+{"prompt": "label", "completed": 57, "total": 75}
+{"prompt": "label", "completed": 58, "total": 75}
+{"prompt": "label", "completed": 59, "total": 75}
+{"prompt": "label", "completed": 60, "total": 75}
+{"prompt": "label", "completed": 61, "total": 75}
+{"prompt": "label", "completed": 62, "total": 75}
+{"prompt": "label", "completed": 63, "total": 75}
+{"prompt": "label", "completed": 64, "total": 75}
+{"prompt": "label", "completed": 65, "total": 75}
+{"prompt": "label", "completed": 66, "total": 75}
+{"prompt": "label", "completed": 67, "total": 75}
+{"prompt": "label", "completed": 68, "total": 75}
+{"prompt": "label", "completed": 69, "total": 75}
+{"prompt": "label", "completed": 70, "total": 75}
+{"prompt": "label", "completed": 71, "total": 75}
+{"prompt": "label", "completed": 72, "total": 75}
+{"prompt": "label", "completed": 73, "total": 75}
+{"prompt": "label", "completed": 74, "total": 75}
+{"prompt": "label", "completed": 75, "total": 75}
+{"epoch": 2, "loss": 0.17325068615871797, "macro_f1": 0.45820845820845824}
+{"examples": 8, "loss": 0.3392501240596175, "gradient_norm": 17.3475399017334, "peak_memory_gib": 5.192937011830509}
+{"examples": 16, "loss": 0.023258248591446318, "gradient_norm": 1.9884527921676636, "peak_memory_gib": 5.192937011830509}
+{"examples": 24, "loss": 0.04034896945086075, "gradient_norm": 3.3790245056152344, "peak_memory_gib": 5.192937011830509}
+{"examples": 32, "loss": 0.04781616603577277, "gradient_norm": 3.448423147201538, "peak_memory_gib": 5.192937011830509}
+{"examples": 40, "loss": 0.16051349000190385, "gradient_norm": 8.576848983764648, "peak_memory_gib": 5.192937011830509}
+{"examples": 48, "loss": 0.05674676489434205, "gradient_norm": 8.472454071044922, "peak_memory_gib": 5.192937011830509}
+{"examples": 56, "loss": 0.2365169709082693, "gradient_norm": 20.50834083557129, "peak_memory_gib": 5.192937011830509}
+{"examples": 64, "loss": 0.030162113544065505, "gradient_norm": 2.4036567211151123, "peak_memory_gib": 5.192937011830509}
+{"examples": 72, "loss": 0.20395710127195343, "gradient_norm": 21.460920333862305, "peak_memory_gib": 5.192937011830509}
+{"examples": 80, "loss": 0.039090709415177116, "gradient_norm": 6.919151306152344, "peak_memory_gib": 5.192937011830509}
+{"examples": 88, "loss": 0.011651874530798523, "gradient_norm": 2.1034514904022217, "peak_memory_gib": 5.192937011830509}
+{"examples": 96, "loss": 0.0359391093661543, "gradient_norm": 3.7926025390625, "peak_memory_gib": 5.192937011830509}
+{"examples": 104, "loss": 0.005441849159979029, "gradient_norm": 0.7496934533119202, "peak_memory_gib": 5.192937011830509}
+{"examples": 112, "loss": 0.07836126292022527, "gradient_norm": 13.621252059936523, "peak_memory_gib": 5.192937011830509}
+{"examples": 120, "loss": 0.3893806886553648, "gradient_norm": 18.56631088256836, "peak_memory_gib": 5.192937011830509}
+{"examples": 128, "loss": 0.4008443779894151, "gradient_norm": 19.08640480041504, "peak_memory_gib": 5.192937011830509}
+{"examples": 136, "loss": 0.16161040365295776, "gradient_norm": 8.022354125976562, "peak_memory_gib": 5.192937011830509}
+{"examples": 144, "loss": 0.01236823799990816, "gradient_norm": 2.702873945236206, "peak_memory_gib": 5.192937011830509}
+{"examples": 152, "loss": 0.18416261506081355, "gradient_norm": 11.095242500305176, "peak_memory_gib": 5.192937011830509}
+{"examples": 160, "loss": 0.008841574814141495, "gradient_norm": 1.623085618019104, "peak_memory_gib": 5.192937011830509}
+{"examples": 168, "loss": 0.179948317243543, "gradient_norm": 15.74203872680664, "peak_memory_gib": 5.192937011830509}
+{"examples": 176, "loss": 0.23589067994907964, "gradient_norm": 14.488447189331055, "peak_memory_gib": 5.192937011830509}
+{"examples": 184, "loss": 0.28437756222774624, "gradient_norm": 18.846242904663086, "peak_memory_gib": 5.192937011830509}
+{"examples": 192, "loss": 0.10603617246670183, "gradient_norm": 13.100053787231445, "peak_memory_gib": 5.192937011830509}
+{"examples": 200, "loss": 0.11011613229948125, "gradient_norm": 17.319684982299805, "peak_memory_gib": 5.192937011830509}
+{"examples": 208, "loss": 0.28094960079033626, "gradient_norm": 25.217226028442383, "peak_memory_gib": 5.192937011830509}
+{"examples": 216, "loss": 0.11306996562052518, "gradient_norm": 8.990320205688477, "peak_memory_gib": 5.192937011830509}
+{"examples": 224, "loss": 0.06653932340896063, "gradient_norm": 9.055924415588379, "peak_memory_gib": 5.192937011830509}
+{"examples": 232, "loss": 0.2996683838646277, "gradient_norm": 20.593090057373047, "peak_memory_gib": 5.192937011830509}
+{"examples": 240, "loss": 0.0055274647784244735, "gradient_norm": 0.7539734244346619, "peak_memory_gib": 5.192937011830509}
+{"examples": 248, "loss": 0.015696890040089784, "gradient_norm": 2.9842753410339355, "peak_memory_gib": 5.192937011830509}
+{"examples": 256, "loss": 0.389836414167803, "gradient_norm": 17.802927017211914, "peak_memory_gib": 5.192937011830509}
+{"examples": 264, "loss": 0.07454308866726933, "gradient_norm": 5.038930416107178, "peak_memory_gib": 5.192937011830509}
+{"examples": 272, "loss": 0.09153502427579951, "gradient_norm": 8.746744155883789, "peak_memory_gib": 5.192937011830509}
+{"examples": 280, "loss": 0.017593680880963802, "gradient_norm": 4.553613185882568, "peak_memory_gib": 5.192937011830509}
+{"examples": 288, "loss": 0.13036488778016064, "gradient_norm": 13.147734642028809, "peak_memory_gib": 5.192937011830509}
+{"examples": 296, "loss": 0.008858056948156445, "gradient_norm": 1.6852575540542603, "peak_memory_gib": 5.192937011830509}
+{"examples": 304, "loss": 0.018239991632071906, "gradient_norm": 4.943463325500488, "peak_memory_gib": 5.192937011830509}
+{"examples": 312, "loss": 0.19780497236570227, "gradient_norm": 9.570108413696289, "peak_memory_gib": 5.192937011830509}
+{"examples": 320, "loss": 0.21188891266501741, "gradient_norm": 19.63435935974121, "peak_memory_gib": 5.192937011830509}
+{"examples": 328, "loss": 0.006504896875412669, "gradient_norm": 1.2712010145187378, "peak_memory_gib": 5.192937011830509}
+{"examples": 336, "loss": 0.20111896145590435, "gradient_norm": 19.62310218811035, "peak_memory_gib": 5.192937011830509}
+{"examples": 344, "loss": 0.23079048271029023, "gradient_norm": 21.210182189941406, "peak_memory_gib": 5.192937011830509}
+{"examples": 351, "loss": 0.11787289978903052, "gradient_norm": 11.664350509643555, "peak_memory_gib": 5.192937011830509}
+{"prompt": "label", "completed": 1, "total": 75}
+{"prompt": "label", "completed": 2, "total": 75}
+{"prompt": "label", "completed": 3, "total": 75}
+{"prompt": "label", "completed": 4, "total": 75}
+{"prompt": "label", "completed": 5, "total": 75}
+{"prompt": "label", "completed": 6, "total": 75}
+{"prompt": "label", "completed": 7, "total": 75}
+{"prompt": "label", "completed": 8, "total": 75}
+{"prompt": "label", "completed": 9, "total": 75}
+{"prompt": "label", "completed": 10, "total": 75}
+{"prompt": "label", "completed": 11, "total": 75}
+{"prompt": "label", "completed": 12, "total": 75}
+{"prompt": "label", "completed": 13, "total": 75}
+{"prompt": "label", "completed": 14, "total": 75}
+{"prompt": "label", "completed": 15, "total": 75}
+{"prompt": "label", "completed": 16, "total": 75}
+{"prompt": "label", "completed": 17, "total": 75}
+{"prompt": "label", "completed": 18, "total": 75}
+{"prompt": "label", "completed": 19, "total": 75}
+{"prompt": "label", "completed": 20, "total": 75}
+{"prompt": "label", "completed": 21, "total": 75}
+{"prompt": "label", "completed": 22, "total": 75}
+{"prompt": "label", "completed": 23, "total": 75}
+{"prompt": "label", "completed": 24, "total": 75}
+{"prompt": "label", "completed": 25, "total": 75}
+{"prompt": "label", "completed": 26, "total": 75}
+{"prompt": "label", "completed": 27, "total": 75}
+{"prompt": "label", "completed": 28, "total": 75}
+{"prompt": "label", "completed": 29, "total": 75}
+{"prompt": "label", "completed": 30, "total": 75}
+{"prompt": "label", "completed": 31, "total": 75}
+{"prompt": "label", "completed": 32, "total": 75}
+{"prompt": "label", "completed": 33, "total": 75}
+{"prompt": "label", "completed": 34, "total": 75}
+{"prompt": "label", "completed": 35, "total": 75}
+{"prompt": "label", "completed": 36, "total": 75}
+{"prompt": "label", "completed": 37, "total": 75}
+{"prompt": "label", "completed": 38, "total": 75}
+{"prompt": "label", "completed": 39, "total": 75}
+{"prompt": "label", "completed": 40, "total": 75}
+{"prompt": "label", "completed": 41, "total": 75}
+{"prompt": "label", "completed": 42, "total": 75}
+{"prompt": "label", "completed": 43, "total": 75}
+{"prompt": "label", "completed": 44, "total": 75}
+{"prompt": "label", "completed": 45, "total": 75}
+{"prompt": "label", "completed": 46, "total": 75}
+{"prompt": "label", "completed": 47, "total": 75}
+{"prompt": "label", "completed": 48, "total": 75}
+{"prompt": "label", "completed": 49, "total": 75}
+{"prompt": "label", "completed": 50, "total": 75}
+{"prompt": "label", "completed": 51, "total": 75}
+{"prompt": "label", "completed": 52, "total": 75}
+{"prompt": "label", "completed": 53, "total": 75}
+{"prompt": "label", "completed": 54, "total": 75}
+{"prompt": "label", "completed": 55, "total": 75}
+{"prompt": "label", "completed": 56, "total": 75}
+{"prompt": "label", "completed": 57, "total": 75}
+{"prompt": "label", "completed": 58, "total": 75}
+{"prompt": "label", "completed": 59, "total": 75}
+{"prompt": "label", "completed": 60, "total": 75}
+{"prompt": "label", "completed": 61, "total": 75}
+{"prompt": "label", "completed": 62, "total": 75}
+{"prompt": "label", "completed": 63, "total": 75}
+{"prompt": "label", "completed": 64, "total": 75}
+{"prompt": "label", "completed": 65, "total": 75}
+{"prompt": "label", "completed": 66, "total": 75}
+{"prompt": "label", "completed": 67, "total": 75}
+{"prompt": "label", "completed": 68, "total": 75}
+{"prompt": "label", "completed": 69, "total": 75}
+{"prompt": "label", "completed": 70, "total": 75}
+{"prompt": "label", "completed": 71, "total": 75}
+{"prompt": "label", "completed": 72, "total": 75}
+{"prompt": "label", "completed": 73, "total": 75}
+{"prompt": "label", "completed": 74, "total": 75}
+{"prompt": "label", "completed": 75, "total": 75}
+{"epoch": 3, "loss": 0.1332490325413706, "macro_f1": 0.6116767219708397}
