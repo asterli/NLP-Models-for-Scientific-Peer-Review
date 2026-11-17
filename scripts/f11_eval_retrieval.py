@@ -37,6 +37,7 @@ sys.path.insert(0, str(ROOT / "retrieval"))
 
 from evaluation.metrics import recall_at_k  # noqa: E402
 from m23_filters import FilteredRetriever, date_status, ids_of, norm_title, submitted_from_row  # noqa: E402
+from f11_retriever import PriorWorkRetriever  # noqa: E402
 
 RANKING = ("ranked_below_k", "no_term_overlap")
 ELIGIBILITY = ("submitted_paper", "same_date", "after_cutoff", "date_uncertain",
@@ -72,12 +73,13 @@ def load_inputs(queries_path: Path, qrels_path: Path) -> tuple[dict, dict]:
 
 
 def run_queries(retriever: FilteredRetriever, queries: dict, k: int) -> tuple[dict[str, list[str]], list[dict]]:
-    # One filtered BM25 search per claim. F10 drops the submitted paper and anything not older than it.
+    # One search per claim through the same callable retriever the pipeline uses (F12).
+    # F10 inside it drops the submitted paper and anything not older than it.
     ranked = {}
     details = []
     for qid, row in queries.items():
         submitted = submitted_from_row(row)
-        hits, excluded = retriever.search(row["claim_text"], submitted, k=k, explain=True)
+        hits, excluded = retriever.retrieve(row["claim_text"], submitted, k=k, explain=True)
         ranked[qid] = [hit["paper_id"] for hit in hits]
         details.append({
             "query_id": qid,
@@ -186,9 +188,10 @@ def main(argv: list[str] | None = None) -> dict:
     args = parser.parse_args(argv)
 
     queries, relevant = load_inputs(args.queries, args.qrels)
-    retriever = FilteredRetriever(str(args.corpus), uncertain=args.uncertain)
+    retriever = PriorWorkRetriever(str(args.corpus), uncertain=args.uncertain)
     ranked, details = run_queries(retriever, queries, args.k)
-    misses = classify_misses(retriever, queries, relevant, ranked, args.k)
+    # Miss analysis needs F10's internals (full-depth ranking, raw BM25), so it uses the wrapped retriever.
+    misses = classify_misses(retriever.filtered, queries, relevant, ranked, args.k)
 
     args.out.mkdir(parents=True, exist_ok=True)
     write_jsonl(args.out / "run.jsonl", [{"query_id": qid, "ranked": ranked[qid]} for qid in queries])
