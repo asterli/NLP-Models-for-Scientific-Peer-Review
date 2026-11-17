@@ -2,7 +2,10 @@
 
 Measures how often the F10 filtered BM25 retriever (`retrieval/m23_filters.py`) finds known-relevant prior work for a claim. The main number is **Recall@10** over a frozen set of 21 claims.
 
-Script: `scripts/f11_eval_retrieval.py`. Tests: `tests/test_f11_eval_retrieval.py`.
+Evaluation script: `scripts/f11_eval_retrieval.py`.
+Callable retriever: `retrieval/f11_retriever.py`.
+Tests: `tests/test_f11_eval_retrieval.py` and
+`tests/test_f11_retriever.py`.
 
 ## Files
 
@@ -13,6 +16,88 @@ Script: `scripts/f11_eval_retrieval.py`. Tests: `tests/test_f11_eval_retrieval.p
 | `evaluation/f11/F11_relevance_review.xlsx` | The review record: every candidate pair, the judgment, and notes. Change judgments here first, then regenerate the qrels.                                   |
 
 Both `.jsonl` files were committed before any BM25 results were looked at, and are not edited after seeing results.
+
+
+## Callable retriever for F12
+
+`retrieval/f11_retriever.py` provides `PriorWorkRetriever`, a reusable interface for the downstream F12 pipeline. It wraps F10's `FilteredRetriever` (`retrieval/m23_filters.py`), which uses the M22 BM25 baseline.
+
+This is an interface to the existing retriever, **not a new retrieval or ranking model**. The corpus is loaded once when `PriorWorkRetriever` is initialized.
+
+### Usage
+
+Run from the repository root:
+
+```python
+import json
+from retrieval.f11_retriever import PriorWorkRetriever
+
+with open("evaluation/f11/queries.jsonl", encoding="utf-8") as f:
+    query = json.loads(next(f))
+
+retriever = PriorWorkRetriever("data/corpus/corpus.jsonl")
+
+candidates = retriever.retrieve(
+    query["claim_text"],
+    query,
+    k=10
+)
+```
+
+The submitted-paper argument accepts either:
+
+- A plain dictionary containing metadata such as `doi`, `pmid`, `pmcid`, `paper_id`, `title`, and `date`.
+- An F03-style record containing fields such as `newer_paper_id`, `newer_link`, `newer_title`, and `newer_pub_date`.
+
+A missing submitted-paper date raises `ValueError`, rather than silently returning no eligible candidates.
+
+The default `uncertain="exclude"` applies F10's strict date policy. Set `uncertain="flag"` during initialization to retain and flag uncertain-date candidates.
+
+### Returned candidates
+
+Candidates are ordered by BM25 ranking score and contain the shared Retrieval Candidate fields from `docs/data-schema.md`:
+
+| Field | Description |
+| --- | --- |
+| `paper_id` | Identifier of the retrieved older paper |
+| `title` | Paper title |
+| `score` | BM25 ranking score, not calibrated confidence |
+| `date` | Publication date |
+| `url` | Source URL |
+| `evidence` | Best-matching sentence from the abstract, if available |
+
+Additional fields include `rank`, `doi`, `pmid`, `evidence_type`, `eligibility`, `flags`, and `duplicate_ids`.
+
+For records without abstracts, `evidence` is `None` and `evidence_type` is `"title_only"`. The retriever does not invent supporting passages.
+
+To inspect F10's exclusion counts:
+
+```python
+candidates, excluded_counts = retriever.retrieve(
+    query["claim_text"],
+    query,
+    k=10,
+    explain=True
+)
+```
+
+### Connection to F11 evaluation
+
+`scripts/f11_eval_retrieval.py` uses `PriorWorkRetriever.retrieve()` to evaluate the same callable interface exposed to F12.
+
+The evaluator also accesses the wrapped F10 retriever through `retriever.filtered` for full-depth ranking and miss analysis.
+
+This keeps retrieval behavior consistent between evaluation and downstream pipeline usage.
+
+### Tests
+
+```bash
+pytest tests/test_f11_retriever.py tests/test_f11_eval_retrieval.py
+```
+
+The callable-retriever tests use a synthetic corpus to check candidate ordering, required schema fields, filtering of submitted and newer papers, evidence handling, F03-style metadata, top-k limits, and missing-date errors.
+
+The preliminary Recall@10 baseline was obtained before adding this wrapper. The updated evaluation script should be rerun to verify that the callable interface produces the same result.
 
 ## Run
 
