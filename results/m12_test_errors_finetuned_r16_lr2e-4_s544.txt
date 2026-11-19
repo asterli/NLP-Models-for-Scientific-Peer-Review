@@ -1,0 +1,15 @@
+pred: data/claims/predictions/finetuned_test_r16_lr2e-4_s544.jsonl
+gold: data/claims/splits/test.jsonl
+120 sentences, 26 gold claims, 25 predicted, 4 missed, 3 false positives
+
+--- MISSED (gold CLAIM, predicted BACKGROUND): 4 ---
+doi:10.1001/jamanetworkopen.2021.38464  s002  To describe and assess a hotel-based protective housing intervention to reduce incidence of SARS-CoV-2 infection among PEH in Chicago, Illinois, with increased risk of severe illness due to COVID-19.
+doi:10.1001/jamanetworkopen.2021.38464  s029  The primary aim of this study was to describe Chicago’s hotel-based protective housing intervention and assess whether the intervention was associated with any differences in the incidence of SARS-CoV-2 infection among those participating in the intervention relative to the citywide population of sheltered PEH.
+doi:10.1001/jamanetworkopen.2021.38464  s030  Secondary aims were to assess change in high-risk health conditions during the study period, including hypertension and diabetes; describe treatment for mental health conditions and SUDs; and describe housing outcomes on departure from the intervention.
+doi:10.1001/jamanetworkopen.2026.16300  s026  Therefore, the HF model alone may be insufficient, and its success hinges on implementation, specifically the tailored type, and high quality and sufficient intensity of support services, to ensure long-term housing stability.[20],[22],[23],[24],[25]
+
+--- FALSE POSITIVE (gold BACKGROUND, predicted CLAIM): 3 ---
+doi:10.1001/jamanetworkopen.2026.16300  s003  To examine clinical and demographic factors associated with housing attainment among individuals experiencing homelessness with mental illness participating in an on-site psychiatric service program.
+doi:10.1001/jamanetworkopen.2026.16300  s044  Accordingly, this study aimed to determine the housing attainment rate for individuals experiencing homelessness with mental illness under the PATHS program and to identify the clinical and demographic factors associated with successful housing attainment.
+doi:10.1177/29767342261444527  s010  Of the 20 remaining participants, 13 consented to chart review (92% male; age mean 46, SD 11 years) and 9 had weekly outcome data available.
+

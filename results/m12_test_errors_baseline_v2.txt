@@ -1,0 +1,37 @@
+pred: data/claims/predictions/baseline_qwen7b_test_v2.jsonl
+gold: data/claims/splits/test.jsonl
+120 sentences, 26 gold claims, 9 predicted, 23 missed, 6 false positives
+
+--- MISSED (gold CLAIM, predicted BACKGROUND): 23 ---
+doi:10.1001/jamanetworkopen.2021.38464  s002  To describe and assess a hotel-based protective housing intervention to reduce incidence of SARS-CoV-2 infection among PEH in Chicago, Illinois, with increased risk of severe illness due to COVID-19.
+doi:10.1001/jamanetworkopen.2021.38464  s010  There was an observed reduction in SARS-CoV-2 incidence during the study period among the protective housing cohort (54.7 per 1000 people [95% CI, 22.4-87.1 per 1000 people]) compared with citywide rates for PEH residing in shelters (137.1 per 1000 people [95% CI, 125.1-149.1 per 1000 people]; P = .001).
+doi:10.1001/jamanetworkopen.2021.38464  s011  There was also an adjusted change in systolic blood pressure at a rate of −5.7 mm Hg (95% CI, −9.3 to −2.1 mm Hg) and hemoglobin A1c at a rate of −1.4% (95% CI, −2.4% to −0.4%) compared with baseline.
+doi:10.1001/jamanetworkopen.2021.38464  s012  More than half of participants (51% [n = 132]) departed from the intervention to housing of some kind (eg, supportive housing).
+doi:10.1001/jamanetworkopen.2021.38464  s013  This cohort study found that protective housing was associated with a reduction in SARS-CoV-2 infection among high-risk PEH during the first wave of the COVID-19 pandemic in Chicago.
+doi:10.1001/jamanetworkopen.2021.38464  s014  These findings suggest that with appropriate wraparound supports (ie, multisector services to address complex needs), such housing interventions may reduce the risk of SARS-CoV-2 infection, improve noncommunicable disease control, and provide a pathway to permanent housing.
+doi:10.1001/jamanetworkopen.2021.38464  s029  The primary aim of this study was to describe Chicago’s hotel-based protective housing intervention and assess whether the intervention was associated with any differences in the incidence of SARS-CoV-2 infection among those participating in the intervention relative to the citywide population of sheltered PEH.
+doi:10.1001/jamanetworkopen.2021.38464  s030  Secondary aims were to assess change in high-risk health conditions during the study period, including hypertension and diabetes; describe treatment for mental health conditions and SUDs; and describe housing outcomes on departure from the intervention.
+doi:10.1001/jamanetworkopen.2026.16300  s011  Among the 208 included participants (90.0% of the initial sample; median [IQR] age, 54.0 [44.3-62.0] years; 154 male [74.0%]), alcohol use disorder predominated among men, whereas women had a higher prevalence of schizophrenia.
+doi:10.1001/jamanetworkopen.2026.16300  s012  Overall, 97 participants (46.6%) attained housing.
+doi:10.1001/jamanetworkopen.2026.16300  s013  Older age was significantly associated with housing attainment (odds ratio [OR], 1.03; 95% CI, 1.01-1.05; P = .04).
+doi:10.1001/jamanetworkopen.2026.16300  s014  In contrast, alcohol use disorder (OR, 0.54; 95% CI, 0.29-0.99; P = .045) and opioid or methamphetamine use disorders (OR, 0.29; 95% CI, 0.14-0.62; P = .001) were associated with lower likelihood of housing attainment.
+doi:10.1001/jamanetworkopen.2026.16300  s015  In this retrospective cohort study of 208 homeless individuals with mental illness, on-site psychiatric services provided a framework for bridging the gap between transitional shelters and housing attainment.
+doi:10.1001/jamanetworkopen.2026.16300  s016  These findings suggest that transitioning from universal models toward individualized interventions is essential to address the diverse needs of this population and improve housing success.
+doi:10.1001/jamanetworkopen.2026.16300  s026  Therefore, the HF model alone may be insufficient, and its success hinges on implementation, specifically the tailored type, and high quality and sufficient intensity of support services, to ensure long-term housing stability.[20],[22],[23],[24],[25]
+doi:10.1177/29767342261444527  s008  Over the first 33 months, 38 people enrolled in MAP.
+doi:10.1177/29767342261444527  s009  At the time of our study, 9 had died and 9 left the program.
+doi:10.1177/29767342261444527  s011  Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.
+doi:10.1177/29767342261444527  s012  Mean person-week prevalence of out-of-program drinking was 34% in year 1 and 33% in year 2.
+doi:10.1177/29767342261444527  s013  Focus groups highlighted MAP improved participants’ health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.
+doi:10.1177/29767342261444527  s014  Challenges included out-of-program drinking and lack of social programming.
+doi:10.1177/29767342261444527  s015  This scattered-site MAP may support positive health and social outcomes for people with severe alcohol use disorder.
+doi:10.1177/29767342261444527  s016  Identified program gaps can be explored to better meet participant needs and reduce out-of-program drinking.
+
+--- FALSE POSITIVE (gold BACKGROUND, predicted CLAIM): 6 ---
+doi:10.1001/jamanetworkopen.2026.16300  s003  To examine clinical and demographic factors associated with housing attainment among individuals experiencing homelessness with mental illness participating in an on-site psychiatric service program.
+doi:10.1001/jamanetworkopen.2026.16300  s036  The PATHS program delivers on-site psychiatric services at Yuang-Tong House, aiming to directly address residents’ mental health needs, enhance their access to care, and ensure that their homeless status does not impede treatment delivery.
+doi:10.1001/jamanetworkopen.2026.16300  s041  In this 5-year observational cohort study, we followed individuals experiencing homelessness at the shelter to characterize their trajectories and to identify factors associated with shelter exit outcomes.
+doi:10.1001/jamanetworkopen.2026.16300  s042  We also examined the forms of housing attainment and identified the variables explaining each outcome.
+doi:10.1001/jamanetworkopen.2026.16300  s043  In particular, we assessed each participant’s psychiatric diagnoses, as defined by the Diagnostic and Statistical Manual of Mental Disorders (Fifth Edition), to evaluate the impact of comorbid mental health conditions on shelter exit outcomes.
+doi:10.1001/jamanetworkopen.2026.16300  s044  Accordingly, this study aimed to determine the housing attainment rate for individuals experiencing homelessness with mental illness under the PATHS program and to identify the clinical and demographic factors associated with successful housing attainment.
+
