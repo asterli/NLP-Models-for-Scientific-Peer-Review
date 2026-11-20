@@ -1,8 +1,8 @@
 {
   "method": "fine_tuned",
-  "selection": "First ten saved errors, ordered by comparison ID; no model or gold-label changes.",
-  "scope": "Only the supplied claim and older passage were reviewed. Eight of these ten pairs come from the same source paper, so these counts are not a representative estimate of all error types.",
-  "summary": "Six reviewed errors have gold insufficient_evidence: five were predicted distinct and one overlapping. These excerpts generally state aims, definitions, or questions without results. Two clear overlapping cases were missed where a specific numerical result restated a broader finding. One case concerns delivery-model specificity, and one gold overlap judgment remains ambiguous from the excerpts.",
+  "selection": "All 18 fine-tuned errors among 73 held-out comparisons, ordered by comparison ID; no model or gold-label changes.",
+  "scope": "Only the supplied claim and older passage were reviewed. Error types describe observed evidence mismatches, not verified internal model reasoning.",
+  "summary": "Ten errors have gold insufficient_evidence: eight were predicted distinct and two overlapping. These passages provide aims, definitions, research gaps, or planned studies rather than the needed findings. Four gold overlapping cases were predicted distinct: three miss shared outcomes or implementation barriers, and one gold judgment remains ambiguous from the excerpts. Four gold distinct cases were predicted overlapping, overlooking delivery-model specificity, a limited-activity finding, or differences in the stated outcomes.",
   "errors": [
     {
       "comparison_id": "N18",
@@ -73,6 +73,62 @@
       "predicted": "distinct",
       "error_type": "general_background_treated_as_difference",
       "evidence_observation": "The older passage describes general harm-reduction support. It supplies no evidence about program gaps or out-of-program drinking, so it cannot establish a distinct contribution."
+    },
+    {
+      "comparison_id": "R184",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "outcome_definition_treated_as_difference",
+      "evidence_observation": "The older passage lists blood pressure and HbA1c as outcomes to measure, but gives no results. It cannot establish whether the claimed reductions overlap or differ."
+    },
+    {
+      "comparison_id": "W075",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "research_gap_treated_as_difference",
+      "evidence_observation": "The older passage identifies a gap in research on access to support, without reporting service facilitators. It supplies no findings against which to compare the claimed feedback, funding, team culture, or flexibility."
+    },
+    {
+      "comparison_id": "W077",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "error_type": "shared_barriers_missed",
+      "evidence_observation": "Both passages identify training, funding, and access or referral capacity as barriers to liver assessment services. The claim gives more specific barriers, but the older passage already covers the main implementation difficulties."
+    },
+    {
+      "comparison_id": "W100",
+      "gold": "distinct",
+      "predicted": "overlapping",
+      "error_type": "shared_outcome_obscures_activity_difference",
+      "evidence_observation": "Both passages report improved quality of life. The claim also emphasizes limited change in physical activity, whereas the older passage attributes benefits to physical activity and does not report that limited change. The shared outcome alone does not cover the full main finding."
+    },
+    {
+      "comparison_id": "W125",
+      "gold": "distinct",
+      "predicted": "overlapping",
+      "error_type": "general_effectiveness_treated_as_specific_outcomes",
+      "evidence_observation": "The older passage calls assertive community treatment and critical time intervention effective, but does not specify rehospitalizations or housing stability. Matching the intervention names and a general benefit does not establish the claimed outcomes."
+    },
+    {
+      "comparison_id": "W126",
+      "gold": "distinct",
+      "predicted": "overlapping",
+      "error_type": "different_outcomes_treated_as_overlap",
+      "evidence_observation": "The older passage reports reduced mental health and substance use problems from several program strategies. It does not report the claimed rehospitalization or housing-stability effects of critical time intervention and assertive community treatment."
+    },
+    {
+      "comparison_id": "W155",
+      "gold": "insufficient_evidence",
+      "predicted": "overlapping",
+      "error_type": "planned_study_confused_with_result",
+      "evidence_observation": "The older passage says SHARPS will assess feasibility and acceptability, rather than reporting that these were established. Shared intervention and outcome terms were treated as overlapping findings despite the missing results."
+    },
+    {
+      "comparison_id": "W157",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "error_type": "planned_study_treated_as_difference",
+      "evidence_observation": "The older passage describes a future assessment of feasibility and acceptability, without results. It cannot establish whether the claimed acceptability, feasibility, and accessibility findings overlap or differ."
     }
   ]
 }

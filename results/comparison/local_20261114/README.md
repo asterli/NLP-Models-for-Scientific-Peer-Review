@@ -17,6 +17,18 @@ F08 trained rank-eight LoRA adapters on all query/value projections, with label-
 
 The 0.00005/epoch-three adapter was frozen before test evaluation. Both runs reproduced all 75 saved development labels and raw outputs after reloading in fresh processes. The packaged winning adapter also passed a separate standalone inference check.
 
+## Training-seed variation
+
+Two additional seeds repeated the selected learning rate (0.00005) with all other settings fixed. Each run selected its best epoch using the same 75 development comparisons; ties favored the earlier epoch.
+
+| Seed | Selected epoch | Development accuracy | Development macro-F1 |
+|---|---:|---:|---:|
+| 544 | 3 | 78.7% | 0.612 |
+| 545 | 2 | 77.3% | 0.602 |
+| 546 | 3 | 76.0% | 0.609 |
+
+Development macro-F1 averaged 0.6075 with sample standard deviation 0.0048 (range 0.6022–0.6117), showing little variation across these three runs at the selected setting. Both additional adapters reproduced all 75 labels and raw outputs after reloading. [Seed results](f08/seeds/summary.json) include per-epoch predictions, metrics, settings, and reload checks. Additional adapter weights are not packaged; they can be regenerated with the [seed-run commands](../../../docs/comparison_local.md#training-seed-variation). The original seed-544 final classifier and test results are unchanged. Additional seeds were evaluated on development data only.
+
 ## Held-out results
 
 All methods used the same 73 test comparisons from 13 source papers. Primary scoring treats invalid output as an error and averages F1 equally across the three labels.
@@ -44,9 +56,9 @@ Yes, for balanced classification on this held-out set. Compared with the formatt
 
 The strongest improvement is recognizing Overlapping cases: 8/12 versus 1/12 for the selected baseline. The model also recognizes four Insufficient Evidence cases, versus none for the selected baseline, but still misses ten. Its perfect precision for that label comes from only four predictions. These gains cost four Distinct errors relative to the normalized selected baseline; improvement is not universal across classes or papers.
 
-Accuracy is higher in this sample, but its bootstrap difference intervals include or touch zero against the majority and selected prompted baselines. We therefore do not claim definitive accuracy superiority. The experiment has only 73 test pairs, 13 source papers, and one training seed. Bootstrap intervals do not capture training-seed, model-selection, or annotation uncertainty, and are exploratory with so few papers.
+Accuracy is higher in this sample, but its bootstrap difference intervals include or touch zero against the majority and selected prompted baselines. We therefore do not claim definitive accuracy superiority. The test evaluation has 73 pairs from 13 source papers and uses the original seed-544 classifier. The additional seeds measure development variation only. Bootstrap intervals do not capture training-seed, model-selection, or annotation uncertainty, and are exploratory with so few papers.
 
-Review of ten fine-tuned errors found missing outcome evidence often mistaken for a distinct contribution, and narrower numerical findings mistaken for new contributions despite shared outcomes. One gold overlap judgment is ambiguous from the supplied excerpts and was retained unchanged. Eight reviewed errors share one source paper, so this subset does not estimate overall error frequencies. See [error review](f09/error_review.json).
+Review of all 18 fine-tuned errors found ten missed Insufficient Evidence cases (eight predicted Distinct, two Overlapping), four missed Overlapping cases, and four Distinct cases predicted Overlapping. Missing results were often treated as a distinct contribution or an overlapping finding. Other errors missed shared outcomes or barriers, or overlooked differences in delivery models, activity findings, and stated outcomes. One gold overlap judgment remains ambiguous from the supplied excerpts and was retained unchanged. See the [complete error review](f09/error_review.json).
 
 ## Saved evidence and use
 

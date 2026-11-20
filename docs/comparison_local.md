@@ -77,3 +77,16 @@ python scripts/evaluate_comparison_mlx.py evaluate --protocol results/comparison
 ```
 
 The frozen protocol retains original run locations to preserve its recorded hash. The adapter override makes replay portable; weights and configuration must still match the frozen hashes. Retraining may produce numerical differences across hardware or library versions; the saved predictions permit exact metric verification without retraining.
+
+### Training-seed variation
+
+Repeat the selected setting with seeds 545 and 546, selecting each checkpoint on development macro-F1. Use new output directories:
+
+```bash
+for seed in 545 546; do
+  python scripts/finetune_comparison_mlx.py --local-model-dir /path/to/qwen-4bit --model-source configs/comparison_mlx_model.json --learning-rate 0.00005 --epochs 3 --seed "$seed" --output "/path/to/results/seed$seed"
+  python scripts/predict_comparison_mlx.py --local-model-dir /path/to/qwen-4bit --adapter "/path/to/results/seed$seed/adapter" --verify-run "/path/to/results/seed$seed"
+done
+```
+
+Compare each run's selected development metrics with seed 544 using the mean, sample standard deviation, and range of macro-F1. Saved results are in [f08/seeds](../results/comparison/local_20261114/f08/seeds/summary.json). These runs do not replace the packaged final classifier.

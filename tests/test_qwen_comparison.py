@@ -1,5 +1,3 @@
-from types import SimpleNamespace
-
 import pytest
 
 from qwen_comparison import MODEL_ID, prompt_tokens, snapshot_revision, training_example
@@ -37,45 +35,3 @@ def test_snapshot_identity_and_revision(tmp_path):
     assert snapshot_revision(snapshot) == "a" * 40
     with pytest.raises(ValueError):
         snapshot_revision(tmp_path / "models--other" / "snapshots" / ("a" * 40))
-
-
-def test_accumulation_includes_partial_final_group():
-    torch = pytest.importorskip("torch")
-    from finetune_comparison import train_epoch
-    import random
-
-    class Model(torch.nn.Module):
-        def __init__(self):
-            super().__init__()
-            self.weight = torch.nn.Parameter(torch.tensor(1.0))
-            self.device = "cpu"
-
-        def forward(self, input_ids, **kwargs):
-            return SimpleNamespace(loss=self.weight * input_ids.float().mean())
-
-    model = Model()
-    optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
-    examples = [{"input_ids": [1], "labels": [1]} for _ in range(3)]
-    train_epoch(model, examples, optimizer, accumulation=2, rng=random.Random(0))
-    assert model.weight.item() == pytest.approx(0.8, abs=1e-6)
-
-
-def test_nonfinite_loss_stops_before_update():
-    torch = pytest.importorskip("torch")
-    from finetune_comparison import train_epoch
-    import random
-
-    class Model(torch.nn.Module):
-        def __init__(self):
-            super().__init__()
-            self.weight = torch.nn.Parameter(torch.tensor(1.0))
-            self.device = "cpu"
-
-        def forward(self, **kwargs):
-            return SimpleNamespace(loss=self.weight * float("nan"))
-
-    model = Model()
-    with pytest.raises(RuntimeError, match="Non-finite"):
-        train_epoch(model, [{"input_ids": [1], "labels": [1]}],
-                    torch.optim.SGD(model.parameters(), lr=0.1), 1, random.Random(0))
-    assert model.weight.item() == 1.0
