@@ -1,0 +1,140 @@
+{
+  "majority": {
+    "direction": "fine_tuned_minus_baseline",
+    "count": 73,
+    "source_paper_count": 13,
+    "fine_tuned_metrics": {
+      "accuracy": 0.7534246575342466,
+      "macro_f1": 0.6343221049103402
+    },
+    "baseline_metrics": {
+      "accuracy": 0.6438356164383562,
+      "macro_f1": 0.2611111111111111
+    },
+    "differences": {
+      "accuracy": {
+        "estimate": 0.1095890410958904,
+        "percentile_95_ci": [
+          -0.020408163265306145,
+          0.24001265822784795
+        ]
+      },
+      "macro_f1": {
+        "estimate": 0.3732109937992291,
+        "percentile_95_ci": [
+          0.17266121903819248,
+          0.497935302267494
+        ]
+      }
+    },
+    "bootstrap": {
+      "method": "paired source-paper cluster bootstrap",
+      "draws": 10000,
+      "seed": 544,
+      "resampled_unit": "source_paper_id",
+      "weighting": "All comparisons in each sampled paper; pooled comparison-level metrics",
+      "limitations": "Intervals are exploratory with few source papers and condition on the observed papers. They do not measure variation from training seeds, model selection, or annotation uncertainty. No interval is reported with fewer than two source papers."
+    },
+    "discordant_correctness": {
+      "fine_tuned_only_correct": 12,
+      "baseline_only_correct": 4
+    },
+    "mcnemar": {
+      "method": "exact two-sided binomial McNemar",
+      "p_value": 0.076812744140625,
+      "interpretation": "Descriptive only: assumes independent comparison pairs, which may fail within source papers."
+    }
+  },
+  "prompted": {
+    "direction": "fine_tuned_minus_baseline",
+    "count": 73,
+    "source_paper_count": 13,
+    "fine_tuned_metrics": {
+      "accuracy": 0.7534246575342466,
+      "macro_f1": 0.6343221049103402
+    },
+    "baseline_metrics": {
+      "accuracy": 0.6027397260273972,
+      "macro_f1": 0.30357142857142855
+    },
+    "differences": {
+      "accuracy": {
+        "estimate": 0.15068493150684936,
+        "percentile_95_ci": [
+          0.0,
+          0.2857142857142857
+        ]
+      },
+      "macro_f1": {
+        "estimate": 0.3307506763389117,
+        "percentile_95_ci": [
+          0.11455494284565616,
+          0.45489145295992833
+        ]
+      }
+    },
+    "bootstrap": {
+      "method": "paired source-paper cluster bootstrap",
+      "draws": 10000,
+      "seed": 544,
+      "resampled_unit": "source_paper_id",
+      "weighting": "All comparisons in each sampled paper; pooled comparison-level metrics",
+      "limitations": "Intervals are exploratory with few source papers and condition on the observed papers. They do not measure variation from training seeds, model selection, or annotation uncertainty. No interval is reported with fewer than two source papers."
+    },
+    "discordant_correctness": {
+      "fine_tuned_only_correct": 15,
+      "baseline_only_correct": 4
+    },
+    "mcnemar": {
+      "method": "exact two-sided binomial McNemar",
+      "p_value": 0.0192108154296875,
+      "interpretation": "Descriptive only: assumes independent comparison pairs, which may fail within source papers."
+    }
+  },
+  "alternate_prompted": {
+    "direction": "fine_tuned_minus_baseline",
+    "count": 73,
+    "source_paper_count": 13,
+    "fine_tuned_metrics": {
+      "accuracy": 0.7534246575342466,
+      "macro_f1": 0.6343221049103402
+    },
+    "baseline_metrics": {
+      "accuracy": 0.136986301369863,
+      "macro_f1": 0.2188888888888889
+    },
+    "differences": {
+      "accuracy": {
+        "estimate": 0.6164383561643836,
+        "percentile_95_ci": [
+          0.390625,
+          0.8356215497853199
+        ]
+      },
+      "macro_f1": {
+        "estimate": 0.41543321602145133,
+        "percentile_95_ci": [
+          0.27759435600459936,
+          0.6305262551813459
+        ]
+      }
+    },
+    "bootstrap": {
+      "method": "paired source-paper cluster bootstrap",
+      "draws": 10000,
+      "seed": 544,
+      "resampled_unit": "source_paper_id",
+      "weighting": "All comparisons in each sampled paper; pooled comparison-level metrics",
+      "limitations": "Intervals are exploratory with few source papers and condition on the observed papers. They do not measure variation from training seeds, model selection, or annotation uncertainty. No interval is reported with fewer than two source papers."
+    },
+    "discordant_correctness": {
+      "fine_tuned_only_correct": 50,
+      "baseline_only_correct": 5
+    },
+    "mcnemar": {
+      "method": "exact two-sided binomial McNemar",
+      "p_value": 2.1358426138817777e-10,
+      "interpretation": "Descriptive only: assumes independent comparison pairs, which may fail within source papers."
+    }
+  }
+}

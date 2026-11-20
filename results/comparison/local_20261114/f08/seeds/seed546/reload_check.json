@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "fresh_process": true,
+  "count": 75,
+  "mismatched_ids": [],
+  "metrics": {
+    "count": 75,
+    "correct": 57,
+    "accuracy": 0.76,
+    "macro_f1": 0.6085826661047901,
+    "per_class": {
+      "overlapping": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1": 0.5,
+        "tp": 4,
+        "fp": 4,
+        "fn": 4,
+        "support": 8
+      },
+      "distinct": {
+        "precision": 0.8275862068965517,
+        "recall": 0.8727272727272727,
+        "f1": 0.8495575221238938,
+        "tp": 48,
+        "fp": 10,
+        "fn": 7,
+        "support": 55
+      },
+      "insufficient_evidence": {
+        "precision": 0.5555555555555556,
+        "recall": 0.4166666666666667,
+        "f1": 0.4761904761904762,
+        "tp": 5,
+        "fp": 4,
+        "fn": 7,
+        "support": 12
+      }
+    },
+    "confusion": {
+      "overlapping": {
+        "overlapping": 4,
+        "distinct": 4,
+        "insufficient_evidence": 0,
+        "invalid": 0
+      },
+      "distinct": {
+        "overlapping": 3,
+        "distinct": 48,
+        "insufficient_evidence": 4,
+        "invalid": 0
+      },
+      "insufficient_evidence": {
+        "overlapping": 1,
+        "distinct": 6,
+        "insufficient_evidence": 5,
+        "invalid": 0
+      }
+    },
+    "invalid_predictions": 0
+  },
+  "adapter_sha256": "689d8638d883be9e9a12174ba018d736806641ab5e968404afd2b893d1032221",
+  "predictions_sha256": "9031961ac4a636de59f2c654f2cbac42af15ab65261151162088f5f3c2dfc1e1",
+  "source_sha256": "2fdb3fbabfda61fba8a70cf15ca2e4d55f2905f446bec88a3bb91089ac2660bb"
+}

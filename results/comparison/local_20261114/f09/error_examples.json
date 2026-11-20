@@ -1,0 +1,450 @@
+{
+  "majority": [
+    {
+      "comparison_id": "N16",
+      "source_paper_id": "MAPHalifax2026",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Reductions in alcohol use and harms occurred for both groups, although MAP participants reported fewer harms at 0-6 months."
+    },
+    {
+      "comparison_id": "R092",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "claim": "In contrast, alcohol use disorder (OR, 0.54; 95% CI, 0.29-0.99; P = .045) and opioid or methamphetamine use disorders (OR, 0.29; 95% CI, 0.14-0.62; P = .001) were associated with lower likelihood of housing attainment.",
+      "prior_work": "CONCLUSION: Data at 4 years were consistent with 2-year follow-up data: similar improvement in personal recovery outcomes but higher housing stability, autonomy and lower use of hospital services in the HF group compared to the TAU group, with the exception of an ongoing alcohol issue."
+    },
+    {
+      "comparison_id": "R124",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Marked but non-significant reductions were observed in the number of participants self-reporting alcohol-related harms in the domains of home life, legal issues, and withdrawal seizures."
+    },
+    {
+      "comparison_id": "R125",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Preliminary international evidence suggests that MAPs are associated with improvements such as reduced non-beverage alcohol consumption and decreases in some alcohol-related harms."
+    },
+    {
+      "comparison_id": "R126",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "There is promising evidence that MAPs reduce acute and social harms associated with alcohol dependence."
+    },
+    {
+      "comparison_id": "R127",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Managed alcohol programs (MAPs), a harm reduction strategy based on providing regular doses of alcohol to individuals with AUD, have emerged as a potential solution to reduce alcohol-related harms.Objectives: This study examined the impact of a MAP implemented in Barcelona on patterns of alcohol and other psychoactive substance use, health, and quality of life among people who use drugs and were experiencing homelessness."
+    },
+    {
+      "comparison_id": "R128",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "The shelter-based Managed Alcohol Project (MAP) was created to deliver health care to homeless adults with alcoholism and to minimize harm; its effect upon consumption of alcohol and use of crisis services is described as proof of principle."
+    },
+    {
+      "comparison_id": "R129",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "All program participants reported less alcohol consumption during MAP, and subjects and staff alike reported improved hygiene, compliance with medical care and health."
+    },
+    {
+      "comparison_id": "R131",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "One such strategy is the managed alcohol program (MAP), an alcohol harm reduction program managing consumption by providing eligible individuals with regular doses of alcohol as a part of a structured program, and often providing resources such as housing and other social services."
+    },
+    {
+      "comparison_id": "R132",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "Patterns of alcohol consumption and related harms among MAP participants and controls from a homeless shelter in Thunder Bay, Ontario, were investigated in 2013."
+    }
+  ],
+  "prompted": [
+    {
+      "comparison_id": "N16",
+      "source_paper_id": "MAPHalifax2026",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific prevalence rates for alcohol consumption and harms in two different years, while the older passage only mentions general reductions in alcohol use and harms without providing specific numbers or time frames.\n\nThe main contribution of the new claim is distinct because it provides precise data for different time points and specific types of alcohol-related outcomes, which are not covered in the older passage.\n\nFINAL: distinct",
+      "input_tokens": 300,
+      "output_tokens": 76,
+      "elapsed_seconds": 5.206963250006083,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Reductions in alcohol use and harms occurred for both groups, although MAP participants reported fewer harms at 0-6 months."
+    },
+    {
+      "comparison_id": "R090",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "invalid",
+      "raw_output": "The new claim provides specific details about the prevalence of alcohol use disorder among men and schizophrenia among women in a particular sample, which is not covered in the older passage. The older passage only mentions that homeless people in Western countries have higher prevalences of alcohol and drug dependence, psychotic illnesses, and personality disorders compared to the general population, but it does not specify the gender differences or the exact conditions as stated in the new claim.\n\nFinal: distinct",
+      "input_tokens": 333,
+      "output_tokens": 88,
+      "elapsed_seconds": 6.533319125010166,
+      "claim": "Among the 208 included participants (90.0% of the initial sample; median [IQR] age, 54.0 [44.3-62.0] years; 154 male [74.0%]), alcohol use disorder predominated among men, whereas women had a higher prevalence of schizophrenia.",
+      "prior_work": "CONCLUSIONS: Homeless people in Western countries are substantially more likely to have alcohol and drug dependence than the age-matched general population in those countries, and the prevalences of psychotic illnesses and personality disorders are higher."
+    },
+    {
+      "comparison_id": "R092",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific odds ratios and confidence intervals for the association between alcohol use disorder and opioid or methamphetamine use disorders with lower likelihood of housing attainment. The older passage only mentions that there was an \"ongoing alcohol issue\" but does not provide any quantitative data or associations with housing attainment.\n\nThe main contribution of the new claim is the specific statistical evidence, which is not present in the older passage.\n\nFINAL: distinct",
+      "input_tokens": 360,
+      "output_tokens": 84,
+      "elapsed_seconds": 6.622553666005842,
+      "claim": "In contrast, alcohol use disorder (OR, 0.54; 95% CI, 0.29-0.99; P = .045) and opioid or methamphetamine use disorders (OR, 0.29; 95% CI, 0.14-0.62; P = .001) were associated with lower likelihood of housing attainment.",
+      "prior_work": "CONCLUSION: Data at 4 years were consistent with 2-year follow-up data: similar improvement in personal recovery outcomes but higher housing stability, autonomy and lower use of hospital services in the HF group compared to the TAU group, with the exception of an ongoing alcohol issue."
+    },
+    {
+      "comparison_id": "R124",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific prevalence rates for alcohol consumption and harms over two years, while the older passage mentions reductions in the self-reporting of alcohol-related harms in broader domains like home life, legal issues, and withdrawal seizures. The older passage does not provide specific prevalence rates or compare year-to-year data for alcohol consumption or acute harms.\n\nThe main contribution of the new claim is distinct because it provides specific, quantitative data that the older passage does not cover.\n\nFINAL: distinct",
+      "input_tokens": 309,
+      "output_tokens": 94,
+      "elapsed_seconds": 6.440861665992998,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Marked but non-significant reductions were observed in the number of participants self-reporting alcohol-related harms in the domains of home life, legal issues, and withdrawal seizures."
+    },
+    {
+      "comparison_id": "R125",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific year-to-year data on nonbeverage alcohol consumption, acute alcohol-related harms, and seizures, which are not mentioned or quantified in the older passage. The older passage only suggests that MAPs are associated with reduced non-beverage alcohol consumption and decreases in some alcohol-related harms without providing specific numbers or year-to-year comparisons.\n\nThe main contribution of the new claim is distinct because it provides specific, quantitative data that the older passage does not cover.\n\nFINAL: distinct",
+      "input_tokens": 304,
+      "output_tokens": 97,
+      "elapsed_seconds": 6.685485666966997,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Preliminary international evidence suggests that MAPs are associated with improvements such as reduced non-beverage alcohol consumption and decreases in some alcohol-related harms."
+    },
+    {
+      "comparison_id": "R126",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific data comparing year 1 to year 2 for alcohol consumption and related harms, which is not covered in the older passage. The older passage only mentions \"promising evidence that MAPs reduce acute and social harms associated with alcohol dependence,\" without providing any specific data or time comparisons.\n\nThe main contribution of the new claim is distinct because it gives concrete numbers and time comparisons that are not present in the older passage.\n\nFINAL: distinct",
+      "input_tokens": 292,
+      "output_tokens": 90,
+      "elapsed_seconds": 6.310330500011332,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "There is promising evidence that MAPs reduce acute and social harms associated with alcohol dependence."
+    },
+    {
+      "comparison_id": "R127",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific prevalence data for alcohol consumption and related harms over two years, while the older passage only mentions the general impact of a managed alcohol program (MAP) on alcohol and other psychoactive substance use, health, and quality of life among people experiencing homelessness. The older passage does not provide any specific data on the prevalence of alcohol consumption or related harms over time.\n\nThe main contribution of the new claim is distinct because it provides specific, quantitative data that the older passage does not cover.\n\nFINAL: distinct",
+      "input_tokens": 350,
+      "output_tokens": 102,
+      "elapsed_seconds": 7.084170416987035,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Managed alcohol programs (MAPs), a harm reduction strategy based on providing regular doses of alcohol to individuals with AUD, have emerged as a potential solution to reduce alcohol-related harms.Objectives: This study examined the impact of a MAP implemented in Barcelona on patterns of alcohol and other psychoactive substance use, health, and quality of life among people who use drugs and were experiencing homelessness."
+    },
+    {
+      "comparison_id": "R128",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "The new claim provides specific prevalence rates for nonbeverage alcohol consumption, acute alcohol-related harms, and seizures over two years. The older passage does not provide any specific data or prevalence rates for these outcomes. Instead, it describes the general purpose of the Managed Alcohol Project and mentions that its effect on alcohol consumption and crisis services use is described as a proof of principle.\n\nThe main contribution of the new claim is not present in the older passage. The older passage does not cover the specific outcomes and their prevalence rates over the two years.\n\nFINAL: distinct",
+      "input_tokens": 319,
+      "output_tokens": 109,
+      "elapsed_seconds": 7.370401165971998,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "The shelter-based Managed Alcohol Project (MAP) was created to deliver health care to homeless adults with alcoholism and to minimize harm; its effect upon consumption of alcohol and use of crisis services is described as proof of principle."
+    },
+    {
+      "comparison_id": "R129",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "The new claim introduces specific focus group findings about MAP improving health, reducing nonbeverage alcohol consumption, survival behaviors, and violence. The older passage mentions general improvements in alcohol consumption and health-related behaviors but does not specify the exact outcomes or the method (focus groups) used to gather these results.\n\nThe main contribution of the new claim is distinct because it provides specific details about the outcomes and the method used to gather these results, which are not present in the older passage.\n\nFINAL: distinct",
+      "input_tokens": 266,
+      "output_tokens": 97,
+      "elapsed_seconds": 6.406998292019125,
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "All program participants reported less alcohol consumption during MAP, and subjects and staff alike reported improved hygiene, compliance with medical care and health."
+    },
+    {
+      "comparison_id": "R130",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "distinct",
+      "predicted": "invalid",
+      "raw_output": "The new claim introduces specific focus group outcomes (MAP improving health, decreasing nonbeverage alcohol consumption, survival behaviors, and violence) that are not mentioned in the older passage. The older passage focuses on shifting relationships to alcohol from survival to choice and control, which is a different main point.\n\nFinal: distinct",
+      "input_tokens": 281,
+      "output_tokens": 61,
+      "elapsed_seconds": 4.805192416999489,
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "RESULTS: Family members highlighted the importance of tailored Indigenous-led alcohol harm reduction in shifting their relationships to alcohol from survival to having choice and control of their drinking (It's a choice I'm making right now)."
+    }
+  ],
+  "alternate_prompted": [
+    {
+      "comparison_id": "N16",
+      "source_paper_id": "MAPHalifax2026",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 264,
+      "output_tokens": 1,
+      "elapsed_seconds": 2.2289535829913802,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Reductions in alcohol use and harms occurred for both groups, although MAP participants reported fewer harms at 0-6 months."
+    },
+    {
+      "comparison_id": "N17",
+      "source_paper_id": "MAPHalifax2026",
+      "gold": "distinct",
+      "predicted": "insufficient_evidence",
+      "raw_output": "insufficient_evidence",
+      "input_tokens": 223,
+      "output_tokens": 4,
+      "elapsed_seconds": 1.6309789590304717,
+      "claim": "Mean person-week prevalence of out-of-program drinking was 34% in year 1 and 33% in year 2.",
+      "prior_work": "MAP sites with effective policies on outside drinking drank less and had fewer harms."
+    },
+    {
+      "comparison_id": "R087",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "insufficient_evidence",
+      "raw_output": "insufficient_evidence",
+      "input_tokens": 311,
+      "output_tokens": 4,
+      "elapsed_seconds": 2.168786459020339,
+      "claim": "Among the 208 included participants (90.0% of the initial sample; median [IQR] age, 54.0 [44.3-62.0] years; 154 male [74.0%]), alcohol use disorder predominated among men, whereas women had a higher prevalence of schizophrenia.",
+      "prior_work": "Significant correlates of criminal behavior and contacts with the justice system included criminal history, high perceived need for medical services, high intensity of mental health service use, young age, male gender, substance use, protracted homelessness, type of homelessness (street or shelter), and history of conduct disorder."
+    },
+    {
+      "comparison_id": "R088",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "invalid",
+      "raw_output": "Distinct",
+      "input_tokens": 303,
+      "output_tokens": 1,
+      "elapsed_seconds": 2.104845624999143,
+      "claim": "Among the 208 included participants (90.0% of the initial sample; median [IQR] age, 54.0 [44.3-62.0] years; 154 male [74.0%]), alcohol use disorder predominated among men, whereas women had a higher prevalence of schizophrenia.",
+      "prior_work": "Male individuals exhibited a significantly higher lifetime prevalence of mental health disorders (86%; 95% CI, 74-92) compared to female individuals (69%; 95% CI, 48-84)."
+    },
+    {
+      "comparison_id": "R089",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "insufficient_evidence",
+      "raw_output": "insufficient_evidence",
+      "input_tokens": 298,
+      "output_tokens": 4,
+      "elapsed_seconds": 2.2503050839877687,
+      "claim": "Among the 208 included participants (90.0% of the initial sample; median [IQR] age, 54.0 [44.3-62.0] years; 154 male [74.0%]), alcohol use disorder predominated among men, whereas women had a higher prevalence of schizophrenia.",
+      "prior_work": "The prevalence of schizophrenia in migrants was higher compared to native-born individuals: the migrant-to-native-born ratio median (10%-90% quantile) was 1.8 (0.9-6.4)."
+    },
+    {
+      "comparison_id": "R090",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "invalid",
+      "raw_output": "Distinct",
+      "input_tokens": 297,
+      "output_tokens": 1,
+      "elapsed_seconds": 2.0387058749911375,
+      "claim": "Among the 208 included participants (90.0% of the initial sample; median [IQR] age, 54.0 [44.3-62.0] years; 154 male [74.0%]), alcohol use disorder predominated among men, whereas women had a higher prevalence of schizophrenia.",
+      "prior_work": "CONCLUSIONS: Homeless people in Western countries are substantially more likely to have alcohol and drug dependence than the age-matched general population in those countries, and the prevalences of psychotic illnesses and personality disorders are higher."
+    },
+    {
+      "comparison_id": "R091",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "invalid",
+      "raw_output": "Distinct",
+      "input_tokens": 260,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.9097662920248695,
+      "claim": "Older age was significantly associated with housing attainment (odds ratio [OR], 1.03; 95% CI, 1.01-1.05; P = .04).",
+      "prior_work": "Cox regression showed that older age group P<.05) and arrest history (P<.01) were the strongest predictors of a longer duration of homelessness."
+    },
+    {
+      "comparison_id": "R092",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "overlapping",
+      "predicted": "invalid",
+      "raw_output": "Distinct",
+      "input_tokens": 324,
+      "output_tokens": 1,
+      "elapsed_seconds": 2.1936036669649184,
+      "claim": "In contrast, alcohol use disorder (OR, 0.54; 95% CI, 0.29-0.99; P = .045) and opioid or methamphetamine use disorders (OR, 0.29; 95% CI, 0.14-0.62; P = .001) were associated with lower likelihood of housing attainment.",
+      "prior_work": "CONCLUSION: Data at 4 years were consistent with 2-year follow-up data: similar improvement in personal recovery outcomes but higher housing stability, autonomy and lower use of hospital services in the HF group compared to the TAU group, with the exception of an ongoing alcohol issue."
+    },
+    {
+      "comparison_id": "R093",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "insufficient_evidence",
+      "raw_output": "insufficient_evidence",
+      "input_tokens": 304,
+      "output_tokens": 4,
+      "elapsed_seconds": 2.1709674170124345,
+      "claim": "In contrast, alcohol use disorder (OR, 0.54; 95% CI, 0.29-0.99; P = .045) and opioid or methamphetamine use disorders (OR, 0.29; 95% CI, 0.14-0.62; P = .001) were associated with lower likelihood of housing attainment.",
+      "prior_work": "Importance: Alcohol use disorder (AUD) is common and associated with increased morbidity. The degree to which AUD currently factors into workplace absenteeism needs further characterization in the US."
+    },
+    {
+      "comparison_id": "R094",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "distinct",
+      "predicted": "insufficient_evidence",
+      "raw_output": "insufficient_evidence",
+      "input_tokens": 258,
+      "output_tokens": 4,
+      "elapsed_seconds": 1.9677076659863815,
+      "claim": "In this retrospective cohort study of 208 homeless individuals with mental illness, on-site psychiatric services provided a framework for bridging the gap between transitional shelters and housing attainment.",
+      "prior_work": "The first, and most important, is that HF is very successful, most especially regarding the primary outcome of enabling people with a mental illness who are homeless to find and maintain stable housing for an extended period of time."
+    }
+  ],
+  "fine_tuned": [
+    {
+      "comparison_id": "N18",
+      "source_paper_id": "MAPHalifax2026",
+      "gold": "distinct",
+      "predicted": "overlapping",
+      "raw_output": "overlapping",
+      "input_tokens": 237,
+      "output_tokens": 2,
+      "elapsed_seconds": 1.5864852090016939,
+      "claim": "This scattered-site MAP may support positive health and social outcomes for people with severe alcohol use disorder.",
+      "prior_work": "When compared to controls, MAP participants were more likely to retain their housing and experienced increased safety and improved quality of life compared to life on the streets, in jails, shelters, or hospitals."
+    },
+    {
+      "comparison_id": "R092",
+      "source_paper_id": "doi:10.1001/jamanetworkopen.2026.16300",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 324,
+      "output_tokens": 1,
+      "elapsed_seconds": 2.2870634580031037,
+      "claim": "In contrast, alcohol use disorder (OR, 0.54; 95% CI, 0.29-0.99; P = .045) and opioid or methamphetamine use disorders (OR, 0.29; 95% CI, 0.14-0.62; P = .001) were associated with lower likelihood of housing attainment.",
+      "prior_work": "CONCLUSION: Data at 4 years were consistent with 2-year follow-up data: similar improvement in personal recovery outcomes but higher housing stability, autonomy and lower use of hospital services in the HF group compared to the TAU group, with the exception of an ongoing alcohol issue."
+    },
+    {
+      "comparison_id": "R124",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 273,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.9156044170376845,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Marked but non-significant reductions were observed in the number of participants self-reporting alcohol-related harms in the domains of home life, legal issues, and withdrawal seizures."
+    },
+    {
+      "comparison_id": "R126",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "overlapping",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 256,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.7126989579992369,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "There is promising evidence that MAPs reduce acute and social harms associated with alcohol dependence."
+    },
+    {
+      "comparison_id": "R127",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 314,
+      "output_tokens": 1,
+      "elapsed_seconds": 2.1472846250399016,
+      "claim": "Comparing year 1 to year 2, participants had mean person-week prevalence of any nonbeverage alcohol consumption (eg, hand sanitizer): 9% and 3%; acute alcohol-related harms: 25% and 9%; and seizures: 4% and 1%.",
+      "prior_work": "Managed alcohol programs (MAPs), a harm reduction strategy based on providing regular doses of alcohol to individuals with AUD, have emerged as a potential solution to reduce alcohol-related harms.Objectives: This study examined the impact of a MAP implemented in Barcelona on patterns of alcohol and other psychoactive substance use, health, and quality of life among people who use drugs and were experiencing homelessness."
+    },
+    {
+      "comparison_id": "R131",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 251,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.6931147500290535,
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "One such strategy is the managed alcohol program (MAP), an alcohol harm reduction program managing consumption by providing eligible individuals with regular doses of alcohol as a part of a structured program, and often providing resources such as housing and other social services."
+    },
+    {
+      "comparison_id": "R133",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 228,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.6607487910077907,
+      "claim": "Focus groups highlighted MAP improved participants\u2019 health and decreased frequency of nonbeverage alcohol consumption, survival behaviors, and violence.",
+      "prior_work": "Length of stay in a MAP was investigated as a predictor of drinking patterns, non-beverage alcohol consumption and related harms."
+    },
+    {
+      "comparison_id": "R135",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "overlapping",
+      "raw_output": "overlapping",
+      "input_tokens": 216,
+      "output_tokens": 2,
+      "elapsed_seconds": 1.635474249953404,
+      "claim": "This scattered-site MAP may support positive health and social outcomes for people with severe alcohol use disorder.",
+      "prior_work": "Managed alcohol programs aim to reduce health and social harms associated with severe alcohol use disorder."
+    },
+    {
+      "comparison_id": "R139",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 219,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.3823436250095256,
+      "claim": "This scattered-site MAP may support positive health and social outcomes for people with severe alcohol use disorder.",
+      "prior_work": "Managed Alcohol Programs (MAP) aim to reduce harms of severe alcohol use without expecting cessation of use."
+    },
+    {
+      "comparison_id": "R140",
+      "source_paper_id": "doi:10.1177/29767342261444527",
+      "gold": "insufficient_evidence",
+      "predicted": "distinct",
+      "raw_output": "distinct",
+      "input_tokens": 225,
+      "output_tokens": 1,
+      "elapsed_seconds": 1.3993313329992816,
+      "claim": "Identified program gaps can be explored to better meet participant needs and reduce out-of-program drinking.",
+      "prior_work": "Instead, alcohol harm reduction approaches provide individuals with support to reduce the harms associated with their drinking, without the need to stop drinking."
+    }
+  ]
+}

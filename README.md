@@ -44,6 +44,8 @@ See `docs/data-schema.md` for the shared JSON fields.
 
 ## Components
 
+- [F07–F09 comparison classifier: results and saved model](results/comparison/local_20261114/README.md)
+- [Reproduce training, evaluate, or run comparison inference](docs/comparison_local.md)
 - [M17 pilot fine-tuning: status, results, and usage](docs/m17.md)
 
 - `data/`: datasets (`papers/` source papers, `raw/` search results and picks, `claims/` labeling guide)

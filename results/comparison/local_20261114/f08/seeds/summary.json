@@ -1,0 +1,41 @@
+{
+  "evaluation_split": "development",
+  "count_per_seed": 75,
+  "learning_rate": 5e-05,
+  "epochs_per_seed": 3,
+  "checkpoint_selection": "Highest development macro-F1 within each run; earlier epoch on ties.",
+  "final_classifier_seed": 544,
+  "runs": [
+    {
+      "seed": 544,
+      "selected_epoch": 3,
+      "accuracy": 0.7866666666666666,
+      "macro_f1": 0.6116767219708397,
+      "reload_verified": true,
+      "run": "../lr5e-5"
+    },
+    {
+      "seed": 545,
+      "selected_epoch": 2,
+      "accuracy": 0.7733333333333333,
+      "macro_f1": 0.6021711366538952,
+      "reload_verified": true,
+      "run": "seed545"
+    },
+    {
+      "seed": 546,
+      "selected_epoch": 3,
+      "accuracy": 0.76,
+      "macro_f1": 0.6085826661047901,
+      "reload_verified": true,
+      "run": "seed546"
+    }
+  ],
+  "macro_f1": {
+    "mean": 0.6074768415765083,
+    "sample_standard_deviation": 0.004848316611973651,
+    "min": 0.6021711366538952,
+    "max": 0.6116767219708397
+  },
+  "scope": "Additional seeds measure development variation at the selected setting. The final classifier and original test results are unchanged; the additional seeds were not evaluated on test data."
+}

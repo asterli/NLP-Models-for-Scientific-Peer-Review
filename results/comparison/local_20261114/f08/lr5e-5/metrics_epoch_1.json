@@ -1,0 +1,56 @@
+{
+  "count": 75,
+  "correct": 56,
+  "accuracy": 0.7466666666666667,
+  "macro_f1": 0.40467668814125507,
+  "per_class": {
+    "overlapping": {
+      "precision": 0.6666666666666666,
+      "recall": 0.25,
+      "f1": 0.36363636363636365,
+      "tp": 2,
+      "fp": 1,
+      "fn": 6,
+      "support": 8
+    },
+    "distinct": {
+      "precision": 0.75,
+      "recall": 0.9818181818181818,
+      "f1": 0.8503937007874015,
+      "tp": 54,
+      "fp": 18,
+      "fn": 1,
+      "support": 55
+    },
+    "insufficient_evidence": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "tp": 0,
+      "fp": 0,
+      "fn": 12,
+      "support": 12
+    }
+  },
+  "confusion": {
+    "overlapping": {
+      "overlapping": 2,
+      "distinct": 6,
+      "insufficient_evidence": 0,
+      "invalid": 0
+    },
+    "distinct": {
+      "overlapping": 1,
+      "distinct": 54,
+      "insufficient_evidence": 0,
+      "invalid": 0
+    },
+    "insufficient_evidence": {
+      "overlapping": 0,
+      "distinct": 12,
+      "insufficient_evidence": 0,
+      "invalid": 0
+    }
+  },
+  "invalid_predictions": 0
+}

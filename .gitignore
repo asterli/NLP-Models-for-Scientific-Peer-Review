@@ -1,4 +1,5 @@
 .venv/
+.venv-comparison/
 __pycache__/
 .pytest_cache/
 data/raw/xml/
