@@ -6,3 +6,4 @@ data/raw/xml/
 data/raw/meta/
 data/raw/openalex/
 .env
+outputs/sample_*/
