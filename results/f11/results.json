@@ -1,0 +1,50 @@
+{
+  "task": "f11_retrieval",
+  "k": 10,
+  "uncertain": "exclude",
+  "commit": "3ff0a4f1500064f5da24c12b89668b56fae74654",
+  "inputs": {
+    "corpus": "data\\corpus\\corpus.jsonl",
+    "queries": "evaluation\\f11\\queries.jsonl",
+    "qrels": "evaluation\\f11\\qrels.jsonl"
+  },
+  "recall@10": 0.6522727272727272,
+  "queries": 22,
+  "queries_without_relevant": 0,
+  "queries_without_results": 0,
+  "per_query": {
+    "R129": 0.6,
+    "R051": 0.0,
+    "R052": 0.0,
+    "R124": 0.75,
+    "R135": 0.5,
+    "R087": 1.0,
+    "R091": 0.0,
+    "R094": 0.0,
+    "R134": 1.0,
+    "R140": 0.0,
+    "R184": 1.0,
+    "R187": 1.0,
+    "R189": 0.5,
+    "W066": 1.0,
+    "W068": 1.0,
+    "W127": 1.0,
+    "W001": 1.0,
+    "W021": 0.0,
+    "W087": 1.0,
+    "W174": 1.0,
+    "R001": 1.0,
+    "R004": 1.0
+  },
+  "misses_total": 13,
+  "misses_by_reason": {
+    "ranked_below_k": 13
+  },
+  "misses_by_group": {
+    "ranking": 13,
+    "eligibility": 0,
+    "data": 0
+  },
+  "recall@10_eligible_only": 0.6522727272727272,
+  "queries_eligible_only": 22
+}
