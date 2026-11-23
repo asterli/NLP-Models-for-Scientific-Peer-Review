@@ -18,13 +18,15 @@ Clone the repository and install dependencies:
 pip install -r requirements.txt
 ```
 
-## Run the Sample
+## Run the Pipeline (F12)
 
 ```bash
 python scripts/run_sample.py
 ```
 
-The command writes a placeholder result to `outputs/sample_output.json`.
+This quick sample needs no GPU. It runs one held-out paper through the saved F06 claim predictions and live retrieval, skips the comparison classifier, and writes `results.json`, `predictions.jsonl` and `report.md` to `outputs/sample_<timestamp>/`.
+
+The full pipeline is `scripts/run_pipeline.py`: paper → claim extractor → retrieval → comparison classifier → evidence-linked report. The extractor needs a CUDA GPU and the classifier needs Apple Silicon, so the full pipeline runs in two steps. See [docs/pipeline.md](docs/pipeline.md).
 
 ## Data Formats
 
@@ -44,6 +46,7 @@ See `docs/data-schema.md` for the shared JSON fields.
 
 ## Components
 
+- [F12 end-to-end pipeline: commands, outputs, empty/error cases](docs/pipeline.md)
 - [F07–F09 comparison classifier: results and saved model](results/comparison/local_20261114/README.md)
 - [Reproduce training, evaluate, or run comparison inference](docs/comparison_local.md)
 - [M17 pilot fine-tuning: status, results, and usage](docs/m17.md)
@@ -51,10 +54,11 @@ See `docs/data-schema.md` for the shared JSON fields.
 - `data/`: datasets (`papers/` source papers, `raw/` search results and picks, `claims/` labeling guide)
 - `src/papers/`: paper collection and parsing (M05)
 - `src/corpus/`: background corpus from OpenAlex (M21)
-- `scripts/`: runnable commands (`fetch_papers.py`, `diff_papers.py`, `build_corpus.py`, `run_sample.py`, `train_novelty.py`; the others are empty placeholders)
+- `scripts/`: runnable commands, including `run_pipeline.py` (F12) and `run_sample.py`
+- `src/pipeline/`: F12 pipeline (orchestration, component adapters, report, provenance)
 - `tests/`: tests, run with `pytest` (no internet needed)
 - `docs/`: data schema and labeling guides
-- Planned, not created yet: `evaluation/`, `models/`, `outputs/` (`run_sample.py` creates `outputs/`)
+- `outputs/`: pipeline runs (`run_sample.py` and `run_pipeline.py` write here)
 
 ## Reproducibility
 

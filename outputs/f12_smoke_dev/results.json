@@ -1,0 +1,1678 @@
+{
+  "run": {
+    "started": "2026-11-21T22:16:31+00:00",
+    "command": "scripts/run_pipeline.py run --paper-id doi:10.1111/1475-6773.14411 --claims-file data/claims/predictions/finetuned_dev_r16_lr2e-4_s544.jsonl --local-model-dir /Users/aster/models/qwen2.5-7b-instruct-4bit --compare-top 3 --out-dir outputs/f12_smoke_dev",
+    "code": {
+      "commit": "98003711b849432b8ab1c3d9b8e54b1c1885925a",
+      "branch": "aster/f12-pipeline",
+      "dirty": false,
+      "dirty_files": null
+    },
+    "environment": {
+      "python": "3.12.2",
+      "platform": "macOS-26.6-arm64-arm-64bit",
+      "packages": {
+        "transformers": "5.20.1",
+        "mlx": "0.32.4",
+        "mlx-lm": "0.32.2",
+        "mlx-metal": "0.32.4",
+        "tokenizers": "0.23.3"
+      }
+    },
+    "finished_seconds": 273.5
+  },
+  "settings": {
+    "k": 10,
+    "compare_top": 3,
+    "uncertain_dates": "exclude",
+    "evidence_for_comparison": "F10 best-matching abstract sentence (evidence_kind=passage)"
+  },
+  "data": {
+    "papers_source": "data/papers/papers.jsonl",
+    "papers_source_sha256": "5e1b2a85227ae97c4e4ffd87ec87ef13e980d840818abb4bf9af24391aa7663e",
+    "paper_ids": [
+      "doi:10.1111/1475-6773.14411"
+    ]
+  },
+  "components": {
+    "claims": {
+      "component": "F06 claim extractor",
+      "mode": "saved",
+      "format": "predictions_jsonl",
+      "claims_file": "data/claims/predictions/finetuned_dev_r16_lr2e-4_s544.jsonl",
+      "claims_file_sha256": "6725b98e4fb733ce97f78d6e3f180d8d615d71feb1f7ee7ed14d17a6529ef1b9",
+      "extractor": null
+    },
+    "retrieval": {
+      "component": "F11 retrieval (F10-filtered BM25)",
+      "corpus": "data/corpus/corpus.jsonl",
+      "corpus_sha256": "ff095e4d556059669bbeaeba0908e0ede925a1b5d167da12469c436c75713fa4",
+      "corpus_works": 644,
+      "bm25": {
+        "k1": 1.5,
+        "b": 0.75
+      },
+      "uncertain_dates": "exclude",
+      "source_sha256": {
+        "retrieval/f11_retriever.py": "986e527aff2090e66f363ecf8a0e5879ad0dc28c96047f5355345d6d1ca62c2e",
+        "retrieval/m23_filters.py": "a149ea6ec4a5eb90595694b6db68ca6ff3365474255245bce9de7e1378c21012",
+        "retrieval/m22_bm25_retrieval.py": "10aeadd4540136f9971f40dafafef8dad225cf79ff69013a3eae83afeceb5b79"
+      }
+    },
+    "comparison": {
+      "component": "F09 comparison classifier",
+      "base_model": "Qwen/Qwen2.5-7B-Instruct",
+      "base_model_repo": "mlx-community/Qwen2.5-7B-Instruct-4bit",
+      "base_model_revision": "c26a38f6a37d0a51b4e9a1eb3026530fa35d9fed",
+      "base_model_dir": "/Users/aster/models/qwen2.5-7b-instruct-4bit",
+      "base_model_files_verified": "file hashes checked against classifier_config.json at load",
+      "adapter": "artifacts/comparison/local_20261114/adapter",
+      "adapter_sha256": {
+        "adapters.safetensors": "709c9e8e5caddc8cc024932901f6f028484dc282a17e5a3f8b46a2f5affbf497",
+        "adapter_config.json": "386e1185d02b16fc9d7c308faad9a82695be2d2f4de0eb02790fdab9f5bd6337",
+        "classifier_config.json": "1532a012e9e3c14ef36ef0ef17ce6f9d5529cae043d8d4d3c91e5f1634dc8288"
+      },
+      "labels": [
+        "overlapping",
+        "distinct",
+        "insufficient_evidence"
+      ],
+      "prompt_name": "label",
+      "seed": 544,
+      "best_epoch": 3,
+      "evidence_kind": "passage",
+      "source_sha256": {
+        "src/mlx_comparison.py": "03a0b8f5173d572d195aa3675fa31bb06750337e325d9581fafacaea154a8e60",
+        "src/comparison_baselines.py": "6e7309eb972767307515613a58597fb563e20c04d22df2833d8ecdef454a58f4"
+      }
+    }
+  },
+  "summary": {
+    "papers": 1,
+    "paper_status": {
+      "ok": 1
+    },
+    "claims": 6,
+    "claim_status": {
+      "retrieved": 6
+    },
+    "pairs": 60,
+    "pair_status": {
+      "compared": 15,
+      "no_evidence": 9,
+      "not_run": 36
+    },
+    "labels": {
+      "distinct": 9,
+      "insufficient_evidence": 3,
+      "overlapping": 3
+    }
+  },
+  "papers": [
+    {
+      "paper": {
+        "paper_id": "doi:10.1111/1475-6773.14411",
+        "title": "Changes in healthcare costs and utilization for Medicaid recipients who received supportive housing through a payer‐community‐based housing partnership",
+        "date": "2024-11-13",
+        "url": "https://doi.org/10.1111/1475-6773.14411",
+        "doi": "10.1111/1475-6773.14411",
+        "pmcid": "PMC12052510"
+      },
+      "status": "ok",
+      "detail": null,
+      "n_sentences": 23,
+      "claims": [
+        {
+          "claim_id": "doi:10.1111/1475-6773.14411#s001",
+          "paper_id": "doi:10.1111/1475-6773.14411",
+          "sentence_id": "s001",
+          "text": "To evaluate healthcare cost and utilization changes among Medicaid and dually eligible participants of a supportive housing program implemented by a managed care organization and community‐based organization.",
+          "section": "abstract:objective",
+          "status": "retrieved",
+          "detail": null,
+          "excluded_counts": {},
+          "candidates": [
+            {
+              "rank": 1,
+              "paper_id": "doi:10.1377/hlthaff.2023.01044",
+              "title": "Addressing Housing-Related Social Needs Through Medicaid: Lessons From North Carolina’s Healthy Opportunities Pilots Program",
+              "score": 24.926,
+              "date": "2024-02-01",
+              "url": "https://doi.org/10.1377/hlthaff.2023.01044",
+              "evidence": "North Carolina Medicaid's Healthy Opportunities Pilots program is the country's first comprehensive program to evaluate the impact of paying community-based organizations to provide eligible Medicaid enrollees with an array of evidence-based services to address four domains of health-related social needs, one of which is housing.",
+              "doi": "10.1377/hlthaff.2023.01044",
+              "pmid": "38315916",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1377/hlthaff.2023.01044",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 2,
+              "paper_id": "doi:10.1377/hlthaff.2020.01796",
+              "title": "Temporary Financial Assistance Decreased Health Care Costs For Veterans Experiencing Housing Instability",
+              "score": 24.361,
+              "date": "2021-05-01",
+              "url": "https://doi.org/10.1377/hlthaff.2020.01796",
+              "evidence": "Through the Supportive Services for Veteran Families program, the Department of Veterans Affairs partners with community organizations to provide temporary financial assistance to veterans who are currently homeless or at imminent risk of becoming homeless.",
+              "doi": "10.1377/hlthaff.2020.01796",
+              "pmid": "33939508",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1377/hlthaff.2020.01796",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 3,
+              "paper_id": "doi:10.1007/s11606-020-06465-y",
+              "title": "Changes in Medicaid Utilization and Spending Associated with Homeless Adults’ Entry into Permanent Supportive Housing",
+              "score": 23.316,
+              "date": "2021-01-29",
+              "url": "https://doi.org/10.1007/s11606-020-06465-y",
+              "evidence": null,
+              "doi": "10.1007/s11606-020-06465-y",
+              "pmid": "33515190",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1007/s11606-020-06465-y",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 4,
+              "paper_id": "doi:10.1176/appi.ps.201500200",
+              "title": "Permanent Supportive Housing for Transition-Age Youths: Service Costs and Fidelity to the Housing First Model",
+              "score": 20.164,
+              "date": "2016-02-01",
+              "url": "https://doi.org/10.1176/appi.ps.201500200",
+              "evidence": "OBJECTIVE: Permanent supportive housing (PSH) programs are being implemented nationally and on a large scale.",
+              "doi": "10.1176/appi.ps.201500200",
+              "pmid": "26828399",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1176/appi.ps.201500200",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 5,
+              "paper_id": "doi:10.1080/0886571x.2018.1497930",
+              "title": "Building Communities of Care: A Comprehensive Model for Trauma-Informed Youth Capacity Building and Behavior Management in Residential Services",
+              "score": 19.707,
+              "date": "2018-10-02",
+              "url": "https://doi.org/10.1080/0886571x.2018.1497930",
+              "evidence": "The goal of these efforts is to meet the need for efficient therapeutic residential care that maximizes positive outcomes and minimizes cost for youth and organizations.",
+              "doi": "10.1080/0886571x.2018.1497930",
+              "pmid": null,
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1080/0886571x.2018.1497930",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 6,
+              "paper_id": "doi:10.5811/westjem.2018.9.38954",
+              "title": "Substance Use, Homelessness, Mental Illness and Medicaid Coverage: A Set-up for High Emergency Department Utilization",
+              "score": 19.127,
+              "date": "2018-10-18",
+              "url": "https://doi.org/10.5811/westjem.2018.9.38954",
+              "evidence": "Understanding unique features of this population could lead to better care and lower healthcare costs.",
+              "doi": "10.5811/westjem.2018.9.38954",
+              "pmid": "30429919",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.5811/westjem.2018.9.38954",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 7,
+              "paper_id": "doi:10.2105/ajph.2015.302693",
+              "title": "Frequent Emergency Department Visits and Hospitalizations Among Homeless People With Medicaid: Implications for Medicaid Expansion",
+              "score": 18.881,
+              "date": "2015-10-08",
+              "url": "https://doi.org/10.2105/ajph.2015.302693",
+              "evidence": "States could consider provisions under the Patient Protection and Affordable Care Act (e.g., Medicaid expansion and Health Homes) jointly with housing programs to meet the needs of homeless individuals, which may improve the quality and cost effectiveness of care.",
+              "doi": "10.2105/ajph.2015.302693",
+              "pmid": "26447915",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.2105/ajph.2015.302693",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 8,
+              "paper_id": "doi:10.1186/s12954-022-00646-0",
+              "title": "Scoping review of managed alcohol programs",
+              "score": 18.617,
+              "date": "2022-07-25",
+              "url": "https://doi.org/10.1186/s12954-022-00646-0",
+              "evidence": "One such strategy is the managed alcohol program (MAP), an alcohol harm reduction program managing consumption by providing eligible individuals with regular doses of alcohol as a part of a structured program, and often providing resources such as housing and other social services.",
+              "doi": "10.1186/s12954-022-00646-0",
+              "pmid": "35879719",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1186/s12954-022-00646-0",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 9,
+              "paper_id": "doi:10.1377/hlthaff.2015.0393",
+              "title": "Formerly Homeless People Had Lower Overall Health Care Expenditures After Moving Into Supportive Housing",
+              "score": 18.36,
+              "date": "2016-01-01",
+              "url": "https://doi.org/10.1377/hlthaff.2015.0393",
+              "evidence": "Together, these results indicate a potential association between supportive housing and reduced health care costs that warrants deeper consideration as part of ongoing health care reforms.",
+              "doi": "10.1377/hlthaff.2015.0393",
+              "pmid": "26733697",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1377/hlthaff.2015.0393",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 10,
+              "paper_id": "doi:10.1176/ps.44.5.439",
+              "title": "Housing and Supports for Persons With Mental Illness: Emerging Approaches to Research and Practice",
+              "score": 18.071,
+              "date": "1993-05-01",
+              "url": "https://doi.org/10.1176/ps.44.5.439",
+              "evidence": "OBJECTIVE: An approach referred to as \"supported housing,\" based on principles of consumer choice, integrated community housing, and flexible services, is replacing residential treatment facilities for persons with psychiatric disabilities.",
+              "doi": "10.1176/ps.44.5.439",
+              "pmid": "8509074",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s001",
+                "prior_paper_id": "doi:10.1176/ps.44.5.439",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            }
+          ]
+        },
+        {
+          "claim_id": "doi:10.1111/1475-6773.14411#s006",
+          "paper_id": "doi:10.1111/1475-6773.14411",
+          "sentence_id": "s006",
+          "text": "Compared to the pre‐period, significantly lower medical (−40.4%, p = 0.004), emergency department (−62.7%, p = 0.02), and total (−33.3%, p = 0.02) costs of care were observed in the post‐period.",
+          "section": "abstract:results",
+          "status": "retrieved",
+          "detail": null,
+          "excluded_counts": {},
+          "candidates": [
+            {
+              "rank": 1,
+              "paper_id": "doi:10.2105/ajph.2014.302061",
+              "title": "Retaining Homeless Veterans in Outpatient Care: A Pilot Study of Mobile Phone Text Message Appointment Reminders",
+              "score": 20.595,
+              "date": "2014-08-06",
+              "url": "https://doi.org/10.2105/ajph.2014.302061",
+              "evidence": "Implementation may reduce missed visits and emergency department use, and thus produce substantial cost savings.",
+              "doi": "10.2105/ajph.2014.302061",
+              "pmid": "25100425",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.2105/ajph.2014.302061",
+                "label": "overlapping",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 2,
+              "paper_id": "doi:10.5811/westjem.2018.9.38954",
+              "title": "Substance Use, Homelessness, Mental Illness and Medicaid Coverage: A Set-up for High Emergency Department Utilization",
+              "score": 20.333,
+              "date": "2018-10-18",
+              "url": "https://doi.org/10.5811/westjem.2018.9.38954",
+              "evidence": "Understanding unique features of this population could lead to better care and lower healthcare costs.",
+              "doi": "10.5811/westjem.2018.9.38954",
+              "pmid": "30429919",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.5811/westjem.2018.9.38954",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 3,
+              "paper_id": "doi:10.1503/cmaj.1041350",
+              "title": "Shelter-based managed alcohol administration to chronicallyhomeless people addicted to alcohol",
+              "score": 16.722,
+              "date": "2006-01-02",
+              "url": "https://doi.org/10.1503/cmaj.1041350",
+              "evidence": "Hospital charts were reviewed for all emergency department (ED) visits and admissions during the 3 years before and up to 2 years after program enrollment, and the police database was accessed for all encounters during the same periods.",
+              "doi": "10.1503/cmaj.1041350",
+              "pmid": "16389236",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1503/cmaj.1041350",
+                "label": "insufficient_evidence",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 4,
+              "paper_id": "doi:10.1186/s12245-023-00526-9",
+              "title": "Key causes and long-term trends related to emergency department and inpatient hospital admissions of homeless persons in England",
+              "score": 16.684,
+              "date": "2023-08-07",
+              "url": "https://doi.org/10.1186/s12245-023-00526-9",
+              "evidence": "The aim of this study was to evaluate key causes and long-term trends of emergency departments (EDs) and in hospital inpatient admissions of persons experiencing homelessness in England.",
+              "doi": "10.1186/s12245-023-00526-9",
+              "pmid": "37550625",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1186/s12245-023-00526-9",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 5,
+              "paper_id": "doi:10.1377/hlthaff.2020.01796",
+              "title": "Temporary Financial Assistance Decreased Health Care Costs For Veterans Experiencing Housing Instability",
+              "score": 16.212,
+              "date": "2021-05-01",
+              "url": "https://doi.org/10.1377/hlthaff.2020.01796",
+              "evidence": "We examined the impact of temporary financial assistance on health care costs for veterans in the Supportive Services for Veteran Families program and found that, on average, people receiving the assistance incurred $352 lower health care costs per quarter than those who did not receive the assistance.",
+              "doi": "10.1377/hlthaff.2020.01796",
+              "pmid": "33939508",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1377/hlthaff.2020.01796",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 6,
+              "paper_id": "doi:10.1001/jama.2009.414",
+              "title": "Health Care and Public Service Use and Costs Before and After Provision of Housing for Chronically Homeless Persons With Severe Alcohol Problems",
+              "score": 16.011,
+              "date": "2009-03-31",
+              "url": "https://doi.org/10.1001/jama.2009.414",
+              "evidence": "MAIN OUTCOME MEASURES: Use and cost of services (jail bookings, days incarcerated, shelter and sobering center use, hospital-based medical services, publicly funded alcohol and drug detoxification and treatment, emergency medical services, and Medicaid-funded services) for Housing First participants relative to wait-list controls.",
+              "doi": "10.1001/jama.2009.414",
+              "pmid": "19336710",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1001/jama.2009.414",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 7,
+              "paper_id": "doi:10.1377/hlthaff.2015.0393",
+              "title": "Formerly Homeless People Had Lower Overall Health Care Expenditures After Moving Into Supportive Housing",
+              "score": 15.189,
+              "date": "2016-01-01",
+              "url": "https://doi.org/10.1377/hlthaff.2015.0393",
+              "evidence": "Health care costs for the homeless reflect both their medical complexity and psychosocial risk factors.",
+              "doi": "10.1377/hlthaff.2015.0393",
+              "pmid": "26733697",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1377/hlthaff.2015.0393",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 8,
+              "paper_id": "doi:10.1080/17457300.2013.825631",
+              "title": "Homeless in America: injuries treated in US emergency departments, 2007–2011",
+              "score": 15.119,
+              "date": "2013-09-06",
+              "url": "https://doi.org/10.1080/17457300.2013.825631",
+              "evidence": "We searched text narratives for all patients with product-related injuries who presented to NEISS emergency departments from 2007 to 2011 to identify homeless cases (N = 268).",
+              "doi": "10.1080/17457300.2013.825631",
+              "pmid": "24011180",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1080/17457300.2013.825631",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 9,
+              "paper_id": "doi:10.1001/jama.2009.561",
+              "title": "Effect of a Housing and Case Management Program on Emergency Department Visits and Hospitalizations Among Chronically Ill Homeless Adults",
+              "score": 14.917,
+              "date": "2009-05-05",
+              "url": "https://doi.org/10.1001/jama.2009.561",
+              "evidence": "CONCLUSION: After adjustment, offering housing and case management to a population of homeless adults with chronic medical illnesses resulted in fewer hospital days and emergency department visits, compared with usual care.",
+              "doi": "10.1001/jama.2009.561",
+              "pmid": "19417194",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.1001/jama.2009.561",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 10,
+              "paper_id": "doi:10.2105/ajph.2018.304370",
+              "title": "Health Care Utilization and Expenditures of Homeless Family Members Before and After Emergency Housing",
+              "score": 14.161,
+              "date": "2018-04-19",
+              "url": "https://doi.org/10.2105/ajph.2018.304370",
+              "evidence": "We modeled emergency department visits, hospital admissions, and expenditures over the 24-month period separately for children and adults.",
+              "doi": "10.2105/ajph.2018.304370",
+              "pmid": "29672141",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s006",
+                "prior_paper_id": "doi:10.2105/ajph.2018.304370",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            }
+          ]
+        },
+        {
+          "claim_id": "doi:10.1111/1475-6773.14411#s007",
+          "paper_id": "doi:10.1111/1475-6773.14411",
+          "sentence_id": "s007",
+          "text": "Significantly lower primary care (−50.0%, p = 0.0003), specialist (−31.3%, p = 0.02), and emergency department (−50.0%, p = 0.03) utilization were also observed.",
+          "section": "abstract:results",
+          "status": "retrieved",
+          "detail": null,
+          "excluded_counts": {},
+          "candidates": [
+            {
+              "rank": 1,
+              "paper_id": "doi:10.5811/westjem.2018.9.38954",
+              "title": "Substance Use, Homelessness, Mental Illness and Medicaid Coverage: A Set-up for High Emergency Department Utilization",
+              "score": 17.026,
+              "date": "2018-10-18",
+              "url": "https://doi.org/10.5811/westjem.2018.9.38954",
+              "evidence": "INTRODUCTION: Frequent users of emergency departments (ED) account for 21-28% of all ED visits nationwide.",
+              "doi": "10.5811/westjem.2018.9.38954",
+              "pmid": "30429919",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.5811/westjem.2018.9.38954",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 2,
+              "paper_id": "doi:10.1186/s12913-017-2372-3",
+              "title": "Mental disorders and the use of primary health care services among homeless shelter users in the Helsinki metropolitan area, Finland",
+              "score": 15.814,
+              "date": "2017-06-21",
+              "url": "https://doi.org/10.1186/s12913-017-2372-3",
+              "evidence": "The aim of this study was to examine the role of mental disorders in relation to the use of 1) daytime primary health care services and 2) after hours primary health care emergency room (PHER) services among homeless shelter users in the Helsinki Metropolitan Area, Finland.",
+              "doi": "10.1186/s12913-017-2372-3",
+              "pmid": "28637455",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.1186/s12913-017-2372-3",
+                "label": "insufficient_evidence",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 3,
+              "paper_id": "doi:10.3310/wxuw5103",
+              "title": "Integration, effectiveness and costs of different models of primary health care provision for people who are homeless: an evaluation study",
+              "score": 14.873,
+              "date": "2023-10-01",
+              "url": "https://doi.org/10.3310/wxuw5103",
+              "evidence": "Specialist primary health care services for this population have been developed in several locations across England; however, there have been very few evaluations of these services.",
+              "doi": "10.3310/wxuw5103",
+              "pmid": "37839804",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.3310/wxuw5103",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 4,
+              "paper_id": "doi:10.2105/ajph.2018.304370",
+              "title": "Health Care Utilization and Expenditures of Homeless Family Members Before and After Emergency Housing",
+              "score": 14.826,
+              "date": "2018-04-19",
+              "url": "https://doi.org/10.2105/ajph.2018.304370",
+              "evidence": "OBJECTIVES: To describe longitudinal health service utilization and expenditures for homeless family members before and after entering an emergency shelter.",
+              "doi": "10.2105/ajph.2018.304370",
+              "pmid": "29672141",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.2105/ajph.2018.304370",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 5,
+              "paper_id": "doi:10.1080/15504263.2017.1392055",
+              "title": "Concurrent Disorders and Health Care Utilization Among Homeless and Vulnerably Housed Persons in Canada",
+              "score": 14.077,
+              "date": "2018-01-02",
+              "url": "https://doi.org/10.1080/15504263.2017.1392055",
+              "evidence": "Participants completed baseline interviews and four annual follow-up interviews, providing data on sociodemographics, housing history, mental health diagnoses, problematic drug use with the Drug Abuse Screening Test (DAST-10), problematic alcohol use with the Alcohol Use Disorders Identification Test (AUDIT), chronic health conditions, and utilization of the following health care services: emergency department (ED), hospitalization, and primary care.",
+              "doi": "10.1080/15504263.2017.1392055",
+              "pmid": "29494795",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.1080/15504263.2017.1392055",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 6,
+              "paper_id": "openalex:W2337823881",
+              "title": "Health Care Utilization in Homeless People: Translating Research into Policy and Practice",
+              "score": 13.202,
+              "date": "2010-01-01",
+              "url": "http://meps.ahrq.gov/data_files/publications/workingpapers/wp_10002.pdf",
+              "evidence": "The aims and primary objectives of this study were as follows: 1) To enroll a representative sample of homeless men, women, and families to obtain baseline data on these individuals, including demographic characteristics, history of homelessness, physical and mental health status, health conditions, usual source of health care, mental health problems, alcohol and drug problems, health beliefs, social supports, self-reported health care utilization, unmet needs for health care, and self-reported barriers to accessing health care; 2) To precisely quantify these homeless individuals‟ total and annualized health care utilization (office-based visits, emergency department visits and hospitalizations) and health care costs over a 4-5 year (2004­ 2009) follow-up period within a system of universal health insurance; 3) To compare the intensity of health care utilization among homeless individuals in the general population of Toronto; 4) To identify individual characteristics that are predictive of high levels of health care utilization among the population; 4) To determine whether the use of office-based services by homeless people is associated with a likelihood of emergency department visits and/or hospitalization, after adjustment for baseline characteristics.",
+              "doi": null,
+              "pmid": null,
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "openalex:W2337823881",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 7,
+              "paper_id": "doi:10.2105/ajph.2015.302693",
+              "title": "Frequent Emergency Department Visits and Hospitalizations Among Homeless People With Medicaid: Implications for Medicaid Expansion",
+              "score": 13.129,
+              "date": "2015-10-08",
+              "url": "https://doi.org/10.2105/ajph.2015.302693",
+              "evidence": "OBJECTIVES: We examined factors associated with frequent hospitalizations and emergency department (ED) visits among Medicaid members who were homeless.",
+              "doi": "10.2105/ajph.2015.302693",
+              "pmid": "26447915",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.2105/ajph.2015.302693",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 8,
+              "paper_id": "doi:10.1377/hlthaff.2019.00082",
+              "title": "Frequent Emergency Department Users: Focusing Solely On Medical Utilization Misses The Whole Person",
+              "score": 12.765,
+              "date": "2019-11-01",
+              "url": "https://doi.org/10.1377/hlthaff.2019.00082",
+              "evidence": "Frequent emergency department (ED) users often have complex behavioral health and social needs.",
+              "doi": "10.1377/hlthaff.2019.00082",
+              "pmid": "31682499",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.1377/hlthaff.2019.00082",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 9,
+              "paper_id": "doi:10.1001/jama.2009.561",
+              "title": "Effect of a Housing and Case Management Program on Emergency Department Visits and Hospitalizations Among Chronically Ill Homeless Adults",
+              "score": 12.408,
+              "date": "2009-05-05",
+              "url": "https://doi.org/10.1001/jama.2009.561",
+              "evidence": "Compared with the usual care group, the intervention group had unadjusted annualized mean reductions of 0.5 hospitalizations (95% confidence interval [CI], -1.2 to 0.2), 2.7 fewer hospital days (95% CI, -5.6 to 0.2), and 1.2 fewer emergency department visits (95% CI, -2.4 to 0.03).",
+              "doi": "10.1001/jama.2009.561",
+              "pmid": "19417194",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.1001/jama.2009.561",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 10,
+              "paper_id": "doi:10.1177/21501327211027102",
+              "title": "The Long-Term Effects of a Housing First Intervention on Primary Care and Non-Primary Care Physician Visits Among Homeless Adults with Mental Illness: A 7-Year RCT Follow-Up",
+              "score": 12.227,
+              "date": "2021-01-01",
+              "url": "https://doi.org/10.1177/21501327211027102",
+              "evidence": "The effect of these interventions on access to primary and specialist care services is not well-defined.",
+              "doi": "10.1177/21501327211027102",
+              "pmid": "34238042",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s007",
+                "prior_paper_id": "doi:10.1177/21501327211027102",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            }
+          ]
+        },
+        {
+          "claim_id": "doi:10.1111/1475-6773.14411#s008",
+          "paper_id": "doi:10.1111/1475-6773.14411",
+          "sentence_id": "s008",
+          "text": "Healthcare cost and utilization among medically complex individuals were lower with supportive housing.",
+          "section": "abstract:conclusions",
+          "status": "retrieved",
+          "detail": null,
+          "excluded_counts": {
+            "after_cutoff": 1
+          },
+          "candidates": [
+            {
+              "rank": 1,
+              "paper_id": "doi:10.1111/hsc.12843",
+              "title": "Assessing the relationship between housing and health among medically complex, chronically homeless individuals experiencing frequent hospital use in the United States",
+              "score": 17.39,
+              "date": "2019-09-02",
+              "url": "https://doi.org/10.1111/hsc.12843",
+              "evidence": "This study used qualitative methods to explore how housing stability affected chronic disease management and social and community relationships among individuals with complex health and social needs and patterns of high hospital utilisation who were housed as part of a scattered-site Housing First program in a mid-size city in the northeastern United States. 26 individual, semi-structured interviews were conducted with Housing First clients in their homes or day program sites between March and July 2017.",
+              "doi": "10.1111/hsc.12843",
+              "pmid": "31476092",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1111/hsc.12843",
+                "label": "insufficient_evidence",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 2,
+              "paper_id": "openalex:W2138605145",
+              "title": "The business case for ending homelessness: having a home improves health, reduces healthcare utilization and costs.",
+              "score": 15.185,
+              "date": "2012-01-01",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/24991307",
+              "evidence": null,
+              "doi": null,
+              "pmid": "24991307",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only",
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "openalex:W2138605145",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 3,
+              "paper_id": "doi:10.1377/hlthaff.2015.0393",
+              "title": "Formerly Homeless People Had Lower Overall Health Care Expenditures After Moving Into Supportive Housing",
+              "score": 14.851,
+              "date": "2016-01-01",
+              "url": "https://doi.org/10.1377/hlthaff.2015.0393",
+              "evidence": "Results from the claims analysis showed significantly lower overall health care expenditures for the people after they moved into supportive housing.",
+              "doi": "10.1377/hlthaff.2015.0393",
+              "pmid": "26733697",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1377/hlthaff.2015.0393",
+                "label": "overlapping",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 4,
+              "paper_id": "doi:10.1377/hlthaff.2020.01796",
+              "title": "Temporary Financial Assistance Decreased Health Care Costs For Veterans Experiencing Housing Instability",
+              "score": 13.322,
+              "date": "2021-05-01",
+              "url": "https://doi.org/10.1377/hlthaff.2020.01796",
+              "evidence": "We examined the impact of temporary financial assistance on health care costs for veterans in the Supportive Services for Veteran Families program and found that, on average, people receiving the assistance incurred $352 lower health care costs per quarter than those who did not receive the assistance.",
+              "doi": "10.1377/hlthaff.2020.01796",
+              "pmid": "33939508",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1377/hlthaff.2020.01796",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 5,
+              "paper_id": "doi:10.5811/westjem.2018.9.38954",
+              "title": "Substance Use, Homelessness, Mental Illness and Medicaid Coverage: A Set-up for High Emergency Department Utilization",
+              "score": 12.953,
+              "date": "2018-10-18",
+              "url": "https://doi.org/10.5811/westjem.2018.9.38954",
+              "evidence": "Understanding unique features of this population could lead to better care and lower healthcare costs.",
+              "doi": "10.5811/westjem.2018.9.38954",
+              "pmid": "30429919",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.5811/westjem.2018.9.38954",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 6,
+              "paper_id": "doi:10.1007/s11606-024-08621-0",
+              "title": "Changes in Medication Utilization and Adherence Associated with Homeless Adults’ Entry into Permanent Supportive Housing",
+              "score": 11.532,
+              "date": "2024-01-23",
+              "url": "https://doi.org/10.1007/s11606-024-08621-0",
+              "evidence": null,
+              "doi": "10.1007/s11606-024-08621-0",
+              "pmid": "38263501",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1007/s11606-024-08621-0",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 7,
+              "paper_id": "doi:10.1007/s11606-020-06465-y",
+              "title": "Changes in Medicaid Utilization and Spending Associated with Homeless Adults’ Entry into Permanent Supportive Housing",
+              "score": 11.532,
+              "date": "2021-01-29",
+              "url": "https://doi.org/10.1007/s11606-020-06465-y",
+              "evidence": null,
+              "doi": "10.1007/s11606-020-06465-y",
+              "pmid": "33515190",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1007/s11606-020-06465-y",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 8,
+              "paper_id": "doi:10.1007/s11524-006-9083-0",
+              "title": "Public Health Care Utilization in a Cohort of Homeless Adult Applicants to a Supportive Housing Program",
+              "score": 11.532,
+              "date": "2006-06-15",
+              "url": "https://doi.org/10.1007/s11524-006-9083-0",
+              "evidence": null,
+              "doi": "10.1007/s11524-006-9083-0",
+              "pmid": "16779686",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1007/s11524-006-9083-0",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 9,
+              "paper_id": "doi:10.1007/s11524-011-9592-3",
+              "title": "Health Status, Quality of Life, Residential Stability, Substance Use, and Health Care Utilization among Adults Applying to a Supportive Housing Program",
+              "score": 11.22,
+              "date": "2011-06-03",
+              "url": "https://doi.org/10.1007/s11524-011-9592-3",
+              "evidence": null,
+              "doi": "10.1007/s11524-011-9592-3",
+              "pmid": "21638115",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.1007/s11524-011-9592-3",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 10,
+              "paper_id": "doi:10.2105/ajph.2018.304817",
+              "title": "Integrated Service Delivery and Health-Related Quality of Life of Individuals in Permanent Supportive Housing Who Were Formerly Chronically Homeless",
+              "score": 11.167,
+              "date": "2019-01-16",
+              "url": "https://doi.org/10.2105/ajph.2018.304817",
+              "evidence": "OBJECTIVES: To investigate the impact of an integrated care model on the health-related quality of life (HRQOL) of formerly chronically homeless individuals in permanent supportive housing.",
+              "doi": "10.2105/ajph.2018.304817",
+              "pmid": "30649948",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s008",
+                "prior_paper_id": "doi:10.2105/ajph.2018.304817",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            }
+          ]
+        },
+        {
+          "claim_id": "doi:10.1111/1475-6773.14411#s009",
+          "paper_id": "doi:10.1111/1475-6773.14411",
+          "sentence_id": "s009",
+          "text": "Future evaluations with randomized designs can address the potential causal impact of supportive housing as a healthcare intervention on specific outcomes.",
+          "section": "abstract:conclusions",
+          "status": "retrieved",
+          "detail": null,
+          "excluded_counts": {
+            "after_cutoff": 1
+          },
+          "candidates": [
+            {
+              "rank": 1,
+              "paper_id": "doi:10.1136/jech-2012-202124",
+              "title": "Economic analysis of the health impacts of housing improvement studies: a systematic review",
+              "score": 17.963,
+              "date": "2013-08-08",
+              "url": "https://doi.org/10.1136/jech-2012-202124",
+              "evidence": "Examination of these data provides an opportunity to explore the difficulties and the potential for economic evaluation of housing.",
+              "doi": "10.1136/jech-2012-202124",
+              "pmid": "23929616",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1136/jech-2012-202124",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 2,
+              "paper_id": "doi:10.1186/1745-6215-14-309",
+              "title": "Evaluation of the Housing First program in patients with severe mental disorders in France: study protocol for a randomized controlled trial",
+              "score": 17.419,
+              "date": "2013-09-24",
+              "url": "https://doi.org/10.1186/1745-6215-14-309",
+              "evidence": "METHOD AND DESIGN: A prospective randomized trial was designed to assess the impact of a Housing First intervention on health outcomes and costs over a period of 24 months on homeless people with severe mental illness, compared to Treatment-As-Usual.",
+              "doi": "10.1186/1745-6215-14-309",
+              "pmid": "24063556",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1186/1745-6215-14-309",
+                "label": "overlapping",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 3,
+              "paper_id": "doi:10.1080/02673037.2015.1080816",
+              "title": "A systematic review of outcomes associated with participation in Housing First programs",
+              "score": 16.558,
+              "date": "2015-10-06",
+              "url": "https://doi.org/10.1080/02673037.2015.1080816",
+              "evidence": "Specifically, we investigate the details of program design coupled with specific outcomes, so as to better inform future action and research.",
+              "doi": "10.1080/02673037.2015.1080816",
+              "pmid": null,
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1080/02673037.2015.1080816",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 4,
+              "paper_id": "doi:10.1377/hlthaff.2023.01041",
+              "title": "‘Housing First’ Increased Psychiatric Care Office Visits And Prescriptions While Reducing Emergency Visits",
+              "score": 15.987,
+              "date": "2024-01-24",
+              "url": "https://doi.org/10.1377/hlthaff.2023.01041",
+              "evidence": "As part of a randomized controlled trial to test the effects of permanent supportive housing with the Housing First approach in Denver, Colorado, we analyzed the intervention's impact on health care use, Medicaid enrollment, and mortality among people experiencing chronic homelessness who had frequent arrests and jail stays.",
+              "doi": "10.1377/hlthaff.2023.01041",
+              "pmid": "38266198",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1377/hlthaff.2023.01041",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 5,
+              "paper_id": "doi:10.1002/ajcp.12485",
+              "title": "Evaluation in the Real World: Decision Points and Rationales in Creating A Rigorous Study Designed to Convey Ecologically Valid Findings",
+              "score": 15.469,
+              "date": "2020-12-16",
+              "url": "https://doi.org/10.1002/ajcp.12485",
+              "evidence": "We justify the choice of evaluation design from a community psychology perspective and detail why we believe the multi-method, multi-source design, that also focuses on social context, will maximize ecological validity and, therefore, propel the scale-up of the intervention if it is found to be effective.",
+              "doi": "10.1002/ajcp.12485",
+              "pmid": "33326615",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1002/ajcp.12485",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 6,
+              "paper_id": "doi:10.1186/s12954-021-00560-x",
+              "title": "“Prevention of opioid use disorder: the HOME (housing, opportunities, motivation and engagement) feasibility study”",
+              "score": 14.985,
+              "date": "2021-11-08",
+              "url": "https://doi.org/10.1186/s12954-021-00560-x",
+              "evidence": "The study demonstrates the potential for an adapted Housing First model to be delivered to youth experiencing homelessness and may improve outcomes, opening the way for larger randomized trials of the intervention.",
+              "doi": "10.1186/s12954-021-00560-x",
+              "pmid": "34749744",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1186/s12954-021-00560-x",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 7,
+              "paper_id": "doi:10.1257/app.20220014",
+              "title": "Housing the Homeless: The Effect of Placing Single Adults Experiencing Homelessness in Housing Programs on Future Homelessness and Socioeconomic Outcomes",
+              "score": 14.532,
+              "date": "2024-03-27",
+              "url": "https://doi.org/10.1257/app.20220014",
+              "evidence": "This study measures the impact of rapidly placing single adults experiencing homelessness in housing programs on future homelessness, crime, and health.",
+              "doi": "10.1257/app.20220014",
+              "pmid": null,
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1257/app.20220014",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 8,
+              "paper_id": "doi:10.1016/s2468-2667(20)30055-4",
+              "title": "Effectiveness of permanent supportive housing and income assistance interventions for homeless individuals in high-income countries: a systematic review",
+              "score": 14.357,
+              "date": "2020-06-01",
+              "url": "https://doi.org/10.1016/s2468-2667(20)30055-4",
+              "evidence": "Future research should focus on the long-term effects of housing and income interventions on physical and mental health, substance use, and quality-of-life outcomes.",
+              "doi": "10.1016/s2468-2667(20)30055-4",
+              "pmid": "32504587",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1016/s2468-2667(20)30055-4",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 9,
+              "paper_id": "doi:10.1186/s13722-023-00413-x",
+              "title": "Lessons learned from housing first, rapid rehousing trials with youth experiencing homelessness",
+              "score": 14.255,
+              "date": "2023-09-30",
+              "url": "https://doi.org/10.1186/s13722-023-00413-x",
+              "evidence": "The Housing First (HF) Model which underlies Permanent Supportive Housing (PSH) and Rapid Re-Housing (RRH) has become preferred over treatment-first models.",
+              "doi": "10.1186/s13722-023-00413-x",
+              "pmid": "37775777",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1186/s13722-023-00413-x",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 10,
+              "paper_id": "doi:10.1177/1049731509360667",
+              "title": "Critical Time Intervention: Model Description and Implications for the Significance of Timing in Social Work Interventions",
+              "score": 14.187,
+              "date": "2010-07-27",
+              "url": "https://doi.org/10.1177/1049731509360667",
+              "evidence": "Further attention to various dimensions of timing in the design and evaluation of social work interventions is warranted.",
+              "doi": "10.1177/1049731509360667",
+              "pmid": null,
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s009",
+                "prior_paper_id": "doi:10.1177/1049731509360667",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            }
+          ]
+        },
+        {
+          "claim_id": "doi:10.1111/1475-6773.14411#s023",
+          "paper_id": "doi:10.1111/1475-6773.14411",
+          "sentence_id": "s023",
+          "text": "Our primary objective was to assess healthcare cost and utilization changes for participants of this initiative.",
+          "section": "introduction",
+          "status": "retrieved",
+          "detail": null,
+          "excluded_counts": {},
+          "candidates": [
+            {
+              "rank": 1,
+              "paper_id": "doi:10.5811/westjem.2018.9.38954",
+              "title": "Substance Use, Homelessness, Mental Illness and Medicaid Coverage: A Set-up for High Emergency Department Utilization",
+              "score": 16.634,
+              "date": "2018-10-18",
+              "url": "https://doi.org/10.5811/westjem.2018.9.38954",
+              "evidence": "Understanding unique features of this population could lead to better care and lower healthcare costs.",
+              "doi": "10.5811/westjem.2018.9.38954",
+              "pmid": "30429919",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.5811/westjem.2018.9.38954",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 2,
+              "paper_id": "openalex:W2138605145",
+              "title": "The business case for ending homelessness: having a home improves health, reduces healthcare utilization and costs.",
+              "score": 15.185,
+              "date": "2012-01-01",
+              "url": "https://pubmed.ncbi.nlm.nih.gov/24991307",
+              "evidence": null,
+              "doi": null,
+              "pmid": "24991307",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only",
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "openalex:W2138605145",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 3,
+              "paper_id": "doi:10.1111/acem.13219",
+              "title": "Utilization of a Sobering Center for Acute Alcohol Intoxication",
+              "score": 13.322,
+              "date": "2017-05-11",
+              "url": "https://doi.org/10.1111/acem.13219",
+              "evidence": "OBJECTIVE: The objective was to describe the population utilizing a sobering center for public alcohol intoxication and compare between single-visit users, repeat users, and high users.",
+              "doi": "10.1111/acem.13219",
+              "pmid": "28493551",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.1111/acem.13219",
+                "label": "distinct",
+                "score": null,
+                "reason": null,
+                "status": "compared",
+                "detail": null
+              }
+            },
+            {
+              "rank": 4,
+              "paper_id": "doi:10.3399/bjgp19x704633",
+              "title": "Provision and accessibility of primary healthcare services for people who are homeless: a qualitative study of patient perspectives in the UK",
+              "score": 11.245,
+              "date": "2019-07-15",
+              "url": "https://doi.org/10.3399/bjgp19x704633",
+              "evidence": "AIM: To explore the perspectives of individuals who are homeless on the provision and accessibility of primary healthcare services.",
+              "doi": "10.3399/bjgp19x704633",
+              "pmid": "31307999",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.3399/bjgp19x704633",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 5,
+              "paper_id": "doi:10.1080/15504263.2017.1392055",
+              "title": "Concurrent Disorders and Health Care Utilization Among Homeless and Vulnerably Housed Persons in Canada",
+              "score": 10.448,
+              "date": "2018-01-02",
+              "url": "https://doi.org/10.1080/15504263.2017.1392055",
+              "evidence": "The study objective was to investigate the effect of having concurrent disorders on health care utilization among homeless or vulnerably housed individuals, using longitudinal data from the Health and Housing in Transition Study.",
+              "doi": "10.1080/15504263.2017.1392055",
+              "pmid": "29494795",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.1080/15504263.2017.1392055",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 6,
+              "paper_id": "doi:10.1007/s11606-024-08621-0",
+              "title": "Changes in Medication Utilization and Adherence Associated with Homeless Adults’ Entry into Permanent Supportive Housing",
+              "score": 10.077,
+              "date": "2024-01-23",
+              "url": "https://doi.org/10.1007/s11606-024-08621-0",
+              "evidence": null,
+              "doi": "10.1007/s11606-024-08621-0",
+              "pmid": "38263501",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.1007/s11606-024-08621-0",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 7,
+              "paper_id": "doi:10.1007/s11606-020-06465-y",
+              "title": "Changes in Medicaid Utilization and Spending Associated with Homeless Adults’ Entry into Permanent Supportive Housing",
+              "score": 10.077,
+              "date": "2021-01-29",
+              "url": "https://doi.org/10.1007/s11606-020-06465-y",
+              "evidence": null,
+              "doi": "10.1007/s11606-020-06465-y",
+              "pmid": "33515190",
+              "evidence_type": "title_only",
+              "eligibility": "eligible",
+              "flags": [
+                "no_abstract"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.1007/s11606-020-06465-y",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "no_evidence",
+                "detail": "no passage to compare (title_only)"
+              }
+            },
+            {
+              "rank": 8,
+              "paper_id": "openalex:W2337823881",
+              "title": "Health Care Utilization in Homeless People: Translating Research into Policy and Practice",
+              "score": 9.482,
+              "date": "2010-01-01",
+              "url": "http://meps.ahrq.gov/data_files/publications/workingpapers/wp_10002.pdf",
+              "evidence": "The aims and primary objectives of this study were as follows: 1) To enroll a representative sample of homeless men, women, and families to obtain baseline data on these individuals, including demographic characteristics, history of homelessness, physical and mental health status, health conditions, usual source of health care, mental health problems, alcohol and drug problems, health beliefs, social supports, self-reported health care utilization, unmet needs for health care, and self-reported barriers to accessing health care; 2) To precisely quantify these homeless individuals‟ total and annualized health care utilization (office-based visits, emergency department visits and hospitalizations) and health care costs over a 4-5 year (2004­ 2009) follow-up period within a system of universal health insurance; 3) To compare the intensity of health care utilization among homeless individuals in the general population of Toronto; 4) To identify individual characteristics that are predictive of high levels of health care utilization among the population; 4) To determine whether the use of office-based services by homeless people is associated with a likelihood of emergency department visits and/or hospitalization, after adjustment for baseline characteristics.",
+              "doi": null,
+              "pmid": null,
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "openalex:W2337823881",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 9,
+              "paper_id": "doi:10.1176/appi.ps.201500200",
+              "title": "Permanent Supportive Housing for Transition-Age Youths: Service Costs and Fidelity to the Housing First Model",
+              "score": 8.983,
+              "date": "2016-02-01",
+              "url": "https://doi.org/10.1176/appi.ps.201500200",
+              "evidence": "OBJECTIVE: Permanent supportive housing (PSH) programs are being implemented nationally and on a large scale.",
+              "doi": "10.1176/appi.ps.201500200",
+              "pmid": "26828399",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.1176/appi.ps.201500200",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            },
+            {
+              "rank": 10,
+              "paper_id": "doi:10.1017/s2045796020000785",
+              "title": "Effectiveness of a housing support team intervention with a recovery-oriented approach on hospital and emergency department use by homeless people with severe mental illness: a randomised controlled trial",
+              "score": 8.633,
+              "date": "2020-01-01",
+              "url": "https://doi.org/10.1017/s2045796020000785",
+              "evidence": "HF was associated with cost savings in healthcare costs (RR 0.62(0.48-0.78)) and residential costs (0.07 (0.05-0.11)).",
+              "doi": "10.1017/s2045796020000785",
+              "pmid": "32996442",
+              "evidence_type": "abstract_sentence",
+              "eligibility": "eligible",
+              "flags": [
+                "date_year_only"
+              ],
+              "duplicate_ids": [],
+              "comparison": {
+                "claim_id": "doi:10.1111/1475-6773.14411#s023",
+                "prior_paper_id": "doi:10.1017/s2045796020000785",
+                "label": null,
+                "score": null,
+                "reason": null,
+                "status": "not_run",
+                "detail": "below --compare-top"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

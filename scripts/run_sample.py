@@ -1,44 +1,21 @@
-import json
+"""Quick no-GPU sample of the F12 pipeline on one held-out test paper.
+
+Uses the saved F06 fine-tuned test predictions and the live F11 retriever; the comparison classifier is
+skipped (pairs are recorded `not_run`). For the full pipeline, see docs/pipeline.md.
+
+    python scripts/run_sample.py        # -> outputs/sample_<timestamp>/{results.json,predictions.jsonl,report.md}
+"""
+import datetime as dt
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT_DIR = ROOT / "outputs"
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+sys.path.insert(0, str(ROOT / "scripts"))
+import run_pipeline  # noqa: E402
 
-sample_output = {
-    "paper_id": "paper_001",
-    "claims": [
-        {
-            "claim_id": "claim_001",
-            "paper_id": "paper_001",
-            "sentence_id": "s001",
-            "text": "Example claim for testing."
-        }
-    ],
-    "candidates": [
-        {
-            "paper_id": "paper_002",
-            "title": "Example Prior Work",
-            "score": 2.5,
-            "date": "2024-01-01",
-            "url": "https://example.org/paper_002",
-            "evidence": "Example passage for testing."
-        }
-    ],
-    "predictions": [
-        {
-            "claim_id": "claim_001",
-            "prior_paper_id": "paper_002",
-            "label": "insufficient_evidence",
-            "score": None,
-            "reason": "Placeholder prediction; no model has run."
-        }
-    ]
-}
-
-output_path = OUTPUT_DIR / "sample_output.json"
-
-with output_path.open("w", encoding="utf-8") as f:
-    json.dump(sample_output, f, indent=2)
-
-print(f"Sample output saved to {output_path}")
+out = ROOT / "outputs" / f"sample_{dt.datetime.now():%Y%m%d_%H%M%S}"
+sys.exit(run_pipeline.main([
+    "run", "--paper-id", "doi:10.1001/jamanetworkopen.2021.38464",
+    "--claims-file", str(ROOT / "data/claims/predictions/finetuned_test_r16_lr2e-4_s544.jsonl"),
+    "--no-comparison", "--out-dir", str(out),
+]))
